@@ -193,11 +193,19 @@ export default function Hero() {
             }}
             animate={{
               backgroundPosition: ['0% 0%', '200% 0%'],
+              scale: [1, 1.05, 1],
             }}
             transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "linear"
+              backgroundPosition: {
+                duration: 3,
+                repeat: Infinity,
+                ease: "linear"
+              },
+              scale: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
             }}
           >
             YOUR TIME?
