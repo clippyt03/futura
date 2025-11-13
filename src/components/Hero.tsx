@@ -24,30 +24,63 @@ export default function Hero() {
       <div className="absolute inset-0 hero-bg" />
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
-      {/* Futuristic animated background */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        style={{
-          background: 'radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(100, 149, 237, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 40%)'
-        }}
-        animate={{
-          backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
+      {/* Animated hexagon pattern background */}
+      <div className="absolute inset-0 opacity-10">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-24 h-24 border border-purple-500/30"
+            style={{
+              clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+              left: `${(i % 5) * 20}%`,
+              top: `${Math.floor(i / 5) * 25}%`,
+            }}
+            animate={{
+              opacity: [0.1, 0.4, 0.1],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              delay: i * 0.2,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 bg-purple-400 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
 
       {/* Animated gradient orbs */}
       <motion.div
-        className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-neon-purple/10 via-transparent to-transparent rounded-full blur-3xl"
+        className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-600/20 via-transparent to-transparent rounded-full blur-3xl"
         animate={{
           x: [0, 100, 0],
           y: [0, 150, 0],
           scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3]
+          opacity: [0.3, 0.6, 0.3]
         }}
         transition={{
           duration: 15,
@@ -56,12 +89,12 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-blue-500/10 via-transparent to-transparent rounded-full blur-3xl"
+        className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-blue-600/20 via-transparent to-transparent rounded-full blur-3xl"
         animate={{
           x: [0, -150, 0],
           y: [0, -100, 0],
           scale: [1, 1.3, 1],
-          opacity: [0.3, 0.6, 0.3]
+          opacity: [0.3, 0.7, 0.3]
         }}
         transition={{
           duration: 18,
@@ -71,10 +104,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"
+        className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.4, 1],
-          opacity: [0.2, 0.4, 0.2],
+          opacity: [0.2, 0.5, 0.2],
           rotate: [0, 180, 360]
         }}
         transition={{
@@ -83,6 +116,44 @@ export default function Hero() {
           ease: "easeInOut"
         }}
       />
+
+      {/* Scanning lines effect */}
+      <motion.div
+        className="absolute inset-0 opacity-5"
+        style={{
+          background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(168, 85, 247, 0.3) 2px, rgba(168, 85, 247, 0.3) 4px)',
+        }}
+        animate={{
+          backgroundPosition: ['0% 0%', '0% 100%'],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+
+      {/* Circular pulse rings */}
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={`ring-${i}`}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-purple-500/20 rounded-full"
+          style={{
+            width: '300px',
+            height: '300px',
+          }}
+          animate={{
+            scale: [1, 3, 1],
+            opacity: [0.5, 0, 0.5],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            delay: i * 2.5,
+            ease: "easeOut"
+          }}
+        />
+      ))}
       
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-20 pb-16 md:pt-32 md:pb-24">
