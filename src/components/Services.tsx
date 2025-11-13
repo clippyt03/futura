@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Mail, UserCheck, Settings, CheckCircle, Bot } from 'lucide-react';
+import { FileText, Mail, UserCheck, Settings, CheckCircle, Bot, Globe } from 'lucide-react';
 import SectionTransition from './SectionTransition';
 
 const Services: React.FC = () => {
@@ -28,6 +28,14 @@ const Services: React.FC = () => {
       features: ['Document collection', 'Process automation', 'Progress tracking'],
       popular: false,
       results: 'Up to 75% faster onboarding',
+    },
+    {
+      icon: Globe,
+      title: 'Website Development',
+      description: 'Professional websites built to convert visitors into customers with modern design.',
+      features: ['Responsive design', 'SEO optimization', 'Fast performance'],
+      popular: false,
+      results: 'Beautiful sites that drive results',
     },
     {
       icon: Settings,
@@ -81,7 +89,7 @@ const Services: React.FC = () => {
     <motion.div
       key={index}
       className={`bg-dark-800/50 backdrop-blur-sm p-8 rounded-xl neon-border group cursor-pointer relative overflow-hidden ${
-        isAISupport ? 'md:col-span-2 lg:col-span-4' : ''
+        isAISupport ? 'md:col-span-2 lg:col-span-5' : ''
       }`}
       variants={cardVariants}
       whileHover={{ 
@@ -369,9 +377,9 @@ const Services: React.FC = () => {
             </div>
           </SectionTransition>
 
-          {/* First 4 services in equal grid */}
+          {/* Services grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8 px-4 sm:px-0"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 mb-6 sm:mb-8 px-4 sm:px-0"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -382,13 +390,13 @@ const Services: React.FC = () => {
 
           {/* AI Support service as wider card below */}
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-0"
+            className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 px-4 sm:px-0"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {renderServiceCard(aiSupportService, 4, true)}
+            {renderServiceCard(aiSupportService, 5, true)}
           </motion.div>
 
           {/* Enhanced Bottom CTA Section with urgency and social proof */}
