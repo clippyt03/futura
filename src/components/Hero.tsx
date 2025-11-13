@@ -23,33 +23,64 @@ export default function Hero() {
       {/* Background Effects */}
       <div className="absolute inset-0 hero-bg" />
       <div className="absolute inset-0 grid-pattern opacity-30" />
-      
-      {/* Floating background elements */}
+
+      {/* Futuristic animated background */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 bg-neon-purple/5 rounded-full blur-3xl"
+        className="absolute inset-0 opacity-20"
+        style={{
+          background: 'radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(100, 149, 237, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 40%)'
+        }}
         animate={{
-          y: [0, -20, 0],
-          x: [0, 10, 0],
-          scale: [1, 1.1, 1],
+          backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
         }}
         transition={{
-          duration: 8,
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-neon-purple/10 via-transparent to-transparent rounded-full blur-3xl"
+        animate={{
+          x: [0, 100, 0],
+          y: [0, 150, 0],
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3]
+        }}
+        transition={{
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut"
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"
+        className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-blue-500/10 via-transparent to-transparent rounded-full blur-3xl"
         animate={{
-          y: [0, 15, 0],
-          x: [0, -15, 0],
-          scale: [1, 0.9, 1],
+          x: [0, -150, 0],
+          y: [0, -100, 0],
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.6, 0.3]
         }}
         transition={{
-          duration: 10,
+          duration: 18,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2
+          delay: 3
+        }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.2, 0.4, 0.2],
+          rotate: [0, 180, 360]
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut"
         }}
       />
       
@@ -80,9 +111,19 @@ export default function Hero() {
         <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
           READY TO GET BACK
           <br />
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <motion.span
+            className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative inline-block"
+            animate={{
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             YOUR TIME?
-          </span>
+          </motion.span>
         </h1>
 
         {/* Subheadline */}
