@@ -214,7 +214,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p className="text-sm md:text-xl lg:text-2xl text-white/70 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
-          NEXT-GENERATION AUTOMATION SYSTEMS
+          NEXT-GENERATION AI AUTOMATION SYSTEMS
         </p>
 
         {/* Social Proof */}
