@@ -7,11 +7,11 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: FileText,
-      title: 'Monthly AI Reports',
-      description: 'Automated PDF reports generated from your data sheets, delivered on schedule.',
-      features: ['Data analysis', 'Custom formatting', 'Automated delivery'],
+      title: 'AI Strategic Recommendations',
+      description: 'Automated monthly insights that analyze client KPIs and deliver actionable strategies to boost performance.',
+      features: ['KPI analysis', 'Growth strategies', 'Automated delivery'],
       popular: false,
-      results: 'Up to 90% time saved on reporting',
+      results: 'Data-driven decisions every month',
     },
     {
       icon: Mail,
