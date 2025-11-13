@@ -112,14 +112,21 @@ export default function Hero() {
           READY TO GET BACK
           <br />
           <motion.span
-            className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative inline-block"
+            className="relative inline-block"
+            style={{
+              background: 'linear-gradient(90deg, rgba(168, 85, 247, 0.4) 0%, rgba(168, 85, 247, 1) 25%, rgba(236, 72, 153, 1) 50%, rgba(168, 85, 247, 1) 75%, rgba(168, 85, 247, 0.4) 100%)',
+              backgroundSize: '200% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
             animate={{
-              opacity: [0.7, 1, 0.7],
+              backgroundPosition: ['0% 0%', '200% 0%'],
             }}
             transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "linear"
             }}
           >
             YOUR TIME?
