@@ -55,13 +55,7 @@ export default function WhoWeAre() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Main headline */}
-        <motion.div
-          className="text-center mb-24 md:mb-32"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="text-center mb-24 md:mb-32">
           <h2 className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-gradient-purple mb-12 md:mb-16 leading-[1.1]">
             {t('whoWeAre.headline')}
           </h2>
@@ -71,11 +65,11 @@ export default function WhoWeAre() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
           >
             {t('whoWeAre.subtitle')}
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Three cards */}
         <motion.div
@@ -98,10 +92,9 @@ export default function WhoWeAre() {
               >
                 <motion.div
                   whileHover={{
-                    rotate: 360,
-                    scale: 1.2,
+                    scale: 1.1,
                   }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <item.icon
                     size={40}

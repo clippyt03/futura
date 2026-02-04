@@ -85,15 +85,9 @@ const Services = () => {
               >
                 {t('services.preHeadline')}
               </motion.p>
-              <motion.h2
-                className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-gradient-purple"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
+              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-gradient-purple">
                 {t('services.headline')}
-              </motion.h2>
+              </h2>
               <motion.p
                 className="text-lg md:text-xl text-white/60 leading-relaxed mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -138,10 +132,9 @@ const Services = () => {
                   <motion.div
                     className="mb-6"
                     whileHover={{
-                      rotate: 360,
-                      scale: 1.2,
+                      scale: 1.1,
                     }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <service.icon
                       size={40}

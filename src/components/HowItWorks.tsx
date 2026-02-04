@@ -154,7 +154,7 @@ const HowItWorks = () => {
                           opacity: [0, 0.5, 0],
                         }}
                         transition={{
-                          duration: 2,
+                          duration: 4,
                           repeat: Infinity,
                           delay: index * 0.5,
                         }}
