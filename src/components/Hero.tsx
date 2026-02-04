@@ -15,12 +15,12 @@ export default function Hero() {
       {/* Background - Pure black to dark purple gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
-      {/* Circular purple halo effects - INTENSIFIED for neon look */}
+      {/* Circular purple halo effects - Subtle and cohesive */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/35 rounded-full blur-[120px]"
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px]"
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.35, 0.7, 0.35],
+          opacity: [0.2, 0.35, 0.2],
         }}
         transition={{
           duration: 8,
@@ -29,10 +29,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/35 rounded-full blur-[130px]"
+        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/20 rounded-full blur-[130px]"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.3, 0.65, 0.3],
+          opacity: [0.15, 0.3, 0.15],
         }}
         transition={{
           duration: 10,
@@ -42,10 +42,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-pink-500/25 rounded-full blur-[140px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/15 rounded-full blur-[140px]"
         animate={{
           scale: [1, 1.4, 1],
-          opacity: [0.25, 0.5, 0.25],
+          opacity: [0.15, 0.25, 0.15],
           rotate: [0, 180, 360]
         }}
         transition={{
@@ -82,12 +82,9 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
 
-        {/* Main Headline - FUTURA style with neon glow */}
+        {/* Main Headline - Clean and bold */}
         <motion.h1
           className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-10 md:mb-12 leading-[1.1] tracking-tight"
-          style={{
-            textShadow: '0 0 30px rgba(147,51,234,0.8), 0 0 60px rgba(147,51,234,0.4)'
-          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

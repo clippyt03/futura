@@ -82,9 +82,6 @@ const Services = () => {
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
               <motion.p
                 className="font-michroma text-xl md:text-2xl text-purple-400 mb-6 tracking-wide"
-                style={{
-                  textShadow: '0 0 20px rgba(147,51,234,0.8)'
-                }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -134,9 +131,10 @@ const Services = () => {
               <motion.div
                 key={index}
                 variants={cardVariants}
+                className="h-full"
               >
                 <TiltCard
-                  className="group p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                  className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col"
                   tiltStrength={10}
                   glowColor="rgba(147,51,234,0.5)"
                 >
@@ -164,7 +162,7 @@ const Services = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-base md:text-lg text-white/50 leading-relaxed font-light">
+                  <p className="text-base md:text-lg text-white/50 leading-relaxed font-light flex-grow">
                     {service.description}
                   </p>
                 </TiltCard>
@@ -180,15 +178,29 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <motion.button
-              onClick={handleCTA}
-              className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.3)]"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="relative z-10">{t('howItWorks.cta')}</span>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.button>
+            <div className="relative inline-block">
+              <motion.div
+                className="absolute -inset-1 rounded-xl bg-purple-500/40 blur-md"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <motion.button
+                onClick={handleCTA}
+                className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="relative z-10">{t('howItWorks.cta')}</span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.button>
+            </div>
 
             <p className="text-sm text-white/30 mt-6">
               {t('cta.noCommitment')}

@@ -1,14 +1,15 @@
 {
   "nav": {
     "whatWeDo": "WHAT WE DO",
+    "whoWeAre": "WHO WE ARE",
     "howWeWork": "HOW WE WORK",
     "contact": "CONTACT",
     "cta": "CHECK THE PLAN"
   },
   "hero": {
-    "headline": "AI IN YOUR COMPANY.",
-    "subheadline": "Get a custom implementation plan in less than five minutes.",
-    "cta": "NO COMMITMENT.",
+    "headline": "SYSTEMS THAT WORK.",
+    "subheadline": "Implementation plan tailored to your company. In less than 5 minutes. No commitment.",
+    "cta": "CHECK THE PLAN",
     "bullets": {
       "one": "Plan tailored to your specific company",
       "two": "No costs or obligations",
@@ -17,32 +18,32 @@
   },
   "whoWeAre": {
     "headline": "WHO WE ARE.",
-    "subtitle": "Futura is an Automation House that implements AI into real business processes.",
-    "notExperiment": "Not as an experiment.",
-    "notGadget": "Not as a gadget.",
-    "systemsWork": "These are systems that work in companies every day.",
-    "footer": "PRACTICE. NOT THEORY."
+    "subtitle": "Automation House that doesn't experiment. We design AI systems that work in companies every day. Not as a gadget. Not as an experiment. As part of infrastructure.",
+    "notExperiment": "Not an experiment. Tested on real processes.",
+    "notGadget": "Not a gadget. Integration with what you already have.",
+    "systemsWork": "System that works. In companies every day.",
+    "footer": "PRACTICE > THEORY"
   },
   "services": {
-    "preHeadline": "AI IS A SYSTEM, NOT A GADGET.",
+    "preHeadline": "AI IS A SYSTEM, NOT A GADGET",
     "headline": "WHAT WE DO.",
     "subtitle": "We design and implement systems that automate processes, support teams, and integrate with existing infrastructure.",
     "focus": "We focus on what actually makes a difference.",
     "workflow": {
       "title": "Workflow automation",
-      "description": "Systems that handle repetitive tasks. Integrations between tools. Processes that run without supervision."
+      "description": "Automation of what repeats."
     },
     "data": {
       "title": "Data processing",
-      "description": "Collecting, structuring, and utilizing operational data. Transformations that make business sense."
+      "description": "Data that actually helps."
     },
     "integration": {
       "title": "System integration",
-      "description": "Connecting scattered tools into one cohesive ecosystem. APIs, webhooks, real-time synchronization."
+      "description": "Connecting scattered tools into one cohesive ecosystem."
     },
     "analysis": {
       "title": "Analysis and reporting",
-      "description": "Dashboards that show real data. Process monitoring. Notifications that matter."
+      "description": "Dashboards that show real data."
     }
   },
   "howItWorks": {

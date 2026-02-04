@@ -6,13 +6,13 @@ export default function PurpleLaserBeam() {
       <motion.div
         className="absolute top-0 left-0 w-[200%] h-[2px] origin-top-left"
         style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 20%, rgba(147,51,234,0.8) 50%, rgba(147,51,234,0.6) 80%, transparent 100%)',
-          boxShadow: '0 0 80px 30px rgba(147,51,234,0.5), 0 0 160px 60px rgba(147,51,234,0.3)',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.3) 20%, rgba(147,51,234,0.4) 50%, rgba(147,51,234,0.3) 80%, transparent 100%)',
+          boxShadow: '0 0 40px 15px rgba(147,51,234,0.2), 0 0 80px 30px rgba(147,51,234,0.1)',
           filter: 'blur(2px)',
           transform: 'rotate(25deg) translateY(30vh)',
         }}
         animate={{
-          opacity: [0.15, 0.25, 0.15],
+          opacity: [0.05, 0.1, 0.05],
           scaleX: [1, 1.1, 1],
         }}
         transition={{
@@ -25,13 +25,13 @@ export default function PurpleLaserBeam() {
       <motion.div
         className="absolute bottom-0 right-0 w-[200%] h-[2px] origin-bottom-right"
         style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.5) 20%, rgba(147,51,234,0.7) 50%, rgba(147,51,234,0.5) 80%, transparent 100%)',
-          boxShadow: '0 0 60px 25px rgba(147,51,234,0.4), 0 0 120px 50px rgba(147,51,234,0.2)',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.3) 20%, rgba(147,51,234,0.4) 50%, rgba(147,51,234,0.3) 80%, transparent 100%)',
+          boxShadow: '0 0 40px 15px rgba(147,51,234,0.2), 0 0 80px 30px rgba(147,51,234,0.1)',
           filter: 'blur(2px)',
           transform: 'rotate(-25deg) translateY(-30vh)',
         }}
         animate={{
-          opacity: [0.1, 0.2, 0.1],
+          opacity: [0.05, 0.1, 0.05],
           scaleX: [1, 1.15, 1],
         }}
         transition={{
@@ -49,11 +49,11 @@ export default function PurpleLaserBeam() {
           style={{
             left: `${10 + i * 7}%`,
             top: `${25 + i * 3}%`,
-            boxShadow: '0 0 20px 8px rgba(147,51,234,0.7)'
+            boxShadow: '0 0 10px 4px rgba(147,51,234,0.3)'
           }}
           animate={{
             scale: [0.5, 1.5, 0.5],
-            opacity: [0.3, 0.8, 0.3],
+            opacity: [0.1, 0.3, 0.1],
           }}
           transition={{
             duration: 2 + Math.random(),

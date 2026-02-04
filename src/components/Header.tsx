@@ -36,6 +36,7 @@ const Header = () => {
 
   const navItems = [
     { href: '#services', label: t('nav.whatWeDo') },
+    { href: '#who-we-are', label: t('nav.whoWeAre') },
     { href: '#how-it-works', label: t('nav.howWeWork') },
     { href: '#contact', label: t('nav.contact') },
   ];
@@ -77,7 +78,7 @@ const Header = () => {
 
         {/* LOGO - LEFT SIDE */}
         <motion.button
-          className="relative cursor-pointer z-50 h-10"
+          className="relative cursor-pointer z-50"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -85,14 +86,9 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <img
-            src="/futura_logo_new.png"
-            alt="FUTURA"
-            className="h-10 w-auto"
-            style={{
-              filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))',
-            }}
-          />
+          <h1 className="font-michroma text-2xl text-white tracking-wider hover:text-purple-400 transition-colors duration-300">
+            FUTURA.
+          </h1>
         </motion.button>
 
         {/* DESKTOP NAVIGATION - CENTERED */}

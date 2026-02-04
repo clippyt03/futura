@@ -1,14 +1,15 @@
 {
   "nav": {
     "whatWeDo": "CO ROBIMY",
+    "whoWeAre": "KIM JESTEŚMY",
     "howWeWork": "JAK PRACUJEMY",
     "contact": "KONTAKT",
     "cta": "SPRAWDŹ PLAN"
   },
   "hero": {
-    "headline": "AI W TWOJEJ FIRMIE.",
-    "subheadline": "Odbierz indywidualny plan wdrożenia w mniej niż pięć minut.",
-    "cta": "BEZ ZOBOWIĄZAŃ.",
+    "headline": "SYSTEMY, KTÓRE PRACUJĄ.",
+    "subheadline": "Plan wdrożenia dopasowany do Twojej firmy. W mniej niż 5 minut. Bez zobowiązań.",
+    "cta": "SPRAWDŹ PLAN",
     "bullets": {
       "one": "Plan dopasowany do konkretnej firmy",
       "two": "Żadnych kosztów i zobowiązań",
@@ -17,32 +18,32 @@
   },
   "whoWeAre": {
     "headline": "KIM JESTEŚMY.",
-    "subtitle": "Futura to Automation House, który wdraża AI do realnych procesów biznesowych.",
-    "notExperiment": "Nie jak eksperyment.",
-    "notGadget": "Nie jako gadżet.",
-    "systemsWork": "To systemy, które działają w firmach każdego dnia.",
-    "footer": "PRAKTYKA. NIE TEORIA."
+    "subtitle": "Automation House, który nie eksperymentuje. Projektujemy systemy AI, które pracują w firmach każdego dnia. Nie jako gadżet. Nie jako eksperyment. Jako część infrastruktury.",
+    "notExperiment": "Nie eksperyment. Testujemy na realnych procesach.",
+    "notGadget": "Nie gadżet. Integracja z tym co już macie.",
+    "systemsWork": "System, który pracuje. W firmach każdego dnia.",
+    "footer": "PRAKTYKA > TEORIA"
   },
   "services": {
-    "preHeadline": "AI TO SYSTEM, NIE GADŻET.",
+    "preHeadline": "AI TO SYSTEM, NIE GADŻET",
     "headline": "CO ROBIMY.",
     "subtitle": "Projektujemy i wdrażamy systemy, które automatyzują procesy, wspierają zespoły oraz integrują się z istniejącą infrastrukturą.",
     "focus": "Skupiamy się na tym, co faktycznie robi różnicę.",
     "workflow": {
       "title": "Automatyzacja workflow",
-      "description": "Systemy, które przejmują powtarzalne zadania. Integracje między narzędziami. Procesy, które działają bez nadzoru."
+      "description": "Automatyzacja tego, co się powtarza."
     },
     "data": {
       "title": "Przetwarzanie danych",
-      "description": "Zbieranie, strukturyzowanie i wykorzystanie danych operacyjnych. Transformacje, które mają sens biznesowy."
+      "description": "Dane, które faktycznie pomagają."
     },
     "integration": {
       "title": "Integracja systemów",
-      "description": "Łączenie rozproszonych narzędzi w jeden spójny ekosystem. API, webhooks, synchronizacja w czasie rzeczywistym."
+      "description": "Łączenie rozproszonych narzędzi w jeden spójny ekosystem."
     },
     "analysis": {
       "title": "Analiza i raportowanie",
-      "description": "Dashboard, który pokazuje rzeczywiste dane. Monitoring procesów. Powiadomienia, które mają znaczenie."
+      "description": "Dashboard, który pokazuje rzeczywiste dane."
     }
   },
   "howItWorks": {

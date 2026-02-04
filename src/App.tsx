@@ -5,7 +5,6 @@ import WhoWeAre from './components/WhoWeAre';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
 import WhyFutura from './components/WhyFutura';
-import CommonMistake from './components/CommonMistake';
 import Footer from './components/Footer';
 import GlobalCursor from './components/GlobalCursor';
 import ScrollProgress from './components/ScrollProgress';
@@ -29,7 +28,6 @@ function HomePage() {
       <Services />
       <HowItWorks />
       <WhyFutura />
-      <CommonMistake />
     </>
   );
 }
