@@ -74,7 +74,7 @@ const WhyFutura = () => {
           {/* Header */}
           <SectionTransition delay={0.2}>
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
-              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ color: '#ffffff' }}>
                 {t('whyFutura.headline')}
               </h2>
             </div>
@@ -91,16 +91,14 @@ const WhyFutura = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="group text-center flex flex-col items-center"
+                className="group flex flex-col items-center text-center"
                 variants={cardVariants}
               >
                 {/* Icon */}
-                <div className="mb-6">
-                  <benefit.icon
-                    size={40}
-                    className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
-                  />
-                </div>
+                <benefit.icon
+                  size={40}
+                  className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300 mb-6"
+                />
 
                 {/* Title */}
                 <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
