@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ClipboardCheck, CircleDollarSign, Clock } from 'lucide-react';
+import { useDeviceDetection, useReducedMotion } from '../hooks/useDeviceDetection';
 
 export default function Hero() {
   const { t } = useTranslation();
+  const { isMobile, isTablet } = useDeviceDetection();
+  const prefersReducedMotion = useReducedMotion();
+
+  const shouldReduceAnimations = isMobile || prefersReducedMotion;
+  const particleCount = isMobile ? 3 : 15;
 
   const handleCTA = () => {
     window.open('https://tally.so/r/2EPBVM', '_blank');
@@ -14,69 +20,80 @@ export default function Hero() {
       {/* Background - Pure black to dark purple gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
-      {/* Circular purple halo effects - Subtle and cohesive */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[120px]"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.35, 0.5, 0.35],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/30 rounded-full blur-[130px]"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.45, 0.3],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/25 rounded-full blur-[140px]"
-        animate={{
-          scale: [1, 1.4, 1],
-          opacity: [0.3, 0.4, 0.3],
-          rotate: [0, 180, 360]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      {/* Subtle floating particles */}
-      <div className="absolute inset-0 opacity-30">
-        {[...Array(15)].map((_, i) => (
+      {/* Circular purple halo effects - Disabled on mobile for performance */}
+      {!shouldReduceAnimations && (
+        <>
           <motion.div
-            key={`particle-${i}`}
-            className="absolute w-1 h-1 bg-purple-400 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
+            className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[120px]"
             animate={{
-              y: [0, -80, 0],
-              opacity: [0, 0.6, 0],
+              scale: [1, 1.3, 1],
+              opacity: [0.35, 0.5, 0.35],
             }}
             transition={{
-              duration: 4 + Math.random() * 3,
+              duration: 8,
               repeat: Infinity,
-              delay: Math.random() * 4,
               ease: "easeInOut"
             }}
           />
-        ))}
-      </div>
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/30 rounded-full blur-[130px]"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.45, 0.3],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/25 rounded-full blur-[140px]"
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [0.3, 0.4, 0.3],
+              rotate: [0, 180, 360]
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </>
+      )}
+
+      {/* Static gradient for mobile */}
+      {shouldReduceAnimations && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[80px]" />
+      )}
+
+      {/* Subtle floating particles - Reduced count on mobile */}
+      {!prefersReducedMotion && (
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(particleCount)].map((_, i) => (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute w-1 h-1 bg-purple-400 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -80, 0],
+                opacity: [0, 0.6, 0],
+              }}
+              transition={{
+                duration: shouldReduceAnimations ? 2 : 4 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 4,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
@@ -151,10 +168,10 @@ export default function Hero() {
             className="flex flex-col items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: shouldReduceAnimations ? 0.3 : 0.6, delay: shouldReduceAnimations ? 0.1 : 0.7 }}
           >
             <motion.div
-              animate={{
+              animate={shouldReduceAnimations ? {} : {
                 y: [0, -8, 0],
                 filter: [
                   'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
@@ -167,6 +184,7 @@ export default function Hero() {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
+              className={shouldReduceAnimations ? 'drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]' : ''}
             >
               <ClipboardCheck
                 size={32}
@@ -182,10 +200,10 @@ export default function Hero() {
             className="flex flex-col items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
+            transition={{ duration: shouldReduceAnimations ? 0.3 : 0.6, delay: shouldReduceAnimations ? 0.15 : 0.85 }}
           >
             <motion.div
-              animate={{
+              animate={shouldReduceAnimations ? {} : {
                 y: [0, -8, 0],
                 filter: [
                   'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
@@ -199,6 +217,7 @@ export default function Hero() {
                 ease: "easeInOut",
                 delay: 1
               }}
+              className={shouldReduceAnimations ? 'drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]' : ''}
             >
               <CircleDollarSign
                 size={32}
@@ -214,10 +233,10 @@ export default function Hero() {
             className="flex flex-col items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
+            transition={{ duration: shouldReduceAnimations ? 0.3 : 0.6, delay: shouldReduceAnimations ? 0.2 : 1 }}
           >
             <motion.div
-              animate={{
+              animate={shouldReduceAnimations ? {} : {
                 y: [0, -8, 0],
                 filter: [
                   'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
@@ -231,6 +250,7 @@ export default function Hero() {
                 ease: "easeInOut",
                 delay: 2
               }}
+              className={shouldReduceAnimations ? 'drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]' : ''}
             >
               <Clock
                 size={32}

@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion';
+import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 export default function PurpleLaserBeam() {
+  const { isMobile } = useDeviceDetection();
+
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <motion.div

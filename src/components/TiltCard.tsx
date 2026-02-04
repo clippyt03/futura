@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTouchDevice } from '../hooks/useDeviceDetection';
 
 interface TiltCardProps {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ export default function TiltCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const isTouchDevice = useTouchDevice();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -42,6 +44,14 @@ export default function TiltCard({
     setIsHovered(false);
     setTilt({ x: 0, y: 0 });
   };
+
+  if (isTouchDevice) {
+    return (
+      <div className={className}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div

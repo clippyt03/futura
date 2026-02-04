@@ -1,36 +1,47 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import WhoWeAre from './components/WhoWeAre';
-import Services from './components/Services';
-import HowItWorks from './components/HowItWorks';
-import WhyFutura from './components/WhyFutura';
-import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import GlobalCursor from './components/GlobalCursor';
 import ScrollProgress from './components/ScrollProgress';
 import PurpleLaserBeam from './components/PurpleLaserBeam';
 import BackToTop from './components/BackToTop';
 
-// Pages
-import About from './pages/About';
-import Documentation from './pages/Documentation';
-import Support from './pages/Support';
-import Status from './pages/Status';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-import Cookies from './pages/Cookies';
-import GDPR from './pages/GDPR';
+const WhoWeAre = lazy(() => import('./components/WhoWeAre'));
+const Services = lazy(() => import('./components/Services'));
+const HowItWorks = lazy(() => import('./components/HowItWorks'));
+const WhyFutura = lazy(() => import('./components/WhyFutura'));
+const FAQ = lazy(() => import('./components/FAQ'));
+
+const About = lazy(() => import('./pages/About'));
+const Documentation = lazy(() => import('./pages/Documentation'));
+const Support = lazy(() => import('./pages/Support'));
+const Status = lazy(() => import('./pages/Status'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
+const Cookies = lazy(() => import('./pages/Cookies'));
+const GDPR = lazy(() => import('./pages/GDPR'));
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  );
+}
 
 function HomePage() {
   return (
     <>
       <Hero />
-      <WhoWeAre />
-      <Services />
-      <HowItWorks />
-      <WhyFutura />
-      <FAQ />
+      <Suspense fallback={<div className="h-screen" />}>
+        <WhoWeAre />
+        <Services />
+        <HowItWorks />
+        <WhyFutura />
+        <FAQ />
+      </Suspense>
     </>
   );
 }
@@ -44,17 +55,19 @@ function App() {
         <GlobalCursor />
         <BackToTop />
         <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/documentation" element={<Documentation />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/status" element={<Status />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/cookies" element={<Cookies />} />
-          <Route path="/gdpr" element={<GDPR />} />
-        </Routes>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/status" element={<Status />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/cookies" element={<Cookies />} />
+            <Route path="/gdpr" element={<GDPR />} />
+          </Routes>
+        </Suspense>
         <Footer />
       </div>
     </Router>

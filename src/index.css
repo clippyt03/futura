@@ -436,69 +436,53 @@ section[id] {
   }
 }
 
-/* MOBILE-SPECIFIC OPTIMIZATIONS - MINIMAL CHANGES */
+/* MOBILE-SPECIFIC OPTIMIZATIONS */
 
-/* Improved touch targets for mobile */
 @media (max-width: 768px) {
-  /* Prevent flash on scroll - ENHANCED */
   * {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  /* Optimize scrolling performance */
+
   body {
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
-  
-  /* Instant animations for mobile */
+
   * {
-    animation-duration: 0.1s !important;
-    transition-duration: 0.1s !important;
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
   }
-  
-  /* Remove all complex animations on mobile */
+
   .particle,
   .morphing-blob,
   .animate-pulse-slow,
   .liquid-chrome {
     display: none !important;
   }
-  
-  /* Fix mobile scrolling flash bug */
-  * {
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
+
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.8) !important;
   }
-  
-  /* Prevent flash on scroll */
-  body {
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+
+  .neon-border,
+  .neon-glow-intense,
+  .neon-box-glow,
+  .neon-box-glow-intense {
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.2) !important;
   }
-  
-  /* Optimize animations for mobile */
-  * {
-    animation-duration: 0.2s !important;
-    transition-duration: 0.2s !important;
-  }
-  
+
   /* Ensure minimum touch target size */
   button, 
   a[role="button"], 
@@ -536,18 +520,6 @@ section[id] {
     background: linear-gradient(180deg, rgba(138, 43, 226, 0.05) 0%, rgba(10, 10, 10, 0.98) 70%);
   }
 
-  /* Improve mobile navigation */
-  .mobile-menu {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-
-  /* Optimize scroll performance */
-  * {
-    -webkit-overflow-scrolling: touch;
-  }
-
-
   /* Mobile-specific focus states */
   button:focus-visible,
   a:focus-visible,
@@ -555,17 +527,6 @@ section[id] {
     outline: 3px solid rgba(138, 43, 226, 0.8);
     outline-offset: 2px;
     border-radius: 4px;
-  }
-
-  /* Performance optimizations for mobile */
-  .backdrop-blur-sm {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-  
-  .backdrop-blur-xl {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
 }
 
