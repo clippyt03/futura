@@ -6,10 +6,6 @@ import SectionTransition from './SectionTransition';
 const HowItWorks = () => {
   const { t } = useTranslation();
 
-  const handleCTA = () => {
-    window.open('https://tally.so/r/2EPBVM', '_blank');
-  };
-
   const steps = [
     {
       icon: Search,
@@ -202,28 +198,6 @@ const HowItWorks = () => {
             ))}
           </motion.div>
 
-          {/* Bottom CTA */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.button
-              onClick={handleCTA}
-              className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.3)]"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="relative z-10">{t('howItWorks.cta')}</span>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.button>
-
-            <p className="text-sm text-white/30 mt-6">
-              {t('cta.noCommitment')}
-            </p>
-          </motion.div>
         </div>
       </section>
     </SectionTransition>

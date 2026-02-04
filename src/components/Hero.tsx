@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ClipboardCheck, CircleDollarSign, Clock } from 'lucide-react';
-import EnhancedMagneticButton from './EnhancedMagneticButton';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -102,33 +101,40 @@ export default function Hero() {
           {t('hero.subheadline')}
         </motion.p>
 
-        {/* CTA Button - with magnetic and neon effect */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-16 md:mb-20"
         >
-          <EnhancedMagneticButton
-            onClick={handleCTA}
-            className="group relative px-10 md:px-14 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
-            magneticStrength={0.3}
-          >
-            <span
-              className="relative z-10"
-              style={{
-                textShadow: '0 0 10px rgba(147,51,234,0.6)'
+          <div className="relative inline-block">
+            <motion.div
+              className="absolute -inset-1 rounded-xl bg-purple-500/40 blur-md"
+              animate={{
+                scale: [1, 1.05, 1],
+                opacity: [0.3, 0.6, 0.3],
               }}
-            >
-              {t('hero.cta')}
-            </span>
-            <div
-              className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{
-                boxShadow: '0 0 30px rgba(147,51,234,0.7), inset 0 0 20px rgba(147,51,234,0.3)'
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
             />
-          </EnhancedMagneticButton>
+            <motion.button
+              onClick={handleCTA}
+              className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="relative z-10">{t('hero.cta')}</span>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.button>
+          </div>
+
+          <p className="text-sm text-white/30 mt-6">
+            {t('cta.noCommitment')}
+          </p>
         </motion.div>
 
         {/* 3 Benefits Bullets - with meaningful icons */}
