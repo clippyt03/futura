@@ -1,17 +1,12 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
 import WhyFutura from './components/WhyFutura';
-import CaseStudies from './components/CaseStudies';
-import CTA from './components/CTA';
-import Blog from './components/Blog';
 import Footer from './components/Footer';
 import GlobalCursor from './components/GlobalCursor';
 import ScrollProgress from './components/ScrollProgress';
-import FloatingElements from './components/FloatingElements';
 
 // Pages
 import About from './pages/About';
@@ -26,14 +21,10 @@ import GDPR from './pages/GDPR';
 function HomePage() {
   return (
     <>
-      <FloatingElements />
       <Hero />
       <Services />
       <HowItWorks />
       <WhyFutura />
-      <CaseStudies />
-      <CTA />
-      <Blog />
     </>
   );
 }
@@ -41,7 +32,7 @@ function HomePage() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-dark-900 text-white font-orbitron relative">
+      <div className="min-h-screen bg-dark-900 text-white font-michroma relative">
         <ScrollProgress />
         <GlobalCursor />
         <Header />

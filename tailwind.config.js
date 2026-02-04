@@ -7,19 +7,25 @@ export default {
         'xs': '475px',
       },
       fontFamily: {
+        'sans': ['Michroma', 'monospace'],
         'michroma': ['Michroma', 'monospace'],
-        'orbitron': ['Orbitron', 'monospace'],
       },
       colors: {
-        neon: {
-          purple: '#8A2BE2',
-          blue: '#00BFFF',
-          green: '#00FF7F',
+        purple: {
+          500: '#9333EA',
+          600: '#7928CA',
+          700: '#6B21A8',
+          800: '#581C87',
+          900: '#3B0764',
+        },
+        pink: {
+          400: '#F472B6',
+          500: '#EC4899',
         },
         dark: {
-          900: '#0a0a0a',
-          800: '#1a1a1a',
-          700: '#2a2a2a',
+          900: '#000000',
+          800: '#0a0a0a',
+          700: '#1a1a1a',
         }
       },
       animation: {

@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "whatWeDo": "CO ROBIMY",
+    "howWeWork": "JAK PRACUJEMY",
+    "contact": "KONTAKT",
+    "cta": "SPRAWDŹ PLAN"
+  },
+  "hero": {
+    "headline": "AI W TWOJEJ FIRMIE.",
+    "subheadline": "Odbierz indywidualny plan wdrożenia w mniej niż pięć minut.",
+    "cta": "BEZ ZOBOWIĄZAŃ.",
+    "bullets": {
+      "one": "Plan dopasowany do konkretnej firmy",
+      "two": "Żadnych kosztów i zobowiązań",
+      "three": "Scenariusz wdrożenia w mniej niż 5 minut"
+    }
+  },
+  "services": {
+    "headline": "CO ROBIMY.",
+    "subtitle": "Projektujemy i wdrażamy systemy, które automatyzują procesy, wspierają zespoły oraz integrują się z istniejącą infrastrukturą.",
+    "focus": "Skupiamy się na tym, co faktycznie robi różnicę.",
+    "workflow": {
+      "title": "Automatyzacja workflow",
+      "description": "Systemy, które przejmują powtarzalne zadania. Integracje między narzędziami. Procesy, które działają bez nadzoru."
+    },
+    "data": {
+      "title": "Przetwarzanie danych",
+      "description": "Zbieranie, strukturyzowanie i wykorzystanie danych operacyjnych. Transformacje, które mają sens biznesowy."
+    },
+    "integration": {
+      "title": "Integracja systemów",
+      "description": "Łączenie rozproszonych narzędzi w jeden spójny ekosystem. API, webhooks, synchronizacja w czasie rzeczywistym."
+    },
+    "analysis": {
+      "title": "Analiza i raportowanie",
+      "description": "Dashboard, który pokazuje rzeczywiste dane. Monitoring procesów. Powiadomienia, które mają znaczenie."
+    }
+  },
+  "howItWorks": {
+    "headline": "JAK PRACUJEMY.",
+    "subtitle": "Najpierw plan, potem system.",
+    "tagline": "Zawsze zaczynamy od zrozumienia biznesu, nie od wyboru narzędzi.",
+    "steps": {
+      "understand": {
+        "title": "Zrozumienie biznesu",
+        "description": "Nie każde zadanie automatyzujemy. Nie każdy problem rozwiązuje AI. Tworzymy rozwiązania dopasowane do konkretnej firmy."
+      },
+      "plan": {
+        "title": "Plan wdrożenia",
+        "description": "Szczegółowy scenariusz: co, jak i w jakiej kolejności. Bez niespodzianek. Możliwość wycofania się na każdym etapie."
+      },
+      "system": {
+        "title": "System, który pracuje",
+        "description": "Wdrożenie w iteracjach. Test w rzeczywistych warunkach. Systemy, które działają stabilnie i przewidywalnie."
+      },
+      "support": {
+        "title": "Właściciel procesu",
+        "description": "Przekazujemy pełną kontrolę. Dokumentacja, która ma sens. Support, gdy jest potrzebny."
+      }
+    },
+    "cta": "Sprawdź plan wdrożenia"
+  },
+  "whyFutura": {
+    "headline": "SYSTEMY, KTÓRE PRACUJĄ.",
+    "approach": {
+      "title": "Najpierw plan. Potem system.",
+      "description": "Nie zaczynamy od narzędzi. Zaczynamy od zrozumienia, co faktycznie wymaga automatyzacji, a co wymaga decyzji człowieka."
+    },
+    "custom": {
+      "title": "Dopasowane rozwiązania",
+      "description": "Nie oferujemy gotowych szablonów. Każda firma działa inaczej. Każde wdrożenie projektujemy od podstaw."
+    },
+    "control": {
+      "title": "Pełna kontrola",
+      "description": "System należy do Ciebie. Pełna dokumentacja. Możliwość modyfikacji. Brak uzależnienia od zewnętrznego dostawcy."
+    }
+  },
+  "cta": {
+    "main": "ODBIERZ PLAN WDROŻENIA.",
+    "secondary": "Sprawdź scenariusz",
+    "noCommitment": "Bez zobowiązań",
+    "freeAudit": "Darmowy audyt firmy"
+  },
+  "footer": {
+    "company": {
+      "title": "FUTURA",
+      "description": "Systemy automatyzacji, które pracują.",
+      "nip": "NIP: [Uzupełnij]",
+      "regon": "REGON: [Uzupełnij]",
+      "address": "[Uzupełnij adres]"
+    },
+    "links": {
+      "legal": "Dokumenty prawne",
+      "privacy": "Polityka Prywatności",
+      "terms": "Regulamin",
+      "gdpr": "RODO",
+      "cookies": "Polityka Cookies"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "email": "kontakt@futura.ai"
+    },
+    "rights": "Wszystkie prawa zastrzeżone."
+  }
+}
