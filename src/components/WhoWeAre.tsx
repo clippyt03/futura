@@ -1,8 +1,38 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import TiltCard from './TiltCard';
 
 export default function WhoWeAre() {
   const { t } = useTranslation();
+
+  const items = [
+    { text: t('whoWeAre.notGadget') },
+    { text: t('whoWeAre.integration') },
+    { text: t('whoWeAre.systemsWork') },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
     <section id="who-we-are" className="relative py-40 md:py-48 overflow-hidden">
@@ -46,62 +76,31 @@ export default function WhoWeAre() {
           </motion.p>
         </motion.div>
 
-        {/* Three columns */}
+        {/* Three cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-24 md:mb-32 max-w-5xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <motion.div
-            className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-purple-500/10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <p className="text-xl md:text-2xl font-bold text-white leading-relaxed">
-              {t('whoWeAre.notExperiment')}
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-purple-500/10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <p className="text-xl md:text-2xl font-bold text-white leading-relaxed">
-              {t('whoWeAre.notGadget')}
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-purple-500/10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-          >
-            <p className="text-xl md:text-2xl font-bold text-white leading-relaxed">
-              {t('whoWeAre.systemsWork')}
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Footer tagline */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-        >
-          <p className="font-michroma text-2xl md:text-3xl lg:text-4xl font-bold text-white/60">
-            {t('whoWeAre.footer')}
-          </p>
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              className="h-full"
+            >
+              <TiltCard
+                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center"
+                tiltStrength={10}
+                glowColor="rgba(147,51,234,0.5)"
+              >
+                <p className="text-base md:text-lg text-white/70 leading-relaxed font-light text-center">
+                  {item.text}
+                </p>
+              </TiltCard>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

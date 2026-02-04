@@ -18,11 +18,10 @@
   },
   "whoWeAre": {
     "headline": "KIM JESTEŚMY.",
-    "subtitle": "Automation House, który nie eksperymentuje. Projektujemy systemy AI, które pracują w firmach każdego dnia. Nie jako gadżet. Nie jako eksperyment. Jako część infrastruktury.",
-    "notExperiment": "Nie eksperyment. Testujemy na realnych procesach.",
-    "notGadget": "Nie gadżet. Integracja z tym co już macie.",
-    "systemsWork": "System, który pracuje. W firmach każdego dnia.",
-    "footer": "PRAKTYKA > TEORIA"
+    "subtitle": "Futura to Automation House, który wdraża AI w firmach do realnych procesów biznesowych.",
+    "notGadget": "Nie jako gadżet. Automatyzacja realnych procesów.",
+    "integration": "Integracja z istniejącą infrastrukturą.",
+    "systemsWork": "Systemy, które pracują w firmach każdego dnia."
   },
   "services": {
     "preHeadline": "AI TO SYSTEM, NIE GADŻET",
@@ -31,11 +30,11 @@
     "focus": "Skupiamy się na tym, co faktycznie robi różnicę.",
     "workflow": {
       "title": "Automatyzacja workflow",
-      "description": "Automatyzacja tego, co się powtarza."
+      "description": "Automatyzujemy zadania, które hamują rozwój. Pozwala to skalować biznes bez zatrudniania dodatkowych rąk."
     },
     "data": {
       "title": "Przetwarzanie danych",
-      "description": "Dane, które faktycznie pomagają."
+      "description": "Stawiamy na dane. Dane to najbardziej pewny wyznacznik każdego biznesu."
     },
     "integration": {
       "title": "Integracja systemów",
@@ -43,7 +42,7 @@
     },
     "analysis": {
       "title": "Analiza i raportowanie",
-      "description": "Dashboard, który pokazuje rzeczywiste dane."
+      "description": "Skoro nie można tego dotknąć, fajnie chociaż wiedzieć co to nam daje."
     }
   },
   "howItWorks": {
@@ -57,15 +56,15 @@
       },
       "plan": {
         "title": "Plan wdrożenia",
-        "description": "Szczegółowy scenariusz: co, jak i w jakiej kolejności. Bez niespodzianek. Możliwość wycofania się na każdym etapie."
+        "description": "Szczegółowy scenariusz: co, jak i w jakiej kolejności. Bez niespodzianek."
       },
       "system": {
-        "title": "System, który pracuje",
+        "title": "Systemy, które pracują",
         "description": "Wdrożenie w iteracjach. Test w rzeczywistych warunkach. Systemy, które działają stabilnie i przewidywalnie."
       },
       "support": {
-        "title": "Właściciel procesu",
-        "description": "Przekazujemy pełną kontrolę. Dokumentacja, która ma sens. Support, gdy jest potrzebny."
+        "title": "Kontrola",
+        "description": "We współpracy z nami otrzymujesz pełne wsparcie. Dobry system to nie tylko wdrożenie, to również aktualizacje."
       }
     },
     "cta": "Sprawdź plan wdrożenia"

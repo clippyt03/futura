@@ -61,8 +61,8 @@ export default function TiltCard({
       }}
       transition={{
         type: 'spring',
-        stiffness: 400,
-        damping: 30,
+        stiffness: 600,
+        damping: 20,
       }}
     >
       <div

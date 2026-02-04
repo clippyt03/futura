@@ -18,11 +18,10 @@
   },
   "whoWeAre": {
     "headline": "WHO WE ARE.",
-    "subtitle": "Automation House that doesn't experiment. We design AI systems that work in companies every day. Not as a gadget. Not as an experiment. As part of infrastructure.",
-    "notExperiment": "Not an experiment. Tested on real processes.",
-    "notGadget": "Not a gadget. Integration with what you already have.",
-    "systemsWork": "System that works. In companies every day.",
-    "footer": "PRACTICE > THEORY"
+    "subtitle": "Futura is an Automation House that implements AI in companies for real business processes.",
+    "notGadget": "Not as a gadget. Automation of real processes.",
+    "integration": "Integration with existing infrastructure.",
+    "systemsWork": "Systems that work in companies every day."
   },
   "services": {
     "preHeadline": "AI IS A SYSTEM, NOT A GADGET",
@@ -31,11 +30,11 @@
     "focus": "We focus on what actually makes a difference.",
     "workflow": {
       "title": "Workflow automation",
-      "description": "Automation of what repeats."
+      "description": "We automate tasks that slow down growth. This allows scaling business without hiring additional hands."
     },
     "data": {
       "title": "Data processing",
-      "description": "Data that actually helps."
+      "description": "We focus on data. Data is the most reliable indicator of any business."
     },
     "integration": {
       "title": "System integration",
@@ -43,7 +42,7 @@
     },
     "analysis": {
       "title": "Analysis and reporting",
-      "description": "Dashboards that show real data."
+      "description": "Since you can't touch it, it's nice to at least know what it gives you."
     }
   },
   "howItWorks": {
@@ -57,15 +56,15 @@
       },
       "plan": {
         "title": "Implementation plan",
-        "description": "Detailed scenario: what, how, and in what order. No surprises. Option to withdraw at any stage."
+        "description": "Detailed scenario: what, how, and in what order. No surprises."
       },
       "system": {
-        "title": "System that works",
+        "title": "Systems that work",
         "description": "Implementation in iterations. Testing in real conditions. Systems that operate stably and predictably."
       },
       "support": {
-        "title": "Process ownership",
-        "description": "We transfer full control. Documentation that makes sense. Support when needed."
+        "title": "Control",
+        "description": "Working with us, you receive full support. A good system is not just implementation, it's also updates."
       }
     },
     "cta": "Check implementation plan"
