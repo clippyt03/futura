@@ -61,7 +61,7 @@
       },
       "system": {
         "title": "Systemy, które pracują",
-        "description": "Wdrożenie w iteracjach. Test w rzeczywistych warunkach. Systemy, które działają stabilnie i przewidywalnie."
+        "description": "Wdrożenie etapami. Test w rzeczywistych warunkach. Systemy, które działają stabilnie i przewidywalnie."
       },
       "support": {
         "title": "Kontrola",
