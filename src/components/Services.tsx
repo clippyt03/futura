@@ -79,7 +79,7 @@ const Services = () => {
               <p className="font-michroma text-xl md:text-2xl text-purple-400 mb-6 tracking-wide">
                 {t('services.preHeadline')}
               </p>
-              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-gradient-purple">
+              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-white">
                 {t('services.headline')}
               </h2>
               <motion.p

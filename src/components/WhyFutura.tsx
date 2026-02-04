@@ -91,11 +91,11 @@ const WhyFutura = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="group text-center"
+                className="group text-center flex flex-col items-center"
                 variants={cardVariants}
               >
                 {/* Icon */}
-                <div className="mb-6 flex justify-center">
+                <div className="mb-6">
                   <benefit.icon
                     size={40}
                     className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
