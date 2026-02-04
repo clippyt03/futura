@@ -74,15 +74,9 @@ const WhyFutura = () => {
           {/* Header */}
           <SectionTransition delay={0.2}>
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
-              <motion.h2
-                className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
+              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
                 {t('whyFutura.headline')}
-              </motion.h2>
+              </h2>
             </div>
           </SectionTransition>
 

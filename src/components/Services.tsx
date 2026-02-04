@@ -76,15 +76,9 @@ const Services = () => {
           {/* Header */}
           <SectionTransition delay={0.2}>
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
-              <motion.p
-                className="font-michroma text-xl md:text-2xl text-purple-400 mb-6 tracking-wide"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
+              <p className="font-michroma text-xl md:text-2xl text-purple-400 mb-6 tracking-wide">
                 {t('services.preHeadline')}
-              </motion.p>
+              </p>
               <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-gradient-purple">
                 {t('services.headline')}
               </h2>
