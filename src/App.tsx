@@ -5,10 +5,14 @@ import WhoWeAre from './components/WhoWeAre';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
 import WhyFutura from './components/WhyFutura';
+import CommonMistake from './components/CommonMistake';
+import FAQ from './components/FAQ';
+import CTA from './components/CTA';
 import Footer from './components/Footer';
 import GlobalCursor from './components/GlobalCursor';
 import ScrollProgress from './components/ScrollProgress';
 import PurpleLaserBeam from './components/PurpleLaserBeam';
+import BackToTop from './components/BackToTop';
 
 // Pages
 import About from './pages/About';
@@ -28,6 +32,9 @@ function HomePage() {
       <Services />
       <HowItWorks />
       <WhyFutura />
+      <CommonMistake />
+      <FAQ />
+      <CTA />
     </>
   );
 }
@@ -39,6 +46,7 @@ function App() {
         <PurpleLaserBeam />
         <ScrollProgress />
         <GlobalCursor />
+        <BackToTop />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />

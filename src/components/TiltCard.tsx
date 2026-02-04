@@ -53,11 +53,13 @@ export default function TiltCard({
       style={{
         transformStyle: 'preserve-3d',
         perspective: '1000px',
+        position: 'relative',
       }}
       animate={{
         rotateX: tilt.x,
         rotateY: tilt.y,
         scale: isHovered ? 1.05 : 1,
+        y: isHovered ? -8 : 0,
       }}
       transition={{
         type: 'spring',
@@ -69,6 +71,7 @@ export default function TiltCard({
         style={{
           transform: 'translateZ(20px)',
           position: 'relative',
+          backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(147, 51, 234, 0.05), transparent 60%)',
         }}
       >
         {children}
@@ -80,7 +83,7 @@ export default function TiltCard({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           style={{
-            boxShadow: `0 20px 60px ${glowColor}`,
+            boxShadow: `0 25px 80px ${glowColor}, 0 10px 40px rgba(0, 0, 0, 0.6)`,
           }}
         />
       )}

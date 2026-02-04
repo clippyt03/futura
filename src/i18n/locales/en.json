@@ -1,14 +1,15 @@
 {
   "nav": {
     "whatWeDo": "WHAT WE DO",
-    "whoWeAre": "WHO WE ARE",
+    "whoWeAre": "WHY FUTURA",
     "howWeWork": "HOW WE WORK",
+    "faq": "FAQ",
     "contact": "CONTACT",
     "cta": "GET FREE AUDIT"
   },
   "hero": {
     "headline": "AI IN YOUR COMPANY.",
-    "subheadline": "Implementation plan tailored to your company. In less than 5 minutes. No commitment.",
+    "subheadline": "Get a ready-made automation scenario for your company. 5 minutes. Zero risk.",
     "cta": "GET THE PLAN NOW",
     "bullets": {
       "one": "Plan tailored to your specific company",
@@ -17,32 +18,32 @@
     }
   },
   "whoWeAre": {
-    "headline": "WHO WE ARE.",
-    "subtitle": "Futura is an Automation House that implements AI in companies for real business processes.",
-    "notGadget": "Not as a gadget. Automation of real processes.",
-    "integration": "Integration with existing infrastructure.",
-    "systemsWork": "Systems that work in companies every day."
+    "headline": "WHY FUTURA.",
+    "subtitle": "We implement AI that works. Not gadgets.",
+    "notGadget": "Automation of real processes. Save up to 20+ hours per week.",
+    "integration": "Integration with existing infrastructure. No downtime.",
+    "systemsWork": "Systems working 24/7. Stable and predictable."
   },
   "services": {
-    "preHeadline": "AI IS A SYSTEM, NOT A GADGET",
+    "preHeadline": "REAL AUTOMATION",
     "headline": "WHAT WE DO.",
     "subtitle": "We design and implement systems that automate processes, support teams, and integrate with existing infrastructure.",
     "focus": "We focus on what actually makes a difference.",
     "workflow": {
       "title": "Workflow automation",
-      "description": "We automate tasks that slow down growth. This allows scaling business without hiring additional hands."
+      "description": "We automate e.g. customer service, invoicing, reporting. Tasks that slow down growth and consume team time."
     },
     "data": {
       "title": "Data processing",
-      "description": "We focus on data. Data is the most reliable indicator of any business."
+      "description": "Information extraction from documents, feedback analysis, query categorization. Data is the most reliable indicator of any business."
     },
     "integration": {
       "title": "System integration",
-      "description": "Connecting scattered tools into one cohesive ecosystem."
+      "description": "CRM, ERP, communication tools - connecting scattered tools into one cohesive ecosystem that works automatically."
     },
     "analysis": {
       "title": "Analysis and reporting",
-      "description": "Since you can't touch it, it's nice to at least know what it gives you."
+      "description": "Real-time dashboards, automated reports, anomaly alerts. Know what's happening in your company without manual data collection."
     }
   },
   "howItWorks": {
@@ -94,6 +95,40 @@
     "secondary": "Check the scenario",
     "noCommitment": "No commitment",
     "freeAudit": "Free company audit"
+  },
+  "faq": {
+    "headline": "FREQUENTLY ASKED QUESTIONS.",
+    "subtitle": "Answers to questions that hold companies back from implementing AI.",
+    "questions": {
+      "cost": {
+        "question": "Is AI implementation expensive?",
+        "answer": "We don't start with large investments. First, we identify processes that consume the most time and money. On average, companies save 20+ hours per week after the first implementation. That's ROI in 2-3 months. A free audit will show you exactly how much you can save in your company."
+      },
+      "fitBusiness": {
+        "question": "Will AI work in my company?",
+        "answer": "AI is not a universal solution. That's why we always start with an audit of your processes. If there are repetitive tasks, data handling, or integrations between systems in the company - AI will work. We don't implement solutions where they won't bring value. If something doesn't make sense, we'll tell you straight."
+      },
+      "complexity": {
+        "question": "Is it complicated and time-consuming?",
+        "answer": "We do implementation in iterations. We start with one process, test it, then scale. The first implementation takes 2-4 weeks, not months. The system adapts to your processes, not the other way around. You work as before, the system works in the background."
+      },
+      "control": {
+        "question": "Will I lose control over processes?",
+        "answer": "On the contrary - you gain more control. You get full documentation, real-time dashboards, and the ability to modify at any time. The system belongs to you. You can change it, scale it, or turn it off whenever you want. Zero dependency on an external provider."
+      },
+      "mistakes": {
+        "question": "What if AI makes a mistake?",
+        "answer": "Every system undergoes testing in real conditions before full deployment. Additionally, we set up safeguards - alert systems, verification mechanisms, human-in-the-loop where needed. AI supports decisions, doesn't replace humans at critical moments. You have full control and real-time monitoring."
+      },
+      "time": {
+        "question": "I don't have time for implementation now.",
+        "answer": "Paradox: lack of time is exactly why you need automation. The audit takes 5 minutes. After that, you know how much time you can recover. The first implementation requires 2-3 hours per week for 2-4 weeks. Then the system works for you 24/7. It's a time investment that pays back many times over."
+      },
+      "waiting": {
+        "question": "Maybe I'll wait until technology develops?",
+        "answer": "AI already works in thousands of companies. Every month of waiting is lost hours and money. Competition doesn't wait. Technology is mature - we use proven solutions, not experiments. The sooner you start, the bigger advantage you'll build."
+      }
+    }
   },
   "footer": {
     "company": {

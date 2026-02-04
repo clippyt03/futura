@@ -86,7 +86,7 @@ const Services = () => {
                 {t('services.preHeadline')}
               </motion.p>
               <motion.h2
-                className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-white"
+                className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-gradient-purple"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -130,7 +130,7 @@ const Services = () => {
                 className="h-full"
               >
                 <TiltCard
-                  className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col"
+                  className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col min-h-[320px]"
                   tiltStrength={10}
                   glowColor="rgba(147,51,234,0.5)"
                 >

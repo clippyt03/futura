@@ -1,4 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  opacity: number;
+}
 
 const GlobalCursor: React.FC = () => {
   // Check if device is mobile/touch device
@@ -16,6 +23,8 @@ const GlobalCursor: React.FC = () => {
   const glowRef = useRef<HTMLDivElement>(null);
   const trailRef = useRef<HTMLDivElement>(null);
   const ambientRef = useRef<HTMLDivElement>(null);
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const particleIdRef = useRef(0);
 
   useEffect(() => {
     const glow = glowRef.current;
@@ -33,9 +42,24 @@ const GlobalCursor: React.FC = () => {
     let ambientX = 0;
     let ambientY = 0;
 
+    let lastParticleTime = 0;
+    const PARTICLE_INTERVAL = 50;
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
+      const now = Date.now();
+      if (now - lastParticleTime > PARTICLE_INTERVAL) {
+        const newParticle: Particle = {
+          id: particleIdRef.current++,
+          x: mouseX,
+          y: mouseY,
+          opacity: 1,
+        };
+        setParticles(prev => [...prev.slice(-8), newParticle]);
+        lastParticleTime = now;
+      }
     };
 
     const animateGlow = () => {
@@ -68,8 +92,34 @@ const GlobalCursor: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setParticles(prev =>
+        prev
+          .map(p => ({ ...p, opacity: p.opacity - 0.05 }))
+          .filter(p => p.opacity > 0)
+      );
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
+      {particles.map(particle => (
+        <div
+          key={particle.id}
+          className="fixed w-2 h-2 pointer-events-none z-[9996] rounded-full"
+          style={{
+            left: particle.x,
+            top: particle.y,
+            background: `rgba(147, 51, 234, ${particle.opacity * 0.6})`,
+            boxShadow: `0 0 10px rgba(147, 51, 234, ${particle.opacity * 0.8})`,
+            transform: 'translate(-50%, -50%)',
+            transition: 'opacity 0.3s ease-out',
+          }}
+        />
+      ))}
       {/* Large ambient background glow */}
       <div
         ref={ambientRef}

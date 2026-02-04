@@ -62,7 +62,7 @@ export default function WhoWeAre() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-12 md:mb-16 leading-[1.1]">
+          <h2 className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-gradient-purple mb-12 md:mb-16 leading-[1.1]">
             {t('whoWeAre.headline')}
           </h2>
 
@@ -92,7 +92,7 @@ export default function WhoWeAre() {
               className="h-full"
             >
               <TiltCard
-                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col items-center justify-center gap-6"
+                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col items-center justify-center gap-6 min-h-[280px]"
                 tiltStrength={10}
                 glowColor="rgba(147,51,234,0.5)"
               >

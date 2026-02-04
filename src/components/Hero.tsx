@@ -11,15 +11,43 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-32 md:py-40">
-      {/* Background - Pure black to dark purple gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
-
-      {/* Circular purple halo effects - Subtle and cohesive */}
+      {/* Animated gradient background */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[120px]"
+        className="absolute inset-0"
+        animate={{
+          background: [
+            'radial-gradient(circle at 20% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%), linear-gradient(to bottom, #0a0a0a 0%, #1a0a1f 50%, #0a0a0a 100%)',
+            'radial-gradient(circle at 80% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%), linear-gradient(to bottom, #0a0a0a 0%, #1a0a1f 50%, #0a0a0a 100%)',
+            'radial-gradient(circle at 20% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%), linear-gradient(to bottom, #0a0a0a 0%, #1a0a1f 50%, #0a0a0a 100%)',
+          ],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* Mesh gradient overlay */}
+      <div className="absolute inset-0 opacity-30">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(90deg, transparent 49%, rgba(147, 51, 234, 0.05) 50%, transparent 51%),
+              linear-gradient(0deg, transparent 49%, rgba(147, 51, 234, 0.05) 50%, transparent 51%)
+            `,
+            backgroundSize: '100px 100px',
+          }}
+        />
+      </div>
+
+      {/* Circular purple halo effects - Reduced opacity by 50% */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px]"
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.35, 0.5, 0.35],
+          opacity: [0.175, 0.25, 0.175],
         }}
         transition={{
           duration: 8,
@@ -28,10 +56,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/30 rounded-full blur-[130px]"
+        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/15 rounded-full blur-[130px]"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.3, 0.45, 0.3],
+          opacity: [0.15, 0.225, 0.15],
         }}
         transition={{
           duration: 10,
@@ -41,10 +69,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/25 rounded-full blur-[140px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/12 rounded-full blur-[140px]"
         animate={{
           scale: [1, 1.4, 1],
-          opacity: [0.3, 0.4, 0.3],
+          opacity: [0.15, 0.2, 0.15],
           rotate: [0, 180, 360]
         }}
         transition={{
@@ -81,9 +109,12 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
 
-        {/* Main Headline - Clean and bold */}
+        {/* Main Headline - Clean and bold with text shadow */}
         <motion.h1
           className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-10 md:mb-12 leading-[1.1] tracking-tight"
+          style={{
+            textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 8px 40px rgba(147, 51, 234, 0.4)',
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

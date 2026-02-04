@@ -1,14 +1,15 @@
 {
   "nav": {
     "whatWeDo": "CO ROBIMY",
-    "whoWeAre": "KIM JESTEŚMY",
+    "whoWeAre": "DLACZEGO FUTURA",
     "howWeWork": "JAK PRACUJEMY",
+    "faq": "FAQ",
     "contact": "KONTAKT",
     "cta": "ZRÓB DARMOWY AUDYT"
   },
   "hero": {
     "headline": "AI W TWOJEJ FIRMIE.",
-    "subheadline": "Plan wdrożenia dopasowany do Twojej firmy. W mniej niż 5 minut. Bez zobowiązań.",
+    "subheadline": "Otrzymaj gotowy scenariusz automatyzacji Twojej firmy. 5 minut. Zero ryzyka.",
     "cta": "ODBIERAM PLAN TERAZ",
     "bullets": {
       "one": "Plan dopasowany do konkretnej firmy",
@@ -17,32 +18,32 @@
     }
   },
   "whoWeAre": {
-    "headline": "KIM JESTEŚMY.",
-    "subtitle": "Futura to Automation House, który wdraża AI w firmach do realnych procesów biznesowych.",
-    "notGadget": "Nie jako gadżet. Automatyzacja realnych procesów.",
-    "integration": "Integracja z istniejącą infrastrukturą.",
-    "systemsWork": "Systemy, które pracują w firmach każdego dnia."
+    "headline": "DLACZEGO FUTURA.",
+    "subtitle": "Wdrażamy AI, które pracuje. Nie gadżety.",
+    "notGadget": "Automatyzacja realnych procesów. Oszczędność do 20+ godzin tygodniowo.",
+    "integration": "Integracja z istniejącą infrastrukturą. Bez przestojów w pracy.",
+    "systemsWork": "Systemy działające 24/7. Stabilnie i przewidywalnie."
   },
   "services": {
-    "preHeadline": "AI TO SYSTEM, NIE GADŻET",
+    "preHeadline": "PRAWDZIWA AUTOMATYZACJA",
     "headline": "CO ROBIMY.",
     "subtitle": "Projektujemy i wdrażamy systemy, które automatyzują procesy, wspierają zespoły oraz integrują się z istniejącą infrastrukturą.",
     "focus": "Skupiamy się na tym, co faktycznie robi różnicę.",
     "workflow": {
       "title": "Automatyzacja workflow",
-      "description": "Automatyzujemy zadania, które hamują rozwój. Pozwala to skalować biznes bez zatrudniania dodatkowych rąk."
+      "description": "Automatyzujemy np. obsługę klienta, fakturowanie, raportowanie. Zadania, które hamują rozwój i pochłaniają czas zespołu."
     },
     "data": {
       "title": "Przetwarzanie danych",
-      "description": "Stawiamy na dane. Dane to najbardziej pewny wyznacznik każdego biznesu."
+      "description": "Ekstrakcja informacji z dokumentów, analiza feedbacku, kategoryzacja zapytań. Dane to najbardziej pewny wyznacznik każdego biznesu."
     },
     "integration": {
       "title": "Integracja systemów",
-      "description": "Łączenie rozproszonych narzędzi w jeden spójny ekosystem."
+      "description": "CRM, ERP, narzędzia komunikacji - łączenie rozproszonych narzędzi w jeden spójny ekosystem, który pracuje automatycznie."
     },
     "analysis": {
       "title": "Analiza i raportowanie",
-      "description": "Skoro nie można tego dotknąć, fajnie chociaż wiedzieć co to nam daje."
+      "description": "Dashboardy w czasie rzeczywistym, automatyczne raporty, alerty o anomaliach. Wiesz co dzieje się w firmie bez ręcznego zbierania danych."
     }
   },
   "howItWorks": {
@@ -94,6 +95,40 @@
     "secondary": "Sprawdź scenariusz",
     "noCommitment": "Bez zobowiązań",
     "freeAudit": "Darmowy audyt firmy"
+  },
+  "faq": {
+    "headline": "NAJCZĘSTSZE PYTANIA.",
+    "subtitle": "Odpowiedzi na pytania, które powstrzymują firmy przed wdrożeniem AI.",
+    "questions": {
+      "cost": {
+        "question": "Czy wdrożenie AI jest drogie?",
+        "answer": "Nie zaczynamy od dużych inwestycji. Najpierw identyfikujemy procesy, które pochłaniają najwięcej czasu i pieniędzy. Średnio firmy oszczędzają 20+ godzin tygodniowo już po pierwszym wdrożeniu. To zwrot z inwestycji w 2-3 miesiące. Darmowy audyt pokaże Ci dokładnie ile możesz zaoszczędzić w Twojej firmie."
+      },
+      "fitBusiness": {
+        "question": "Czy AI zadziała w mojej firmie?",
+        "answer": "AI nie jest rozwiązaniem uniwersalnym. Dlatego zawsze zaczynamy od audytu Twoich procesów. Jeśli w firmie są powtarzalne zadania, obsługa danych lub integracje między systemami - AI zadziała. Nie wdrażamy rozwiązań tam, gdzie nie przyniosą wartości. Jeśli coś nie ma sensu, powiemy Ci o tym wprost."
+      },
+      "complexity": {
+        "question": "Czy to jest skomplikowane i czasochłonne?",
+        "answer": "Wdrożenie robimy w iteracjach. Zaczynamy od jednego procesu, testujemy, dopiero potem skalujemy. Pierwsze wdrożenie trwa 2-4 tygodnie, nie miesiące. System dostosowuje się do Twoich procesów, nie odwrotnie. Ty pracujesz tak jak dotychczas, system działa w tle."
+      },
+      "control": {
+        "question": "Czy stracę kontrolę nad procesami?",
+        "answer": "Wręcz przeciwnie - zyskujesz większą kontrolę. Dostajesz pełną dokumentację, dashboardy w czasie rzeczywistym i możliwość modyfikacji w każdej chwili. System należy do Ciebie. Możesz go zmieniać, skalować lub wyłączyć kiedy chcesz. Zero uzależnienia od zewnętrznego dostawcy."
+      },
+      "mistakes": {
+        "question": "Co jeśli AI zrobi błąd?",
+        "answer": "Każdy system przechodzi testy w rzeczywistych warunkach przed pełnym wdrożeniem. Dodatkowo stawiamy zabezpieczenia - systemy alertów, mechanizmy weryfikacji, human-in-the-loop tam gdzie potrzeba. AI wspiera decyzje, nie zastępuje człowieka w kluczowych momentach. Masz pełną kontrolę i monitoring w czasie rzeczywistym."
+      },
+      "time": {
+        "question": "Nie mam teraz czasu na wdrożenie.",
+        "answer": "Paradoks: brak czasu to właśnie powód, dla którego potrzebujesz automatyzacji. Audyt zajmuje 5 minut. Po nim wiesz, ile czasu możesz odzyskać. Pierwsze wdrożenie wymaga zaangażowania 2-3 godzin w tygodniu przez 2-4 tygodnie. Potem system pracuje za Ciebie 24/7. To inwestycja czasu, która zwraca się wielokrotnie."
+      },
+      "waiting": {
+        "question": "Może poczekam aż technologia się rozwinie?",
+        "answer": "AI już działa w tysiącach firm. Każdy miesiąc oczekiwania to stracone godziny i pieniądze. Konkurencja nie czeka. Technologia jest dojrzała - wykorzystujemy sprawdzone rozwiązania, nie eksperymenty. Im wcześniej zaczniesz, tym większą przewagę zbudujesz."
+      }
+    }
   },
   "footer": {
     "company": {

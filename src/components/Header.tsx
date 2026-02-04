@@ -38,7 +38,7 @@ const Header = () => {
     { href: '#services', label: t('nav.whatWeDo') },
     { href: '#who-we-are', label: t('nav.whoWeAre') },
     { href: '#how-it-works', label: t('nav.howWeWork') },
-    { href: '#contact', label: t('nav.contact') },
+    { href: '#faq', label: t('nav.faq') },
   ];
 
   const handleNavClick = (href: string) => {
