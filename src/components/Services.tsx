@@ -7,10 +7,6 @@ import TiltCard from './TiltCard';
 const Services = () => {
   const { t } = useTranslation();
 
-  const handleCTA = () => {
-    window.open('https://tally.so/r/2EPBVM', '_blank');
-  };
-
   const services = [
     {
       icon: Workflow,
@@ -121,7 +117,7 @@ const Services = () => {
 
           {/* Services grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-32 md:mb-40"
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -168,43 +164,6 @@ const Services = () => {
                 </TiltCard>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Bottom CTA */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="relative inline-block">
-              <motion.div
-                className="absolute -inset-1 rounded-xl bg-purple-500/40 blur-md"
-                animate={{
-                  scale: [1, 1.05, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              <motion.button
-                onClick={handleCTA}
-                className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="relative z-10">{t('howItWorks.cta')}</span>
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.button>
-            </div>
-
-            <p className="text-sm text-white/30 mt-6">
-              {t('cta.noCommitment')}
-            </p>
           </motion.div>
         </div>
       </section>

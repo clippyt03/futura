@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Zap, Puzzle, Clock } from 'lucide-react';
 import TiltCard from './TiltCard';
 
 export default function WhoWeAre() {
   const { t } = useTranslation();
 
   const items = [
-    { text: t('whoWeAre.notGadget') },
-    { text: t('whoWeAre.integration') },
-    { text: t('whoWeAre.systemsWork') },
+    { text: t('whoWeAre.notGadget'), icon: Zap },
+    { text: t('whoWeAre.integration'), icon: Puzzle },
+    { text: t('whoWeAre.systemsWork'), icon: Clock },
   ];
 
   const containerVariants = {
@@ -91,10 +92,25 @@ export default function WhoWeAre() {
               className="h-full"
             >
               <TiltCard
-                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center"
+                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col items-center justify-center gap-6"
                 tiltStrength={10}
                 glowColor="rgba(147,51,234,0.5)"
               >
+                <motion.div
+                  whileHover={{
+                    rotate: 360,
+                    scale: 1.2,
+                  }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <item.icon
+                    size={40}
+                    className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
+                    style={{
+                      filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                    }}
+                  />
+                </motion.div>
                 <p className="text-base md:text-lg text-white/70 leading-relaxed font-light text-center">
                   {item.text}
                 </p>
