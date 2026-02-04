@@ -4,12 +4,12 @@
     "whoWeAre": "WHO WE ARE",
     "howWeWork": "HOW WE WORK",
     "contact": "CONTACT",
-    "cta": "CHECK THE PLAN"
+    "cta": "GET FREE AUDIT"
   },
   "hero": {
-    "headline": "SYSTEMS THAT WORK.",
+    "headline": "AI IN YOUR COMPANY.",
     "subheadline": "Implementation plan tailored to your company. In less than 5 minutes. No commitment.",
-    "cta": "CHECK THE PLAN",
+    "cta": "GET THE PLAN NOW",
     "bullets": {
       "one": "Plan tailored to your specific company",
       "two": "No costs or obligations",
@@ -112,7 +112,7 @@
     },
     "contact": {
       "title": "Contact",
-      "email": "contact@futura.ai"
+      "email": "hello@wefutura.com"
     },
     "rights": "All rights reserved."
   }

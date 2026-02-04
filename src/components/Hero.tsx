@@ -17,10 +17,10 @@ export default function Hero() {
 
       {/* Circular purple halo effects - Subtle and cohesive */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px]"
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[120px]"
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.2, 0.35, 0.2],
+          opacity: [0.35, 0.5, 0.35],
         }}
         transition={{
           duration: 8,
@@ -29,10 +29,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/20 rounded-full blur-[130px]"
+        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/30 rounded-full blur-[130px]"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.15, 0.3, 0.15],
+          opacity: [0.3, 0.45, 0.3],
         }}
         transition={{
           duration: 10,
@@ -42,10 +42,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/15 rounded-full blur-[140px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/25 rounded-full blur-[140px]"
         animate={{
           scale: [1, 1.4, 1],
-          opacity: [0.15, 0.25, 0.15],
+          opacity: [0.3, 0.4, 0.3],
           rotate: [0, 180, 360]
         }}
         transition={{

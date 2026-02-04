@@ -26,14 +26,9 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img
-              src="/futura_logo_new.png"
-              alt="FUTURA"
-              className="h-10 w-auto mb-6"
-              style={{
-                filter: 'drop-shadow(0 0 8px rgba(147, 51, 234, 0.4))',
-              }}
-            />
+            <h2 className="font-michroma text-2xl text-white tracking-wider mb-6">
+              FUTURA.
+            </h2>
             <p className="text-sm text-white/50 mb-6 leading-relaxed font-light">
               {t('footer.company.description')}
             </p>
