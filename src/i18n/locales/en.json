@@ -15,7 +15,16 @@
       "three": "Implementation scenario in less than 5 minutes"
     }
   },
+  "whoWeAre": {
+    "headline": "WHO WE ARE.",
+    "subtitle": "Futura is an Automation House that implements AI into real business processes.",
+    "notExperiment": "Not as an experiment.",
+    "notGadget": "Not as a gadget.",
+    "systemsWork": "These are systems that work in companies every day.",
+    "footer": "PRACTICE. NOT THEORY."
+  },
   "services": {
+    "preHeadline": "AI IS A SYSTEM, NOT A GADGET.",
     "headline": "WHAT WE DO.",
     "subtitle": "We design and implement systems that automate processes, support teams, and integrate with existing infrastructure.",
     "focus": "We focus on what actually makes a difference.",
@@ -74,6 +83,11 @@
       "title": "Full control",
       "description": "The system belongs to you. Complete documentation. Ability to modify. No dependency on external provider."
     }
+  },
+  "commonMistake": {
+    "headline": "THIS MISTAKE KILLS MOST AI IMPLEMENTATIONS.",
+    "description": "It starts with tools instead of understanding your own business. AI doesn't fix chaos. It accelerates it.",
+    "tagline": "SENSE FIRST. SYSTEM SECOND."
   },
   "cta": {
     "main": "GET IMPLEMENTATION PLAN.",

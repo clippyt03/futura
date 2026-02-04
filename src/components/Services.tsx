@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Database, Workflow, GitBranch, BarChart3 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SectionTransition from './SectionTransition';
+import TiltCard from './TiltCard';
 
 const Services = () => {
   const { t } = useTranslation();
@@ -79,6 +80,18 @@ const Services = () => {
           {/* Header */}
           <SectionTransition delay={0.2}>
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
+              <motion.p
+                className="font-michroma text-xl md:text-2xl text-purple-400 mb-6 tracking-wide"
+                style={{
+                  textShadow: '0 0 20px rgba(147,51,234,0.8)'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                {t('services.preHeadline')}
+              </motion.p>
               <motion.h2
                 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-white"
                 initial={{ opacity: 0, y: 30 }}
@@ -120,26 +133,41 @@ const Services = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="group"
                 variants={cardVariants}
               >
-                {/* Icon */}
-                <div className="mb-6">
-                  <service.icon
-                    size={40}
-                    className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
-                  />
-                </div>
+                <TiltCard
+                  className="group p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                  tiltStrength={10}
+                  glowColor="rgba(147,51,234,0.5)"
+                >
+                  {/* Icon */}
+                  <motion.div
+                    className="mb-6"
+                    whileHover={{
+                      rotate: 360,
+                      scale: 1.2,
+                    }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <service.icon
+                      size={40}
+                      className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
+                      style={{
+                        filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                      }}
+                    />
+                  </motion.div>
 
-                {/* Title */}
-                <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
-                  {service.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
+                    {service.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-base md:text-lg text-white/50 leading-relaxed font-light">
-                  {service.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-base md:text-lg text-white/50 leading-relaxed font-light">
+                    {service.description}
+                  </p>
+                </TiltCard>
               </motion.div>
             ))}
           </motion.div>

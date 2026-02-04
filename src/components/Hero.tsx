@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { ClipboardCheck, CircleDollarSign, Clock } from 'lucide-react';
+import EnhancedMagneticButton from './EnhancedMagneticButton';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -13,12 +15,12 @@ export default function Hero() {
       {/* Background - Pure black to dark purple gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
-      {/* Circular purple halo effects - matching social media graphics */}
+      {/* Circular purple halo effects - INTENSIFIED for neon look */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px]"
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/35 rounded-full blur-[120px]"
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
+          opacity: [0.35, 0.7, 0.35],
         }}
         transition={{
           duration: 8,
@@ -27,10 +29,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/20 rounded-full blur-[130px]"
+        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-700/35 rounded-full blur-[130px]"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.15, 0.35, 0.15],
+          opacity: [0.3, 0.65, 0.3],
         }}
         transition={{
           duration: 10,
@@ -40,10 +42,10 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-pink-500/10 rounded-full blur-[140px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-pink-500/25 rounded-full blur-[140px]"
         animate={{
           scale: [1, 1.4, 1],
-          opacity: [0.1, 0.25, 0.1],
+          opacity: [0.25, 0.5, 0.25],
           rotate: [0, 180, 360]
         }}
         transition={{
@@ -80,9 +82,12 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
 
-        {/* Main Headline - FUTURA style */}
+        {/* Main Headline - FUTURA style with neon glow */}
         <motion.h1
           className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-10 md:mb-12 leading-[1.1] tracking-tight"
+          style={{
+            textShadow: '0 0 30px rgba(147,51,234,0.8), 0 0 60px rgba(147,51,234,0.4)'
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -100,47 +105,136 @@ export default function Hero() {
           {t('hero.subheadline')}
         </motion.p>
 
-        {/* CTA Button - simple and clean */}
+        {/* CTA Button - with magnetic and neon effect */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-16 md:mb-20"
         >
-          <button
+          <EnhancedMagneticButton
             onClick={handleCTA}
-            className="group relative px-10 md:px-14 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.3)]"
+            className="group relative px-10 md:px-14 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
+            magneticStrength={0.3}
           >
-            <span className="relative z-10">{t('hero.cta')}</span>
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+            <span
+              className="relative z-10"
+              style={{
+                textShadow: '0 0 10px rgba(147,51,234,0.6)'
+              }}
+            >
+              {t('hero.cta')}
+            </span>
+            <div
+              className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                boxShadow: '0 0 30px rgba(147,51,234,0.7), inset 0 0 20px rgba(147,51,234,0.3)'
+              }}
+            />
+          </EnhancedMagneticButton>
         </motion.div>
 
-        {/* 3 Benefits Bullets */}
+        {/* 3 Benefits Bullets - with meaningful icons */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto"
         >
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-purple-500" />
+          <motion.div
+            className="flex flex-col items-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <motion.div
+              animate={{
+                y: [0, -8, 0],
+                filter: [
+                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
+                  'drop-shadow(0 0 20px rgba(147,51,234,0.9))',
+                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                ]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <ClipboardCheck
+                size={32}
+                className="text-purple-400"
+              />
+            </motion.div>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
               {t('hero.bullets.one')}
             </p>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-purple-500" />
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col items-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.85 }}
+          >
+            <motion.div
+              animate={{
+                y: [0, -8, 0],
+                filter: [
+                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
+                  'drop-shadow(0 0 20px rgba(147,51,234,0.9))',
+                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                ]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+            >
+              <CircleDollarSign
+                size={32}
+                className="text-purple-400"
+              />
+            </motion.div>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
               {t('hero.bullets.two')}
             </p>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-purple-500" />
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col items-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            <motion.div
+              animate={{
+                y: [0, -8, 0],
+                filter: [
+                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
+                  'drop-shadow(0 0 20px rgba(147,51,234,0.9))',
+                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                ]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2
+              }}
+            >
+              <Clock
+                size={32}
+                className="text-purple-400"
+              />
+            </motion.div>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
               {t('hero.bullets.three')}
             </p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 

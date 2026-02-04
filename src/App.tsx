@@ -1,12 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import WhoWeAre from './components/WhoWeAre';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
 import WhyFutura from './components/WhyFutura';
+import CommonMistake from './components/CommonMistake';
 import Footer from './components/Footer';
 import GlobalCursor from './components/GlobalCursor';
 import ScrollProgress from './components/ScrollProgress';
+import PurpleLaserBeam from './components/PurpleLaserBeam';
 
 // Pages
 import About from './pages/About';
@@ -22,9 +25,11 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <WhoWeAre />
       <Services />
       <HowItWorks />
       <WhyFutura />
+      <CommonMistake />
     </>
   );
 }
@@ -33,6 +38,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-dark-900 text-white font-michroma relative">
+        <PurpleLaserBeam />
         <ScrollProgress />
         <GlobalCursor />
         <Header />

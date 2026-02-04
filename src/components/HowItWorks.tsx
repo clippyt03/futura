@@ -92,7 +92,10 @@ const HowItWorks = () => {
                 {t('howItWorks.headline')}
               </motion.h2>
               <motion.p
-                className="text-lg md:text-xl text-white/60 leading-relaxed mb-6"
+                className="font-michroma text-2xl md:text-3xl text-purple-400 leading-relaxed mb-6"
+                style={{
+                  textShadow: '0 0 20px rgba(147,51,234,0.8)'
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -127,22 +130,60 @@ const HowItWorks = () => {
                 variants={stepVariants}
               >
                 <div className="flex items-start gap-6 md:gap-8">
-                  {/* Number */}
+                  {/* Number with neon effect */}
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-purple-500/30 bg-purple-500/5 flex items-center justify-center">
-                      <span className="font-michroma text-lg md:text-xl text-purple-400">
+                    <motion.div
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-purple-500/40 bg-purple-500/10 flex items-center justify-center relative"
+                      whileHover={{
+                        scale: 1.1,
+                        borderColor: 'rgba(147,51,234,0.8)',
+                      }}
+                      style={{
+                        boxShadow: '0 0 30px rgba(147,51,234,0.5), inset 0 0 20px rgba(147,51,234,0.2)'
+                      }}
+                    >
+                      <span
+                        className="font-michroma text-lg md:text-xl text-purple-400"
+                        style={{
+                          textShadow: '0 0 10px rgba(147,51,234,0.8)'
+                        }}
+                      >
                         {step.number}
                       </span>
-                    </div>
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-purple-400"
+                        initial={{ scale: 1, opacity: 0 }}
+                        animate={{
+                          scale: [1, 1.3, 1],
+                          opacity: [0, 0.5, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: index * 0.5,
+                        }}
+                      />
+                    </motion.div>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 pt-2">
                     <div className="flex items-center gap-4 mb-4">
-                      <step.icon
-                        size={32}
-                        className="text-purple-500"
-                      />
+                      <motion.div
+                        whileHover={{
+                          rotate: 15,
+                          scale: 1.2,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <step.icon
+                          size={32}
+                          className="text-purple-500"
+                          style={{
+                            filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                          }}
+                        />
+                      </motion.div>
                       <h3 className="font-michroma text-xl md:text-2xl font-bold text-white">
                         {step.title}
                       </h3>

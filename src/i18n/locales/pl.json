@@ -15,7 +15,16 @@
       "three": "Scenariusz wdrożenia w mniej niż 5 minut"
     }
   },
+  "whoWeAre": {
+    "headline": "KIM JESTEŚMY.",
+    "subtitle": "Futura to Automation House, który wdraża AI do realnych procesów biznesowych.",
+    "notExperiment": "Nie jak eksperyment.",
+    "notGadget": "Nie jako gadżet.",
+    "systemsWork": "To systemy, które działają w firmach każdego dnia.",
+    "footer": "PRAKTYKA. NIE TEORIA."
+  },
   "services": {
+    "preHeadline": "AI TO SYSTEM, NIE GADŻET.",
     "headline": "CO ROBIMY.",
     "subtitle": "Projektujemy i wdrażamy systemy, które automatyzują procesy, wspierają zespoły oraz integrują się z istniejącą infrastrukturą.",
     "focus": "Skupiamy się na tym, co faktycznie robi różnicę.",
@@ -74,6 +83,11 @@
       "title": "Pełna kontrola",
       "description": "System należy do Ciebie. Pełna dokumentacja. Możliwość modyfikacji. Brak uzależnienia od zewnętrznego dostawcy."
     }
+  },
+  "commonMistake": {
+    "headline": "TEN BŁĄD ZABIJA WIĘKSZOŚĆ WDROŻEŃ AI.",
+    "description": "To zaczynanie od narzędzi, zamiast od zrozumienia własnego biznesu. AI nie naprawia chaosu. Ona go przyspiesza.",
+    "tagline": "NAJPIERW SENS. POTEM SYSTEM."
   },
   "cta": {
     "main": "ODBIERZ PLAN WDROŻENIA.",
