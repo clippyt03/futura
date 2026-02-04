@@ -74,11 +74,11 @@ const Header = () => {
       transition={{ duration: 0.8, delay: 0.2 }}
       style={{ height: '80px' }}
     >
-      <nav className="max-w-7xl mx-auto px-6 h-full relative flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between gap-8">
 
         {/* LOGO - LEFT SIDE */}
         <motion.button
-          className="relative cursor-pointer z-50"
+          className="relative cursor-pointer z-50 flex-shrink-0"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -91,35 +91,37 @@ const Header = () => {
           </h1>
         </motion.button>
 
-        {/* DESKTOP NAVIGATION - CENTERED */}
+        {/* DESKTOP NAVIGATION - CENTERED WITH FLEX */}
         {!isMobile && (
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-6 lg:space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className="relative text-white/70 hover:text-white font-michroma text-xs tracking-wider transition-all duration-300 group"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: '100%' }}
-                  transition={{ duration: 0.3 }}
-                />
+          <div className="flex-1 flex items-center justify-center">
+            <div className="flex items-center space-x-4 lg:space-x-6">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="relative text-white/70 hover:text-white font-michroma text-xs tracking-wider transition-all duration-300 group whitespace-nowrap"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
 
-                <span className="relative z-10">{item.label}</span>
-              </motion.button>
-            ))}
+                  <span className="relative z-10">{item.label}</span>
+                </motion.button>
+              ))}
+            </div>
           </div>
         )}
 
         {/* DESKTOP RIGHT SIDE - Language Switcher + CTA */}
         {!isMobile && (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <LanguageSwitcher />
 
             <motion.button
