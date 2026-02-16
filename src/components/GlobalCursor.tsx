@@ -73,7 +73,7 @@ const GlobalCursor: React.FC = () => {
       {/* Large ambient background glow */}
       <div
         ref={ambientRef}
-        className="fixed w-[250px] h-[250px] pointer-events-none z-[9997] mix-blend-mode-screen"
+        className="fixed w-[250px] h-[250px] pointer-events-none z-[9997] mix-blend-mode-screen hidden md:block"
         style={{
           background: `
             radial-gradient(circle, 
@@ -91,7 +91,7 @@ const GlobalCursor: React.FC = () => {
       {/* Medium trailing glow */}
       <div
         ref={trailRef}
-        className="fixed w-[150px] h-[150px] pointer-events-none z-[9998] mix-blend-mode-screen"
+        className="fixed w-[150px] h-[150px] pointer-events-none z-[9998] mix-blend-mode-screen hidden md:block"
         style={{
           background: `
             radial-gradient(circle, 
@@ -109,7 +109,7 @@ const GlobalCursor: React.FC = () => {
       {/* Main sharp neon glow */}
       <div
         ref={glowRef}
-        className="fixed w-[80px] h-[80px] pointer-events-none z-[9999] mix-blend-mode-screen"
+        className="fixed w-[80px] h-[80px] pointer-events-none z-[9999] mix-blend-mode-screen hidden md:block"
         style={{
           background: `
             radial-gradient(circle, 

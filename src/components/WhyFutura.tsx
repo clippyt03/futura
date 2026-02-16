@@ -73,8 +73,8 @@ const WhyFutura = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
           {/* Header */}
           <SectionTransition delay={0.2}>
-            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32 px-6">
-              <h2 className="font-michroma text-sm sm:text-2xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{ color: '#ffffff', hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
+            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32 px-2 sm:px-6">
+              <h2 className="font-michroma text-xs sm:text-2xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight break-words" style={{ color: '#ffffff', wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                 {t('whyFutura.headline')}
               </h2>
             </div>
@@ -91,27 +91,33 @@ const WhyFutura = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="group flex flex-col items-center justify-center text-center w-full max-w-sm mx-auto"
+                className="group flex flex-col items-center text-center w-full max-w-sm mx-auto min-h-[320px] p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                 variants={cardVariants}
               >
                 {/* Icon */}
-                <div className="flex justify-center items-center w-full mb-6">
+                <div className="flex justify-center items-center w-full mt-8 mb-auto">
                   <benefit.icon
                     size={40}
                     className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300 mx-auto"
-                    style={{ display: 'block' }}
+                    style={{
+                      display: 'block',
+                      filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                    }}
                   />
                 </div>
 
-                {/* Title */}
-                <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
-                  {benefit.title}
-                </h3>
+                {/* Content */}
+                <div className="mb-8">
+                  {/* Title */}
+                  <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
+                    {benefit.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-base md:text-lg text-white/50 leading-relaxed font-light">
-                  {benefit.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-base md:text-lg text-white/50 leading-relaxed font-light">
+                    {benefit.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>

@@ -86,7 +86,7 @@ export default function WhoWeAre() {
               className="h-full"
             >
               <TiltCard
-                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col items-center justify-center gap-6 min-h-[280px]"
+                className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col items-center min-h-[280px]"
                 tiltStrength={10}
                 glowColor="rgba(147,51,234,0.5)"
               >
@@ -95,6 +95,7 @@ export default function WhoWeAre() {
                     scale: 1.1,
                   }}
                   transition={{ duration: 0.3 }}
+                  className="mt-8 mb-auto"
                 >
                   <item.icon
                     size={40}
@@ -104,7 +105,7 @@ export default function WhoWeAre() {
                     }}
                   />
                 </motion.div>
-                <p className="text-base md:text-lg text-white/70 leading-relaxed font-light text-center">
+                <p className="text-base md:text-lg text-white/70 leading-relaxed font-light text-center mb-8">
                   {item.text}
                 </p>
               </TiltCard>

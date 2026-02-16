@@ -124,7 +124,7 @@ const Services = () => {
                 >
                   {/* Icon */}
                   <motion.div
-                    className="mb-6"
+                    className="mt-8 mb-auto"
                     whileHover={{
                       scale: 1.1,
                     }}
@@ -139,15 +139,18 @@ const Services = () => {
                     />
                   </motion.div>
 
-                  {/* Title */}
-                  <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
-                    {service.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="mb-8">
+                    {/* Title */}
+                    <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
+                      {service.title}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-base md:text-lg text-white/50 leading-relaxed font-light flex-grow">
-                    {service.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-base md:text-lg text-white/50 leading-relaxed font-light">
+                      {service.description}
+                    </p>
+                  </div>
                 </TiltCard>
               </motion.div>
             ))}
