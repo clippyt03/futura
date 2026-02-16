@@ -118,13 +118,13 @@ export default function FAQ() {
 
       <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
         <motion.div
-          className="text-center mb-20 md:mb-24 px-4"
+          className="text-center mb-20 md:mb-24 px-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-michroma text-3xl sm:text-4xl md:text-7xl font-bold text-white mb-8 leading-tight" style={{ wordWrap: 'break-word' }}>
+          <h2 className="font-michroma text-2xl sm:text-3xl md:text-7xl font-bold text-white mb-8 leading-tight" style={{ hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
             {t('faq.headline')}
           </h2>
           <p className="text-lg md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: 1.7 }}>
