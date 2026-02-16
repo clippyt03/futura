@@ -74,7 +74,7 @@ const WhyFutura = () => {
           {/* Header */}
           <SectionTransition delay={0.2}>
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32 px-0">
-              <h2 className="font-michroma text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{ color: '#ffffff' }}>
+              <h2 className="font-michroma text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 leading-tight px-4" style={{ color: '#ffffff' }}>
                 {t('whyFutura.headline')}
               </h2>
             </div>
@@ -91,16 +91,18 @@ const WhyFutura = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="group flex flex-col text-center w-full max-w-sm mx-auto min-h-[320px] p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                className="group flex flex-col items-center text-center w-full max-w-sm mx-auto min-h-[320px] p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                 variants={cardVariants}
               >
-                <benefit.icon
-                  size={40}
-                  className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300 mx-auto mb-6"
-                  style={{
-                    filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
-                  }}
-                />
+                <div className="flex justify-center w-full mb-6">
+                  <benefit.icon
+                    size={40}
+                    className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
+                    style={{
+                      filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                    }}
+                  />
+                </div>
 
                 <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
                   {benefit.title}
