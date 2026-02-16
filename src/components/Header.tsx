@@ -74,7 +74,7 @@ const Header = () => {
       transition={{ duration: 0.8, delay: 0.2 }}
       style={{ height: '80px' }}
     >
-      <nav className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between gap-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-8">
 
         {/* LOGO - LEFT SIDE */}
         <motion.button
@@ -157,14 +157,14 @@ const Header = () => {
         )}
 
         {/* MOBILE MENU BUTTON - RIGHT SIDE */}
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-3 flex-shrink-0">
           <LanguageSwitcher />
 
           <motion.button
-            className="text-white p-2.5 relative z-50 rounded-lg"
+            className="text-white p-2 relative z-50 rounded-lg"
             style={{
-              minHeight: '48px',
-              minWidth: '48px',
+              minHeight: '44px',
+              minWidth: '44px',
               background: isMobileMenuOpen ? 'rgba(147, 51, 234, 0.2)' : 'transparent'
             }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

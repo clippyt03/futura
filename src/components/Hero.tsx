@@ -266,7 +266,7 @@ export default function Hero() {
 
       {/* Subtle scroll indicator */}
       <motion.div
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-12 w-full flex justify-center"
         animate={{
           y: [0, 10, 0],
         }}

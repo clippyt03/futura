@@ -70,11 +70,11 @@ const WhyFutura = () => {
           }}
         />
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
           {/* Header */}
           <SectionTransition delay={0.2}>
-            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
-              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ color: '#ffffff' }}>
+            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32 px-4">
+              <h2 className="font-michroma text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{ color: '#ffffff', wordWrap: 'break-word' }}>
                 {t('whyFutura.headline')}
               </h2>
             </div>
@@ -82,7 +82,7 @@ const WhyFutura = () => {
 
           {/* Benefits grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-32 md:mb-40"
+            className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-32 md:mb-40 justify-items-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -91,14 +91,16 @@ const WhyFutura = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="group flex flex-col items-center text-center"
+                className="group flex flex-col items-center text-center w-full max-w-sm mx-auto"
                 variants={cardVariants}
               >
                 {/* Icon */}
-                <benefit.icon
-                  size={40}
-                  className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300 mb-6"
-                />
+                <div className="flex justify-center items-center mb-6">
+                  <benefit.icon
+                    size={40}
+                    className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
+                  />
+                </div>
 
                 {/* Title */}
                 <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
