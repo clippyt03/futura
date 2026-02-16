@@ -24,7 +24,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
         className="w-full py-8 flex items-start justify-between gap-6 text-left group focus:outline-none focus:ring-2 focus:ring-purple-500/50 rounded-lg px-4 -mx-4 transition-all"
         aria-expanded={isOpen}
       >
-        <h3 className="text-xl md:text-2xl font-michroma text-white group-hover:text-purple-400 transition-colors duration-300 flex-1">
+        <h3 className="text-base md:text-xl lg:text-2xl font-michroma text-white group-hover:text-purple-400 transition-colors duration-300 flex-1">
           {question}
         </h3>
         <motion.div
@@ -124,7 +124,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-michroma text-2xl sm:text-3xl md:text-7xl font-bold text-white mb-8 leading-tight" style={{ hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
+          <h2 className="font-michroma text-lg sm:text-2xl md:text-7xl font-bold text-white mb-8 leading-tight" style={{ hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
             {t('faq.headline')}
           </h2>
           <p className="text-lg md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: 1.7 }}>

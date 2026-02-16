@@ -74,7 +74,7 @@ const WhyFutura = () => {
           {/* Header */}
           <SectionTransition delay={0.2}>
             <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32 px-6">
-              <h2 className="font-michroma text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{ color: '#ffffff', hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
+              <h2 className="font-michroma text-lg sm:text-2xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{ color: '#ffffff', hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
                 {t('whyFutura.headline')}
               </h2>
             </div>
