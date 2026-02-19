@@ -88,7 +88,7 @@ const Terms: React.FC = () => {
             Legal terms and conditions for using Futura services
           </p>
           <div className="text-sm text-white/60">
-            Last updated: January 15, 2024 • Effective: January 15, 2024
+            Last updated: February 19, 2026 • Effective: February 19, 2026
           </div>
         </motion.div>
 
@@ -104,13 +104,13 @@ const Terms: React.FC = () => {
             <h2 className="text-3xl font-bold">Agreement Overview</h2>
           </div>
           <p className="text-white/80 leading-relaxed mb-4">
-            These Terms of Service ("Terms") govern your use of Futura's automation services, website, 
-            and related offerings. By using our services, you enter into a legally binding agreement with 
-            Futura Automation Systems, Inc.
+            These Terms of Service ("Terms") govern your use of Futura's automation services, website,
+            and related offerings. By using our services, you enter into a legally binding agreement with
+            Futura.
           </p>
           <p className="text-white/80 leading-relaxed">
-            Please read these terms carefully before using our services. If you have questions about 
-            these terms, please contact our legal team at legal@futura.ai.
+            Please read these terms carefully before using our services. If you have questions about
+            these terms, please contact us at hello@wefutura.com.
           </p>
         </motion.div>
 
@@ -151,15 +151,15 @@ const Terms: React.FC = () => {
             <h3 className="text-2xl font-bold mb-6 text-neon-purple">Governing Law</h3>
             <div className="space-y-4 text-white/80">
               <p>
-                These Terms are governed by the laws of the State of California, United States, 
+                These Terms are governed by the laws of Poland,
                 without regard to conflict of law principles.
               </p>
               <p>
-                Any disputes arising from these Terms will be resolved through binding arbitration 
-                in San Francisco, California.
+                Any disputes arising from these Terms will be resolved in accordance with
+                Polish law and jurisdiction.
               </p>
               <p>
-                If any provision of these Terms is found to be unenforceable, the remaining 
+                If any provision of these Terms is found to be unenforceable, the remaining
                 provisions will continue in full force and effect.
               </p>
             </div>
@@ -174,15 +174,13 @@ const Terms: React.FC = () => {
             <h3 className="text-2xl font-bold mb-6 text-neon-purple">Contact Information</h3>
             <div className="space-y-4 text-white/80">
               <div>
-                <h4 className="font-semibold mb-2">Legal Department</h4>
-                <p>Email: legal@futura.ai</p>
-                <p>Phone: +1 (555) 123-4567</p>
+                <h4 className="font-semibold mb-2">Contact</h4>
+                <p>Email: hello@wefutura.com</p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">Mailing Address</h4>
-                <p>Futura Automation Systems, Inc.</p>
-                <p>123 Innovation Drive</p>
-                <p>San Francisco, CA 94105</p>
+                <h4 className="font-semibold mb-2">Company Information</h4>
+                <p>Futura</p>
+                <p>Poland</p>
               </div>
             </div>
           </motion.div>
