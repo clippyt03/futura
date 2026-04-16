@@ -42,6 +42,7 @@ export default defineConfig({
     },
   },
   server: {
+    historyApiFallback: true,
     headers: {
       'Cache-Control': 'max-age=31536000',
     },

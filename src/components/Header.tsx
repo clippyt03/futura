@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -43,6 +44,18 @@ const Header = () => {
     { href: '#faq', label: t('nav.faq') },
   ];
 
+  const scrollToSection = (targetId: string) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const headerHeight = 80;
+      const visualPadding = isMobile ? 80 : 60;
+      const totalOffset = headerHeight + visualPadding;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
+      window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
+    }
+  };
+
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
 
@@ -52,20 +65,12 @@ const Header = () => {
     }
 
     const targetId = href.substring(1);
-    const targetElement = document.getElementById(targetId);
 
-    if (targetElement) {
-      const headerHeight = 80;
-      const visualPadding = isMobile ? 80 : 60;
-      const totalOffset = headerHeight + visualPadding;
-
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
-
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: 'smooth'
-      });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => scrollToSection(targetId), 300);
+    } else {
+      scrollToSection(targetId);
     }
   };
 
@@ -86,7 +91,7 @@ const Header = () => {
         {/* LOGO - LEFT SIDE */}
         <motion.button
           className="relative cursor-pointer z-50 flex-shrink-0"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => { navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
