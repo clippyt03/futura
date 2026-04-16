@@ -49,27 +49,6 @@ export default function PurpleLaserBeam() {
         }}
       />
 
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={`laser-particle-${i}`}
-          className="absolute w-2 h-2 bg-purple-400 rounded-full"
-          style={{
-            left: `${10 + i * 7}%`,
-            top: `${25 + i * 3}%`,
-            boxShadow: '0 0 10px 4px rgba(147,51,234,0.3)'
-          }}
-          animate={{
-            scale: [0.5, 1.5, 0.5],
-            opacity: [0.1, 0.3, 0.1],
-          }}
-          transition={{
-            duration: 2 + Math.random(),
-            repeat: Infinity,
-            delay: i * 0.2,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
     </div>
   );
 }

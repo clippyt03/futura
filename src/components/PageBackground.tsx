@@ -6,8 +6,8 @@ interface PageBackgroundProps {
 }
 
 const GRID_SIZE = 48;
-const SWEEP_DURATION = 19000;
-const BAND_WIDTH_RATIO = 0.28;
+const SWEEP_DURATION = 24000;
+const BAND_WIDTH_RATIO = 0.22;
 
 function GridMesh({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -51,12 +51,31 @@ function GridMesh({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
     const drawSweep = (progress: number) => {
       const w = canvas.width;
       const h = canvas.height;
-      const bandWidth = w * BAND_WIDTH_RATIO;
-      const centerX = -bandWidth + (w + bandWidth * 2) * progress;
+      const diagonal = Math.sqrt(w * w + h * h);
+      const bandWidth = diagonal * BAND_WIDTH_RATIO;
+      const travel = diagonal + bandWidth * 2;
+      const offset = -bandWidth + travel * progress;
 
-      const grad = ctx.createLinearGradient(centerX - bandWidth / 2, 0, centerX + bandWidth / 2, 0);
+      const angle = Math.atan2(h, w);
+      const cos = Math.cos(angle);
+      const sin = Math.sin(angle);
+
+      const cx = cos * offset;
+      const cy = sin * offset;
+
+      const perpX = -sin;
+      const perpY = cos;
+
+      const x0 = cx + perpX * bandWidth * 0.5;
+      const y0 = cy + perpY * bandWidth * 0.5;
+      const x1 = cx - perpX * bandWidth * 0.5;
+      const y1 = cy - perpY * bandWidth * 0.5;
+
+      const grad = ctx.createLinearGradient(x1, y1, x0, y0);
       grad.addColorStop(0, 'rgba(147,51,234,0)');
-      grad.addColorStop(0.5, 'rgba(147,51,234,0.09)');
+      grad.addColorStop(0.35, 'rgba(147,51,234,0.04)');
+      grad.addColorStop(0.5, 'rgba(147,51,234,0.08)');
+      grad.addColorStop(0.65, 'rgba(147,51,234,0.04)');
       grad.addColorStop(1, 'rgba(147,51,234,0)');
 
       ctx.fillStyle = grad;
