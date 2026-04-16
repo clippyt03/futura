@@ -106,7 +106,7 @@ const Header = () => {
         {/* DESKTOP NAVIGATION - CENTERED WITH FLEX */}
         {!isMobile && (
           <div className="flex-1 flex items-center justify-center">
-            <div className="flex items-center space-x-4 lg:space-x-6">
+            <div className="flex items-center space-x-8 lg:space-x-12">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.href}
