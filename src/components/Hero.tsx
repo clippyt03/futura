@@ -178,27 +178,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: shouldReduceAnimations ? 0.3 : 0.6, delay: shouldReduceAnimations ? 0.1 : 0.7 }}
           >
-            <motion.div
-              animate={shouldReduceAnimations ? {} : {
-                y: [0, -8, 0],
-                filter: [
-                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
-                  'drop-shadow(0 0 20px rgba(147,51,234,0.9))',
-                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className={shouldReduceAnimations ? 'drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]' : ''}
+            <div
+              className="drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]"
             >
               <ClipboardCheck
                 size={32}
                 className="text-purple-400"
               />
-            </motion.div>
+            </div>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
               {t('hero.bullets.one')}
             </p>
@@ -210,28 +197,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: shouldReduceAnimations ? 0.3 : 0.6, delay: shouldReduceAnimations ? 0.15 : 0.85 }}
           >
-            <motion.div
-              animate={shouldReduceAnimations ? {} : {
-                y: [0, -8, 0],
-                filter: [
-                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
-                  'drop-shadow(0 0 20px rgba(147,51,234,0.9))',
-                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-              className={shouldReduceAnimations ? 'drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]' : ''}
-            >
+            <div className="drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]">
               <CircleDollarSign
                 size={32}
                 className="text-purple-400"
               />
-            </motion.div>
+            </div>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
               {t('hero.bullets.two')}
             </p>
@@ -243,28 +214,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: shouldReduceAnimations ? 0.3 : 0.6, delay: shouldReduceAnimations ? 0.2 : 1 }}
           >
-            <motion.div
-              animate={shouldReduceAnimations ? {} : {
-                y: [0, -8, 0],
-                filter: [
-                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))',
-                  'drop-shadow(0 0 20px rgba(147,51,234,0.9))',
-                  'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2
-              }}
-              className={shouldReduceAnimations ? 'drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]' : ''}
-            >
+            <div className="drop-shadow-[0_0_10px_rgba(147,51,234,0.6)]">
               <Clock
                 size={32}
                 className="text-purple-400"
               />
-            </motion.div>
+            </div>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
               {t('hero.bullets.three')}
             </p>
