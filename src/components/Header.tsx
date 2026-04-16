@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -43,6 +45,11 @@ const Header = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
+
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
+    }
 
     const targetId = href.substring(1);
     const targetElement = document.getElementById(targetId);
@@ -111,10 +118,47 @@ const Header = () => {
                     whileHover={{ width: '100%' }}
                     transition={{ duration: 0.3 }}
                   />
-
                   <span className="relative z-10">{item.label}</span>
                 </motion.button>
               ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <Link
+                  to="/uslugi"
+                  className="relative text-white/70 hover:text-white font-michroma text-xs tracking-wider transition-all duration-300 group whitespace-nowrap inline-block"
+                >
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative z-10">{t('nav.services')}</span>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
+                <Link
+                  to="/blog"
+                  className="relative text-white/70 hover:text-white font-michroma text-xs tracking-wider transition-all duration-300 group whitespace-nowrap inline-block"
+                >
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative z-10">{t('nav.blog')}</span>
+                </Link>
+              </motion.div>
             </div>
           </div>
         )}
@@ -212,13 +256,43 @@ const Header = () => {
               </motion.button>
             ))}
 
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+            >
+              <Link
+                to="/uslugi"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white/70 hover:text-white font-michroma text-sm tracking-wider transition-colors duration-300 text-left relative group py-4 px-4 rounded-lg flex items-center hover:bg-purple-500/10"
+                style={{ minHeight: '56px' }}
+              >
+                {t('nav.services')}
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.5 }}
+            >
+              <Link
+                to="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white/70 hover:text-white font-michroma text-sm tracking-wider transition-colors duration-300 text-left relative group py-4 px-4 rounded-lg flex items-center hover:bg-purple-500/10"
+                style={{ minHeight: '56px' }}
+              >
+                {t('nav.blog')}
+              </Link>
+            </motion.div>
+
             <motion.button
               onClick={handleCTA}
               className="bg-purple-500/20 border border-purple-500/50 text-purple-400 hover:bg-purple-500/30 hover:text-white transition-all duration-300 relative overflow-hidden w-full py-4 rounded-lg font-michroma text-sm tracking-wider mt-4"
               style={{ minHeight: '56px' }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.6 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10">

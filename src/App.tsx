@@ -7,6 +7,16 @@ import GlobalCursor from './components/GlobalCursor';
 import ScrollProgress from './components/ScrollProgress';
 import PurpleLaserBeam from './components/PurpleLaserBeam';
 import BackToTop from './components/BackToTop';
+import PillarPage from './templates/PillarPage';
+import SupportingPage from './templates/SupportingPage';
+import BlogPage from './templates/BlogPage';
+import {
+  pillarRoutes,
+  supportingRoutes,
+  blogRoutes,
+  industryRoutes,
+  costRoutes,
+} from './config/routes';
 
 const WhoWeAre = lazy(() => import('./components/WhoWeAre'));
 const Services = lazy(() => import('./components/Services'));
@@ -22,11 +32,13 @@ const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const Cookies = lazy(() => import('./pages/Cookies'));
 const GDPR = lazy(() => import('./pages/GDPR'));
+const Uslugi = lazy(() => import('./pages/Uslugi'));
+const BlogIndex = lazy(() => import('./pages/BlogIndex'));
 
 function LoadingFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+      <div className="w-16 h-16 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin"></div>
     </div>
   );
 }
@@ -66,6 +78,49 @@ function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/gdpr" element={<GDPR />} />
+
+            <Route path="/uslugi" element={<Uslugi />} />
+            <Route path="/blog" element={<BlogIndex />} />
+
+            {pillarRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<PillarPage route={route} />}
+              />
+            ))}
+
+            {supportingRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<SupportingPage route={route} />}
+              />
+            ))}
+
+            {industryRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<SupportingPage route={route} />}
+              />
+            ))}
+
+            {costRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<SupportingPage route={route} />}
+              />
+            ))}
+
+            {blogRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<BlogPage route={route} />}
+              />
+            ))}
           </Routes>
         </Suspense>
         <Footer />
