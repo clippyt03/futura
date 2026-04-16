@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import PageBackground from '../components/PageBackground';
 import { buildOrganizationSchema, buildBreadcrumbSchema } from '../utils/schema';
 import { pillarRoutes, supportingRoutes, industryRoutes, costRoutes } from '../config/routes';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -40,7 +41,8 @@ const Uslugi = () => {
         schemas={schemas}
       />
 
-      <div className="min-h-screen pt-24 pb-20">
+      <PageBackground />
+      <div className="min-h-screen pt-24 pb-20 relative z-10">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

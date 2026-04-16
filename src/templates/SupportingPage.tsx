@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumbs from '../components/Breadcrumbs';
+import PageBackground from '../components/PageBackground';
 import type { BreadcrumbItem } from '../components/Breadcrumbs';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '../utils/schema';
 import type { RouteConfig } from '../config/routes';
@@ -51,7 +52,8 @@ const SupportingPage = ({ route }: SupportingPageProps) => {
         schemas={schemas}
       />
 
-      <div className="min-h-screen pt-24 pb-20">
+      <PageBackground variant="subtle" />
+      <div className="min-h-screen pt-24 pb-20 relative z-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

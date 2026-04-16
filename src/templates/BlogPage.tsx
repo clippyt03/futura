@@ -4,6 +4,7 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumbs from '../components/Breadcrumbs';
+import PageBackground from '../components/PageBackground';
 import type { BreadcrumbItem } from '../components/Breadcrumbs';
 import { buildArticleSchema, buildFAQSchema, buildBreadcrumbSchema } from '../utils/schema';
 import type { RouteConfig } from '../config/routes';
@@ -52,7 +53,8 @@ const BlogPage = ({ route }: BlogPageProps) => {
         schemas={schemas}
       />
 
-      <div className="min-h-screen pt-24 pb-20">
+      <PageBackground variant="subtle" />
+      <div className="min-h-screen pt-24 pb-20 relative z-10">
         <div className="max-w-3xl mx-auto px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
