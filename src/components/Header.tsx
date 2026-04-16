@@ -86,7 +86,7 @@ const Header = () => {
       transition={{ duration: 0.8, delay: 0.2 }}
       style={{ height: '80px' }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-16">
 
         {/* LOGO - LEFT SIDE */}
         <motion.button
