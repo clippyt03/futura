@@ -86,11 +86,11 @@ const Header = () => {
       transition={{ duration: 0.8, delay: 0.2 }}
       style={{ height: '80px' }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-16">
 
         {/* LOGO - LEFT SIDE */}
         <motion.button
-          className="relative cursor-pointer z-50 flex-shrink-0 w-[220px]"
+          className="relative cursor-pointer z-50 flex-shrink-0"
           onClick={() => { navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -170,7 +170,7 @@ const Header = () => {
 
         {/* DESKTOP RIGHT SIDE - Language Switcher + CTA */}
         {!isMobile && (
-          <div className="flex items-center gap-3 flex-shrink-0 w-[220px] justify-end">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <LanguageSwitcher />
 
             <motion.button
