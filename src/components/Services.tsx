@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Database, Workflow, GitBranch, BarChart3 } from 'lucide-react';
+import { Database, Workflow, GitBranch, BarChart3, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import SectionTransition from './SectionTransition';
 import TiltCard from './TiltCard';
 
@@ -12,21 +13,25 @@ const Services = () => {
       icon: Workflow,
       title: t('services.workflow.title'),
       description: t('services.workflow.description'),
+      path: '/uslugi/automatyzacja-procesow-biznesowych',
     },
     {
       icon: Database,
       title: t('services.data.title'),
       description: t('services.data.description'),
+      path: '/uslugi/automatyzacja-no-code',
     },
     {
       icon: GitBranch,
       title: t('services.integration.title'),
       description: t('services.integration.description'),
+      path: '/uslugi/automatyzacja-sprzedazy-i-marketingu',
     },
     {
       icon: BarChart3,
       title: t('services.analysis.title'),
       description: t('services.analysis.description'),
+      path: '/uslugi/systemy-ai-dla-firm',
     },
   ];
 
@@ -140,7 +145,7 @@ const Services = () => {
                   </motion.div>
 
                   {/* Content */}
-                  <div className="mb-8">
+                  <div className="mb-6">
                     {/* Title */}
                     <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
                       {service.title}
@@ -151,9 +156,37 @@ const Services = () => {
                       {service.description}
                     </p>
                   </div>
+
+                  {/* Link */}
+                  <Link
+                    to={service.path}
+                    className="inline-flex items-center gap-2 text-sm font-michroma text-white/40 hover:text-white/80 transition-colors duration-300 group/link mt-auto"
+                  >
+                    <span className="tracking-wide">Dowiedz się więcej</span>
+                    <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform duration-300" />
+                  </Link>
                 </TiltCard>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* See all services CTA */}
+          <motion.div
+            className="mt-16 md:mt-20 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              to="/uslugi"
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/15 bg-white/3 hover:border-white/30 hover:bg-white/6 transition-all duration-300"
+            >
+              <span className="font-michroma text-sm text-white/60 group-hover:text-white/90 tracking-wider transition-colors duration-300">
+                Wszystkie usługi
+              </span>
+              <ArrowRight size={16} className="text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all duration-300" />
+            </Link>
           </motion.div>
         </div>
       </section>

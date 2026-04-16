@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { buildOrganizationSchema, buildBreadcrumbSchema } from '../utils/schema';
-import { pillarRoutes, supportingRoutes } from '../config/routes';
+import { pillarRoutes, supportingRoutes, industryRoutes, costRoutes } from '../config/routes';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const clusterLabels: Record<string, string> = {
@@ -131,6 +131,60 @@ const Uslugi = () => {
                 </motion.section>
               );
             })}
+
+            {/* Industries Section */}
+            <motion.section
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="font-michroma text-xs text-white/40 uppercase tracking-widest">Rozwiązania branżowe</span>
+                <div className="flex-1 h-px bg-white/8" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {industryRoutes.map((r, i) => (
+                  <motion.div
+                    key={r.slug}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Link
+                      to={r.path}
+                      className="group flex items-center gap-3 p-4 rounded-xl border border-white/8 hover:border-white/20 hover:bg-white/3 transition-all duration-300"
+                    >
+                      <ArrowRight size={14} className="text-white/25 flex-shrink-0 group-hover:text-white/60 group-hover:translate-x-0.5 transition-all duration-300" />
+                      <span className="text-white/50 group-hover:text-white/80 text-sm transition-colors duration-300 leading-snug">
+                        {r.h1}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+                {costRoutes.map((r, i) => (
+                  <motion.div
+                    key={r.slug}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (industryRoutes.length + i) * 0.05 }}
+                  >
+                    <Link
+                      to={r.path}
+                      className="group flex items-center gap-3 p-4 rounded-xl border border-white/8 hover:border-white/20 hover:bg-white/3 transition-all duration-300"
+                    >
+                      <ArrowRight size={14} className="text-white/25 flex-shrink-0 group-hover:text-white/60 group-hover:translate-x-0.5 transition-all duration-300" />
+                      <span className="text-white/50 group-hover:text-white/80 text-sm transition-colors duration-300 leading-snug">
+                        {r.h1}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
 
             <motion.div
               className="mt-8 p-8 md:p-12 rounded-2xl text-center"
