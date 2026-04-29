@@ -10,12 +10,14 @@ import BackToTop from './components/BackToTop';
 import PillarPage from './templates/PillarPage';
 import SupportingPage from './templates/SupportingPage';
 import BlogPage from './templates/BlogPage';
+import CategoryPage from './templates/CategoryPage';
 import {
   pillarRoutes,
   supportingRoutes,
   blogRoutes,
   industryRoutes,
   costRoutes,
+  categoryConfigs,
 } from './config/routes';
 
 const WhoWeAre = lazy(() => import('./components/WhoWeAre'));
@@ -119,6 +121,14 @@ function App() {
                 key={route.path}
                 path={route.path}
                 element={<BlogPage route={route} />}
+              />
+            ))}
+
+            {categoryConfigs.map((category) => (
+              <Route
+                key={category.path}
+                path={category.path}
+                element={<CategoryPage category={category} />}
               />
             ))}
           </Routes>

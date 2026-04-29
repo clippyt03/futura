@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Search } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { buildOrganizationSchema, buildBreadcrumbSchema } from '../utils/schema';
-import { blogRoutes } from '../config/routes';
+import { blogRoutes, categoryConfigs } from '../config/routes';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const clusterLabels: Record<string, string> = {
@@ -86,25 +86,29 @@ const BlogIndex = () => {
                   onClick={() => setActiveCluster('all')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
                     activeCluster === 'all'
-                      ? 'bg-purple-500/25 border border-purple-500/50 text-purple-300'
+                      ? 'bg-white/12 border border-white/30 text-white'
                       : 'border border-white/10 text-white/40 hover:border-white/25 hover:text-white/60'
                   }`}
                 >
                   Wszystkie
                 </button>
-                {clusters.map((cluster) => (
-                  <button
-                    key={cluster}
-                    onClick={() => setActiveCluster(cluster)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
-                      activeCluster === cluster
-                        ? 'bg-purple-500/25 border border-purple-500/50 text-purple-300'
-                        : 'border border-white/10 text-white/40 hover:border-white/25 hover:text-white/60'
-                    }`}
-                  >
-                    {clusterLabels[cluster] ?? cluster}
-                  </button>
-                ))}
+                {clusters.map((cluster) => {
+                  const catConfig = categoryConfigs.find((c) => c.cluster === cluster);
+                  return (
+                    <Link
+                      key={cluster}
+                      to={catConfig?.path ?? '/blog'}
+                      onClick={() => setActiveCluster(cluster)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
+                        activeCluster === cluster
+                          ? 'bg-white/12 border border-white/30 text-white'
+                          : 'border border-white/10 text-white/40 hover:border-white/25 hover:text-white/60'
+                      }`}
+                    >
+                      {clusterLabels[cluster] ?? cluster}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -125,12 +129,25 @@ const BlogIndex = () => {
                 >
                   <Link
                     to={r.path}
-                    className="group flex flex-col h-full p-5 rounded-xl border border-white/8 hover:border-purple-500/30 bg-white/1.5 hover:bg-purple-500/4 transition-all duration-300"
+                    className="group flex flex-col h-full p-5 rounded-xl border border-white/8 hover:border-white/20 bg-white/1.5 hover:bg-white/3 transition-all duration-300"
                   >
                     <div className="mb-3">
-                      <span className="text-purple-400/60 text-xs font-michroma tracking-wider uppercase">
-                        {clusterLabels[r.cluster] ?? r.cluster}
-                      </span>
+                      {(() => {
+                        const catConfig = categoryConfigs.find((c) => c.cluster === r.cluster);
+                        return catConfig ? (
+                          <Link
+                            to={catConfig.path}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-white/40 hover:text-white/70 text-xs font-michroma tracking-wider uppercase transition-colors duration-200"
+                          >
+                            {clusterLabels[r.cluster] ?? r.cluster}
+                          </Link>
+                        ) : (
+                          <span className="text-white/40 text-xs font-michroma tracking-wider uppercase">
+                            {clusterLabels[r.cluster] ?? r.cluster}
+                          </span>
+                        );
+                      })()}
                     </div>
                     <h2 className="font-michroma text-sm text-white/90 group-hover:text-white leading-snug mb-3 flex-1 transition-colors duration-300">
                       {r.h1}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Tag } from 'lucide-react';
 import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -9,7 +9,7 @@ import type { BreadcrumbItem } from '../components/Breadcrumbs';
 import { buildArticleSchema, buildFAQSchema, buildBreadcrumbSchema } from '../utils/schema';
 import type { RouteConfig } from '../config/routes';
 import { getPageContent } from '../data/pageContent';
-import { supportingRoutes, pillarRoutes, blogRoutes } from '../config/routes';
+import { supportingRoutes, pillarRoutes, blogRoutes, categoryConfigs } from '../config/routes';
 
 interface BlogPageProps {
   route: RouteConfig;
@@ -34,8 +34,10 @@ const BlogPage = ({ route }: BlogPageProps) => {
     (r) => r.cluster === route.cluster && r.slug !== route.slug
   ).slice(0, 3);
 
+  const category = categoryConfigs.find((c) => c.cluster === route.cluster);
+
   const schemas = [
-    buildArticleSchema(route.h1, route.metaDescription, route.path, '2026-04-01'),
+    buildArticleSchema(route.h1, route.metaDescription, route.path, '2026-04-01', category?.label),
     buildBreadcrumbSchema([
       { name: 'Home', url: '/' },
       { name: 'Blog', url: '/blog' },
@@ -67,11 +69,23 @@ const BlogPage = ({ route }: BlogPageProps) => {
 
             <header className="mb-12">
               <motion.div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/3 mb-5"
+                className="flex flex-wrap items-center gap-2 mb-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <span className="text-white/40 text-xs font-michroma tracking-wider uppercase">Blog WeFutura</span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/3 text-white/40 text-xs font-michroma tracking-wider uppercase">
+                  Blog WeFutura
+                </span>
+                {category && (
+                  <Link
+                    to={category.path}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/15 bg-white/4 text-white/55 hover:text-white hover:border-white/30 text-xs font-michroma tracking-wider uppercase transition-colors duration-300"
+                    aria-label={`Kategoria: ${category.label}`}
+                  >
+                    <Tag size={10} />
+                    {category.label}
+                  </Link>
+                )}
               </motion.div>
 
               <h1 className="font-michroma text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">

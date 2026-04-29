@@ -71,7 +71,13 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
-export function buildArticleSchema(title: string, description: string, url: string, datePublished: string) {
+export function buildArticleSchema(
+  title: string,
+  description: string,
+  url: string,
+  datePublished: string,
+  articleSection?: string
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -88,5 +94,26 @@ export function buildArticleSchema(title: string, description: string, url: stri
     },
     datePublished,
     inLanguage: 'pl',
+    ...(articleSection ? { articleSection } : {}),
+  };
+}
+
+export function buildCollectionPageSchema(
+  name: string,
+  description: string,
+  url: string,
+  items: { name: string; url: string }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: `${SITE_URL}${url}`,
+    hasPart: items.map((item) => ({
+      '@type': 'Article',
+      name: item.name,
+      url: `${SITE_URL}${item.url}`,
+    })),
   };
 }

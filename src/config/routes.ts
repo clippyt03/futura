@@ -1,6 +1,74 @@
 export type PageType = 'pillar' | 'supporting' | 'blog' | 'industry' | 'cost';
 export type Cluster = 'k1' | 'k2' | 'k3' | 'k4' | 'k5' | 'k6' | 'k7';
 
+export interface CategoryConfig {
+  cluster: Cluster;
+  slug: string;
+  label: string;
+  metaTitle: string;
+  metaDescription: string;
+  path: string;
+}
+
+export const categoryConfigs: CategoryConfig[] = [
+  {
+    cluster: 'k1',
+    slug: 'automatyzacja-procesow',
+    label: 'Automatyzacja Procesów',
+    metaTitle: 'Automatyzacja Procesów — Artykuły i Przewodniki | WeFutura Blog',
+    metaDescription: 'Artykuły o automatyzacji procesów biznesowych — RPA, BPA, digitalizacja, transformacja cyfrowa. Przewodniki i przykłady dla firm.',
+    path: '/blog/kategoria/automatyzacja-procesow',
+  },
+  {
+    cluster: 'k2',
+    slug: 'no-code-i-narzedzia',
+    label: 'No-Code i Narzędzia',
+    metaTitle: 'No-Code i Narzędzia — Artykuły i Porównania | WeFutura Blog',
+    metaDescription: 'Artykuły o narzędziach no-code — Make, n8n, Zapier, Power Automate. Porównania i przewodniki po automatyzacji bez programowania.',
+    path: '/blog/kategoria/no-code-i-narzedzia',
+  },
+  {
+    cluster: 'k3',
+    slug: 'sprzedaz-i-marketing',
+    label: 'Sprzedaż i Marketing',
+    metaTitle: 'Sprzedaż i Marketing — Automatyzacja | WeFutura Blog',
+    metaDescription: 'Artykuły o automatyzacji sprzedaży i marketingu — CRM, lejki sprzedażowe, marketing automation. Praktyczne przewodniki dla firm.',
+    path: '/blog/kategoria/sprzedaz-i-marketing',
+  },
+  {
+    cluster: 'k4',
+    slug: 'ai-i-systemy-ai',
+    label: 'AI i Systemy AI',
+    metaTitle: 'AI i Systemy AI — Artykuły dla Firm | WeFutura Blog',
+    metaDescription: 'Artykuły o sztucznej inteligencji w biznesie — chatboty AI, LLM, OCR, wdrożenia AI. Praktyczne przewodniki i przykłady zastosowań.',
+    path: '/blog/kategoria/ai-i-systemy-ai',
+  },
+  {
+    cluster: 'k5',
+    slug: 'branze',
+    label: 'Branże',
+    metaTitle: 'Automatyzacja według Branży — Artykuły | WeFutura Blog',
+    metaDescription: 'Artykuły o automatyzacji w konkretnych branżach — e-commerce, logistyka, produkcja, agencje marketingowe, biura rachunkowe.',
+    path: '/blog/kategoria/branze',
+  },
+  {
+    cluster: 'k6',
+    slug: 'porownania-narzedzi',
+    label: 'Porównania Narzędzi',
+    metaTitle: 'Porównania Narzędzi do Automatyzacji | WeFutura Blog',
+    metaDescription: 'Szczegółowe porównania narzędzi do automatyzacji i CRM — Make vs Zapier, n8n vs Make, Pipedrive vs HubSpot i inne.',
+    path: '/blog/kategoria/porownania-narzedzi',
+  },
+  {
+    cluster: 'k7',
+    slug: 'koszty-i-roi',
+    label: 'Koszty i ROI',
+    metaTitle: 'Koszty i ROI Automatyzacji — Artykuły | WeFutura Blog',
+    metaDescription: 'Artykuły o kosztach automatyzacji i zwrocie z inwestycji — ROI wdrożeń RPA, CRM, chatbotów. Kalkulatory i przykłady z liczb.',
+    path: '/blog/kategoria/koszty-i-roi',
+  },
+];
+
 export interface RouteConfig {
   path: string;
   slug: string;
