@@ -24,7 +24,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-32 md:py-40">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 sm:py-28 md:py-40">
       {/* Background - Pure black to dark purple gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
@@ -74,7 +74,7 @@ export default function Hero() {
 
       {/* Static gradient for mobile */}
       {shouldReduceAnimations && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[80px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[400px] h-[280px] sm:h-[400px] bg-purple-600/20 rounded-full blur-[60px] sm:blur-[80px]" />
       )}
 
       {/* Subtle floating particles - Reduced count on mobile */}
@@ -104,11 +104,11 @@ export default function Hero() {
       )}
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-5 sm:px-6 md:px-8 lg:px-12 max-w-5xl mx-auto w-full">
 
         {/* Main Headline - Clean and bold with text shadow */}
         <motion.h1
-          className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-10 md:mb-12 leading-[1.1] tracking-tight"
+          className="font-michroma text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 md:mb-12 leading-[1.1] tracking-tight"
           style={{
             textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 8px 40px rgba(147, 51, 234, 0.4)',
           }}
@@ -121,7 +121,7 @@ export default function Hero() {
 
         {/* Subheadline - calm and clear */}
         <motion.p
-          className="text-lg md:text-2xl lg:text-3xl text-white/60 mb-16 md:mb-20 max-w-3xl mx-auto leading-relaxed font-light"
+          className="text-base sm:text-lg md:text-2xl lg:text-3xl text-white/60 mb-10 md:mb-20 max-w-3xl mx-auto leading-relaxed font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -134,24 +134,26 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-16 md:mb-20"
+          className="mb-10 md:mb-20"
         >
           <div className="relative inline-block">
-            <motion.div
-              className="absolute -inset-1 rounded-xl bg-purple-500/40 blur-md"
-              animate={{
-                scale: [1, 1.05, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
+            {!shouldReduceAnimations && (
+              <motion.div
+                className="absolute -inset-1 rounded-xl bg-purple-500/40 blur-md"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            )}
             <motion.button
               onClick={handleCTA}
-              className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
+              className="group relative px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-xl font-michroma text-sm sm:text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -170,7 +172,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 max-w-4xl mx-auto"
         >
           <motion.div
             className="flex flex-col items-center gap-4"
@@ -274,9 +276,9 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Subtle scroll indicator */}
+      {/* Subtle scroll indicator - hidden on mobile */}
       <motion.div
-        className="absolute bottom-12 w-full flex justify-center"
+        className="absolute bottom-12 w-full flex justify-center hidden sm:flex"
         animate={{
           y: [0, 10, 0],
         }}

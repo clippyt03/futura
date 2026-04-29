@@ -60,12 +60,12 @@ const Services = () => {
 
   return (
     <SectionTransition className="relative overflow-hidden">
-      <section id="services" className="py-40 md:py-48 relative">
+      <section id="services" className="py-20 md:py-32 lg:py-40 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
         {/* Subtle purple halo effect */}
         <motion.div
-          className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-purple-700/10 rounded-full blur-[100px]"
+          className="absolute top-1/2 left-1/4 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-purple-700/10 rounded-full blur-[50px] md:blur-[100px]"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.2, 0.1],
@@ -80,11 +80,11 @@ const Services = () => {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Header */}
           <SectionTransition delay={0.2}>
-            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
-              <p className="font-michroma text-xl md:text-2xl text-purple-400 mb-6 tracking-wide">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24 lg:mb-32">
+              <p className="font-michroma text-base sm:text-xl md:text-2xl text-purple-400 mb-4 md:mb-6 tracking-wide">
                 {t('services.preHeadline')}
               </p>
-              <h2 className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-white">
+              <h2 className="font-michroma text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-10 text-white">
                 {t('services.headline')}
               </h2>
               <motion.p
@@ -110,7 +110,7 @@ const Services = () => {
 
           {/* Services grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-16"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

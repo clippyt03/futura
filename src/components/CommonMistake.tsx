@@ -1,18 +1,20 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { AlertTriangle } from 'lucide-react';
+import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 export default function CommonMistake() {
   const { t } = useTranslation();
+  const { isMobile } = useDeviceDetection();
 
   return (
-    <section className="relative py-32 md:py-40 overflow-hidden">
+    <section className="relative py-20 md:py-32 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-800 via-dark-900 to-dark-900" />
 
-      {/* Intense purple glow */}
+      {/* Intense purple glow - smaller and less blurry on mobile */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-600/30 rounded-full blur-[150px]"
-        animate={{
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-600/25 rounded-full blur-[60px] md:blur-[120px]"
+        animate={isMobile ? undefined : {
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
         }}
@@ -33,7 +35,7 @@ export default function CommonMistake() {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            animate={{
+            animate={isMobile ? undefined : {
               rotate: [0, -5, 5, -5, 0],
             }}
             transition={{
@@ -54,7 +56,7 @@ export default function CommonMistake() {
 
         {/* Headline */}
         <motion.h2
-          className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 md:mb-12 leading-[1.15]"
+          className="font-michroma text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 md:mb-12 leading-[1.15]"
           style={{
             textShadow: '0 0 40px rgba(147,51,234,0.9), 0 0 80px rgba(147,51,234,0.6)'
           }}
@@ -68,7 +70,7 @@ export default function CommonMistake() {
 
         {/* Description */}
         <motion.p
-          className="text-xl md:text-2xl text-white/70 leading-relaxed mb-12 md:mb-16 max-w-3xl mx-auto"
+          className="text-base sm:text-xl md:text-2xl text-white/70 leading-relaxed mb-8 md:mb-16 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -85,7 +87,7 @@ export default function CommonMistake() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <p
-            className="font-michroma text-2xl md:text-3xl lg:text-4xl font-bold text-purple-400"
+            className="font-michroma text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purple-400"
             style={{
               textShadow: '0 0 30px rgba(147,51,234,0.9)'
             }}

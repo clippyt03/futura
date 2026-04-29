@@ -24,7 +24,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
         className="w-full py-8 flex items-start justify-between gap-6 text-left group focus:outline-none focus:ring-2 focus:ring-purple-500/50 rounded-lg px-4 -mx-4 transition-all"
         aria-expanded={isOpen}
       >
-        <h3 className="text-base md:text-xl lg:text-2xl font-michroma text-white group-hover:text-purple-400 transition-colors duration-300 flex-1">
+        <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-michroma text-white group-hover:text-purple-400 transition-colors duration-300 flex-1 leading-snug">
           {question}
         </h3>
         <motion.div
@@ -48,8 +48,8 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="pb-8 pr-16 pl-4">
-              <p className="text-lg md:text-xl text-white/70 leading-relaxed" style={{ lineHeight: 1.7 }}>
+            <div className="pb-6 pr-4 sm:pr-12 pl-4">
+              <p className="text-base md:text-lg text-white/70 leading-relaxed" style={{ lineHeight: 1.7 }}>
                 {answer}
               </p>
             </div>
@@ -100,11 +100,11 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-32 md:py-40 overflow-hidden">
+    <section id="faq" className="relative py-20 md:py-32 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
       <motion.div
-        className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[100px]"
+        className="absolute top-1/3 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/5 rounded-full blur-[60px] md:blur-[100px]"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.05, 0.1, 0.05],
@@ -118,13 +118,13 @@ export default function FAQ() {
 
       <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
         <motion.div
-          className="text-center mb-20 md:mb-24 px-6"
+          className="text-center mb-12 md:mb-20 px-4 sm:px-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-michroma text-lg sm:text-2xl md:text-7xl font-bold text-white mb-8 leading-tight" style={{ hyphens: 'none', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
+          <h2 className="font-michroma text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
             {t('faq.headline')}
           </h2>
           <p className="text-lg md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: 1.7 }}>

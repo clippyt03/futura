@@ -27,8 +27,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Ultra-smooth scrolling with proper header offset */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 140px; /* Restored to original value for proper spacing */
+  scroll-padding-top: 88px;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 140px;
+  }
 }
 
 /* Enhanced custom scrollbar */
@@ -316,9 +322,53 @@ a:focus-visible {
   left: 100%;
 }
 
-/* Section spacing to account for fixed header - RESTORED TO ORIGINAL */
+/* Section spacing to account for fixed header */
 section[id] {
-  scroll-margin-top: 140px; /* Restored to original value */
+  scroll-margin-top: 88px;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 140px;
+  }
+}
+
+/* Disable heavy CSS animations on mobile for performance */
+@media (max-width: 767px) {
+  .shimmer {
+    animation: none;
+    background: transparent;
+  }
+
+  .gradient-sweep {
+    animation: none;
+    background: linear-gradient(90deg, rgba(255,255,255,1), rgba(147,51,234,0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .morphing-blob {
+    animation: none;
+    border-radius: 50%;
+  }
+
+  .liquid-chrome {
+    animation: none;
+  }
+
+  .animate-pulse-slow {
+    animation: none;
+    opacity: 0.4;
+  }
+
+  .neon-pulse {
+    animation: none;
+  }
+
+  .pulse-glow {
+    animation: none;
+  }
 }
 
 /* Ensure proper spacing for all sections - RESTORED TO ORIGINAL */

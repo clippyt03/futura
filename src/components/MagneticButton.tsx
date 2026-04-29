@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTouchDevice } from '../hooks/useDeviceDetection';
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -16,9 +17,10 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const isTouchDevice = useTouchDevice();
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
+    if (!ref.current || isTouchDevice) return;
 
     const { clientX, clientY } = e;
     const { left, top, width, height } = ref.current.getBoundingClientRect();

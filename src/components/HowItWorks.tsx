@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import { Search, FileText, Cog, Shield } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SectionTransition from './SectionTransition';
+import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 const HowItWorks = () => {
   const { t } = useTranslation();
+  const { isMobile } = useDeviceDetection();
 
   const steps = [
     {
@@ -57,12 +59,12 @@ const HowItWorks = () => {
 
   return (
     <SectionTransition className="relative overflow-hidden">
-      <section id="how-it-works" className="py-40 md:py-48 relative">
+      <section id="how-it-works" className="py-20 md:py-32 lg:py-40 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
         {/* Subtle purple halo effect */}
         <motion.div
-          className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px]"
+          className="absolute bottom-1/3 right-1/4 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-purple-600/10 rounded-full blur-[60px] md:blur-[120px]"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.1, 0.2, 0.1],
@@ -77,9 +79,9 @@ const HowItWorks = () => {
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           {/* Header */}
           <SectionTransition delay={0.2}>
-            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24 lg:mb-32">
               <motion.h2
-                className="font-michroma text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-10 text-white"
+                className="font-michroma text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-10 text-white"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -88,7 +90,7 @@ const HowItWorks = () => {
                 {t('howItWorks.headline')}
               </motion.h2>
               <motion.p
-                className="font-michroma text-2xl md:text-3xl text-purple-400 leading-relaxed mb-6"
+                className="font-michroma text-lg sm:text-2xl md:text-3xl text-purple-400 leading-relaxed mb-4 md:mb-6"
                 style={{
                   textShadow: '0 0 20px rgba(147,51,234,0.8)'
                 }}
@@ -113,7 +115,7 @@ const HowItWorks = () => {
 
           {/* Steps */}
           <motion.div
-            className="space-y-16 md:space-y-20 mb-32 md:mb-40"
+            className="space-y-10 md:space-y-16 lg:space-y-20 mb-16 md:mb-28 lg:mb-40"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -146,19 +148,21 @@ const HowItWorks = () => {
                       >
                         {step.number}
                       </span>
-                      <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-purple-400"
-                        initial={{ scale: 1, opacity: 0 }}
-                        animate={{
-                          scale: [1, 1.3, 1],
-                          opacity: [0, 0.5, 0],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          delay: index * 0.5,
-                        }}
-                      />
+                      {!isMobile && (
+                        <motion.div
+                          className="absolute inset-0 rounded-full border-2 border-purple-400"
+                          initial={{ scale: 1, opacity: 0 }}
+                          animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0, 0.5, 0],
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            delay: index * 0.5,
+                          }}
+                        />
+                      )}
                     </motion.div>
                   </div>
 

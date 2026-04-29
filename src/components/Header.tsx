@@ -47,8 +47,8 @@ const Header = () => {
   const scrollToSection = (targetId: string) => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const headerHeight = 80;
-      const visualPadding = isMobile ? 80 : 60;
+      const headerHeight = isMobile ? 64 : 80;
+      const visualPadding = isMobile ? 24 : 60;
       const totalOffset = headerHeight + visualPadding;
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
@@ -78,15 +78,15 @@ const Header = () => {
     <motion.header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-dark-900/95 backdrop-blur-xl border-b border-purple-500/20 shadow-2xl'
+          ? 'bg-dark-900/95 backdrop-blur-md border-b border-purple-500/20 shadow-2xl'
           : 'bg-transparent'
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      style={{ height: '80px' }}
+      style={{ height: isMobile ? '64px' : '80px' }}
     >
-      <nav className="max-w-7xl mx-auto px-16 h-full flex items-center justify-between gap-16">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 h-full flex items-center justify-between gap-4 md:gap-16">
 
         {/* LOGO - LEFT SIDE */}
         <motion.button
@@ -98,7 +98,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <h1 className="font-michroma text-2xl text-white tracking-wider hover:text-purple-400 transition-colors duration-300">
+          <h1 className="font-michroma text-xl sm:text-2xl text-white tracking-wider hover:text-purple-400 transition-colors duration-300">
             FUTURA.
           </h1>
         </motion.button>
@@ -233,14 +233,14 @@ const Header = () => {
           className="md:hidden border-t border-purple-500/20"
           style={{
             background: 'rgba(10, 10, 10, 0.98)',
-            backdropFilter: 'blur(20px)',
+            backdropFilter: 'blur(10px)',
           }}
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="px-6 py-6 flex flex-col space-y-2">
+          <div className="px-4 py-4 flex flex-col space-y-1 max-h-[calc(100vh-64px)] overflow-y-auto">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.href}

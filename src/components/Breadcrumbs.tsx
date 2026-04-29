@@ -12,7 +12,7 @@ interface BreadcrumbsProps {
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   return (
-    <nav aria-label="Nawigacja okruszkowa" className="flex items-center gap-1 text-xs text-white/40 flex-wrap">
+    <nav aria-label="Nawigacja okruszkowa" className="flex items-center gap-1 text-sm text-white/40 flex-wrap">
       <Link
         to="/"
         className="hover:text-white/70 transition-colors duration-200 whitespace-nowrap"

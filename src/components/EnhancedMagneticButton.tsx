@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTouchDevice } from '../hooks/useDeviceDetection';
 
 interface EnhancedMagneticButtonProps {
   children: React.ReactNode;
@@ -17,10 +18,11 @@ export default function EnhancedMagneticButton({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const isTouchDevice = useTouchDevice();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!buttonRef.current || !isHovered) return;
+      if (!buttonRef.current || !isHovered || isTouchDevice) return;
 
       const rect = buttonRef.current.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;

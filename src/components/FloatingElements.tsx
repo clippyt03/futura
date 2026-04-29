@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 const FloatingElements: React.FC = () => {
+  const { isMobile, isTablet } = useDeviceDetection();
+
+  if (isMobile || isTablet) return null;
+
   const elements = Array.from({ length: 8 }, (_, i) => ({
     id: i,
     size: Math.random() * 100 + 50,

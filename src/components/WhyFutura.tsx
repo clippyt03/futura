@@ -53,12 +53,12 @@ const WhyFutura = () => {
 
   return (
     <SectionTransition className="relative overflow-hidden">
-      <section id="why-futura" className="py-40 md:py-48 relative">
+      <section id="why-futura" className="py-20 md:py-32 lg:py-40 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
         {/* Subtle purple halo effect */}
         <motion.div
-          className="absolute top-1/3 left-1/3 w-[450px] h-[450px] bg-purple-600/10 rounded-full blur-[110px]"
+          className="absolute top-1/3 left-1/3 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-purple-600/10 rounded-full blur-[60px] md:blur-[110px]"
           animate={{
             scale: [1, 1.25, 1],
             opacity: [0.1, 0.2, 0.1],
@@ -73,7 +73,7 @@ const WhyFutura = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
           {/* Header */}
           <SectionTransition delay={0.2}>
-            <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32 px-0">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24 lg:mb-32 px-0">
               <h2 className="font-michroma text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 leading-tight px-4" style={{ color: '#ffffff' }}>
                 {t('whyFutura.headline')}
               </h2>
@@ -82,7 +82,7 @@ const WhyFutura = () => {
 
           {/* Benefits grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-32 md:mb-40 justify-items-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 lg:gap-16 mb-16 md:mb-28 lg:mb-40 justify-items-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -125,7 +125,7 @@ const WhyFutura = () => {
           >
             <motion.button
               onClick={handleCTA}
-              className="group relative px-12 md:px-16 py-5 md:py-6 rounded-xl font-michroma text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.3)]"
+              className="group relative px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-xl font-michroma text-sm sm:text-base md:text-lg text-white border-2 border-purple-500/40 bg-black/40 backdrop-blur-sm hover:border-purple-500/70 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.3)]"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

@@ -36,12 +36,12 @@ export default function WhoWeAre() {
   };
 
   return (
-    <section id="who-we-are" className="relative py-40 md:py-48 overflow-hidden">
+    <section id="who-we-are" className="relative py-20 md:py-32 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 
       {/* Subtle purple halo effect */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-purple-600/10 rounded-full blur-[60px] md:blur-[120px]"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.1, 0.2, 0.1],
@@ -55,13 +55,13 @@ export default function WhoWeAre() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Main headline */}
-        <div className="text-center mb-24 md:mb-32">
-          <h2 className="font-michroma text-5xl md:text-7xl lg:text-8xl font-bold text-gradient-purple mb-12 md:mb-16 leading-[1.1]">
+        <div className="text-center mb-12 md:mb-24 lg:mb-32">
+          <h2 className="font-michroma text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gradient-purple mb-8 md:mb-12 leading-[1.1]">
             {t('whoWeAre.headline')}
           </h2>
 
           <motion.p
-            className="text-xl md:text-2xl lg:text-3xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/70 mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -73,7 +73,7 @@ export default function WhoWeAre() {
 
         {/* Three cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 lg:gap-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
