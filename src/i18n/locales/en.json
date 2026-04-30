@@ -44,6 +44,14 @@
     "analysis": {
       "title": "Analysis and reporting",
       "description": "Real-time dashboards, automated reports, anomaly alerts. Know what's happening in your company without manual data collection."
+    },
+    "aiVisibility": {
+      "title": "AI Visibility",
+      "description": "Your company recommended by ChatGPT, Gemini, and Google AI Overview. GEO — the new SEO for the world of language models."
+    },
+    "cennikB2B": {
+      "title": "Automated B2B Price List",
+      "description": "Sales rep fills a form in 60 seconds. System generates a personalized PDF with client logo and ERP prices in ~15 minutes."
     }
   },
   "howItWorks": {

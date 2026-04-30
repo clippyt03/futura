@@ -12,6 +12,7 @@ const clusterLabels: Record<string, string> = {
   k2: 'No-Code i Narzędzia',
   k3: 'Sprzedaż i Marketing',
   k4: 'AI dla Firm',
+  k8: 'Widoczność i Ofertowanie',
 };
 
 const clusterDescriptions: Record<string, string> = {
@@ -19,6 +20,7 @@ const clusterDescriptions: Record<string, string> = {
   k2: 'Make, n8n, Zapier, Power Automate — integrujemy Twoje aplikacje bez kodu.',
   k3: 'Automatyzacja lejka sprzedaży, CRM, marketing automation.',
   k4: 'Chatboty AI, OCR, LLM, systemy AI projektowane na zamówienie.',
+  k8: 'GEO, widoczność w LLM i automatyczne cenniki B2B — nowe obszary przewagi.',
 };
 
 const schemas = [
@@ -30,7 +32,7 @@ const schemas = [
 ];
 
 const Uslugi = () => {
-  const clusters = ['k1', 'k2', 'k3', 'k4'] as const;
+  const clusters = ['k1', 'k2', 'k3', 'k4', 'k8'] as const;
 
   return (
     <>

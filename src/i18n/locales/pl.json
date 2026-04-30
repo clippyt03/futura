@@ -46,6 +46,14 @@
     "analysis": {
       "title": "Analiza i raportowanie",
       "description": "Dashboardy w czasie rzeczywistym, automatyczne raporty, alerty o anomaliach. Wiesz co dzieje się w firmie bez ręcznego zbierania danych."
+    },
+    "aiVisibility": {
+      "title": "Widoczność w AI",
+      "description": "Twoja firma rekomendowana przez ChatGPT, Gemini i Google AI Overview. GEO — nowa SEO dla świata modeli językowych."
+    },
+    "cennikB2B": {
+      "title": "Automatyczny Cennik B2B",
+      "description": "Handlowiec wypełnia formularz w 60 sekund. System generuje spersonalizowane PDF z logo klienta i cenami z ERP w ~15 minut."
     }
   },
   "howItWorks": {

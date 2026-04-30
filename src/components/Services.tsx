@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Database, Workflow, GitBranch, BarChart3, ArrowRight } from 'lucide-react';
+import { Database, Workflow, GitBranch, BarChart3, Brain, FileText, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import SectionTransition from './SectionTransition';
@@ -32,6 +32,18 @@ const Services = () => {
       title: t('services.analysis.title'),
       description: t('services.analysis.description'),
       path: '/uslugi/systemy-ai-dla-firm',
+    },
+    {
+      icon: Brain,
+      title: t('services.aiVisibility.title'),
+      description: t('services.aiVisibility.description'),
+      path: '/uslugi/widocznosc-w-ai',
+    },
+    {
+      icon: FileText,
+      title: t('services.cennikB2B.title'),
+      description: t('services.cennikB2B.description'),
+      path: '/uslugi/automatyczny-cennik-b2b',
     },
   ];
 
@@ -110,7 +122,7 @@ const Services = () => {
 
           {/* Services grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -123,7 +135,7 @@ const Services = () => {
                 className="h-full"
               >
                 <TiltCard
-                  className="group h-full p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col min-h-[320px]"
+                  className="group h-full p-6 md:p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 flex flex-col min-h-[280px]"
                   tiltStrength={10}
                   glowColor="rgba(147,51,234,0.5)"
                 >
