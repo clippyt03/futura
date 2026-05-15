@@ -140,19 +140,36 @@ const Services = () => {
                   glowColor="rgba(147,51,234,0.5)"
                 >
                   {/* Icon */}
-                  <motion.div
-                    className="mb-6"
-                    whileHover={{ rotate: 15, scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <service.icon
-                      size={32}
-                      className="text-purple-500"
+                  <div className="mb-6">
+                    <motion.div
+                      className="w-16 h-16 rounded-full border-2 border-purple-500/40 bg-purple-500/10 flex items-center justify-center relative"
+                      whileHover={{ scale: 1.1, borderColor: 'rgba(147,51,234,0.8)' }}
                       style={{
-                        filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                        boxShadow: '0 0 30px rgba(147,51,234,0.5), inset 0 0 20px rgba(147,51,234,0.2)'
                       }}
-                    />
-                  </motion.div>
+                    >
+                      <service.icon
+                        size={32}
+                        className="text-purple-500"
+                        style={{
+                          filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                        }}
+                      />
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-purple-400"
+                        initial={{ scale: 1, opacity: 0 }}
+                        animate={{
+                          scale: [1, 1.3, 1],
+                          opacity: [0, 0.5, 0],
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          delay: index * 0.5,
+                        }}
+                      />
+                    </motion.div>
+                  </div>
 
                   {/* Content */}
                   <div className="mb-6">
