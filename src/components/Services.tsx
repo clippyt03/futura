@@ -142,12 +142,12 @@ const Services = () => {
                   {/* Icon */}
                   <motion.div
                     className="mb-6"
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ rotate: 15, scale: 1.2 }}
                     transition={{ duration: 0.3 }}
                   >
                     <service.icon
-                      size={40}
-                      className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
+                      size={32}
+                      className="text-purple-500"
                       style={{
                         filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
                       }}

@@ -95,13 +95,19 @@ const WhyFutura = () => {
                 className="group flex flex-col items-center text-center w-full max-w-sm mx-auto pt-10 pb-8 px-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                 variants={cardVariants}
               >
-                <benefit.icon
-                  size={40}
-                  className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300 mb-6 flex-shrink-0"
-                  style={{
-                    filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
-                  }}
-                />
+                <motion.div
+                  className="mb-6"
+                  whileHover={{ rotate: 15, scale: 1.2 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <benefit.icon
+                    size={32}
+                    className="text-purple-500"
+                    style={{
+                      filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                    }}
+                  />
+                </motion.div>
 
                 <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
                   {benefit.title}
