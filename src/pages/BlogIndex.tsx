@@ -77,14 +77,14 @@ const BlogIndex = () => {
                   placeholder="Szukaj artykułu..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg text-sm text-white/80 bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none transition-colors duration-300 placeholder-white/25"
+                  className="w-full pl-10 pr-4 py-3 min-h-[44px] rounded-lg text-sm text-white/80 bg-white/5 border border-white/10 focus:border-purple-500/50 focus:outline-none transition-colors duration-300 placeholder-white/25"
                 />
               </div>
 
               <div className="flex gap-2 flex-wrap">
                 <button
                   onClick={() => setActiveCluster('all')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
+                  className={`px-3 min-h-[44px] rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
                     activeCluster === 'all'
                       ? 'bg-white/12 border border-white/30 text-white'
                       : 'border border-white/10 text-white/40 hover:border-white/25 hover:text-white/60'
@@ -92,23 +92,19 @@ const BlogIndex = () => {
                 >
                   Wszystkie
                 </button>
-                {clusters.map((cluster) => {
-                  const catConfig = categoryConfigs.find((c) => c.cluster === cluster);
-                  return (
-                    <Link
-                      key={cluster}
-                      to={catConfig?.path ?? '/blog'}
-                      onClick={() => setActiveCluster(cluster)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
-                        activeCluster === cluster
-                          ? 'bg-white/12 border border-white/30 text-white'
-                          : 'border border-white/10 text-white/40 hover:border-white/25 hover:text-white/60'
-                      }`}
-                    >
-                      {clusterLabels[cluster] ?? cluster}
-                    </Link>
-                  );
-                })}
+                {clusters.map((cluster) => (
+                  <button
+                    key={cluster}
+                    onClick={() => setActiveCluster(cluster)}
+                    className={`px-3 min-h-[44px] rounded-lg text-xs font-michroma tracking-wider transition-all duration-200 ${
+                      activeCluster === cluster
+                        ? 'bg-white/12 border border-white/30 text-white'
+                        : 'border border-white/10 text-white/40 hover:border-white/25 hover:text-white/60'
+                    }`}
+                  >
+                    {clusterLabels[cluster] ?? cluster}
+                  </button>
+                ))}
               </div>
             </div>
 

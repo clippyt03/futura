@@ -8,6 +8,7 @@ import PageBackground from '../components/PageBackground';
 import type { BreadcrumbItem } from '../components/Breadcrumbs';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '../utils/schema';
 import type { RouteConfig } from '../config/routes';
+import { AUDIT_FORM_URL } from '../config/constants';
 import { getPageContent } from '../data/pageContent';
 import { blogRoutes, pillarRoutes } from '../config/routes';
 
@@ -76,7 +77,7 @@ const SupportingPage = ({ route }: SupportingPageProps) => {
               )}
 
               <motion.button
-                onClick={() => window.open('https://tally.so/r/2EPBVM', '_blank')}
+                onClick={() => window.open(AUDIT_FORM_URL, '_blank')}
                 className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-lg font-michroma text-sm tracking-wider transition-all duration-300"
                 style={{
                   background: 'rgba(147, 51, 234, 0.2)',
@@ -193,7 +194,7 @@ const SupportingPage = ({ route }: SupportingPageProps) => {
                 ))}
               </div>
               <motion.button
-                onClick={() => window.open('https://tally.so/r/2EPBVM', '_blank')}
+                onClick={() => window.open(AUDIT_FORM_URL, '_blank')}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-michroma text-xs tracking-wider text-purple-300 transition-all duration-300"
                 style={{ border: '1px solid rgba(147,51,234,0.4)', background: 'rgba(147,51,234,0.15)' }}
                 whileHover={{ scale: 1.03 }}

@@ -18,7 +18,9 @@ const Footer = () => {
     { label: 'Automatyzacja No-Code', href: '/uslugi/automatyzacja-no-code' },
     { label: 'Sprzedaż i Marketing', href: '/uslugi/automatyzacja-sprzedazy-i-marketingu' },
     { label: 'Systemy AI dla Firm', href: '/uslugi/systemy-ai-dla-firm' },
-    { label: 'Wszystkie usługi', href: '/uslugi' },
+    { label: 'Widoczność w AI', href: '/uslugi/widocznosc-w-ai' },
+    { label: 'Automatyczny Cennik B2B', href: '/uslugi/automatyczny-cennik-b2b' },
+    { label: t('common.allServices'), href: '/uslugi' },
   ];
 
   const solutionLinks = [
@@ -59,7 +61,7 @@ const Footer = () => {
 
             <div className="mb-8">
               <p className="text-xs font-michroma text-white/40 mb-4 uppercase tracking-wider">
-                Follow Us
+                {t('footer.sections.followUs')}
               </p>
               <div className="flex items-center gap-3">
                 {socialLinks.map((social, index) => (
@@ -95,7 +97,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.08 }}
           >
             <h4 className="font-michroma text-xs font-bold text-white mb-6 uppercase tracking-wider">
-              Usługi
+              {t('footer.sections.services')}
             </h4>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
@@ -120,7 +122,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.14 }}
           >
             <h4 className="font-michroma text-xs font-bold text-white mb-6 uppercase tracking-wider">
-              Rozwiązania
+              {t('footer.sections.solutions')}
             </h4>
             <ul className="space-y-3">
               {solutionLinks.map((link) => (

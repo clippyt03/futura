@@ -5,6 +5,8 @@
     "howWeWork": "HOW WE WORK",
     "faq": "FAQ",
     "contact": "CONTACT",
+    "services": "SERVICES",
+    "blog": "BLOG",
     "cta": "GET FREE AUDIT"
   },
   "hero": {
@@ -102,7 +104,14 @@
     "main": "GET IMPLEMENTATION PLAN.",
     "secondary": "Check the scenario",
     "noCommitment": "No commitment",
-    "freeAudit": "Free company audit"
+    "freeAudit": "Free company audit",
+    "headline": "Ready for automation?",
+    "subtitle": "Hundreds of businesses already saving time with intelligent automation.",
+    "bookCall": "Book a free consultation",
+    "preferTalk": "Prefer to talk first? We're here.",
+    "statHours": "Hours saved weekly",
+    "statProcesses": "Processes automated",
+    "statSatisfaction": "Client satisfaction"
   },
   "faq": {
     "headline": "FREQUENTLY ASKED QUESTIONS.",
@@ -138,13 +147,23 @@
       }
     }
   },
+  "common": {
+    "learnMore": "Learn more",
+    "allServices": "All services",
+    "ourAreas": "Our areas"
+  },
   "footer": {
+    "sections": {
+      "services": "Services",
+      "solutions": "Solutions",
+      "followUs": "Follow us"
+    },
     "company": {
       "title": "FUTURA",
       "description": "AI systems that create advantage",
-      "nip": "Tax ID: [To be filled]",
-      "regon": "Business ID: [To be filled]",
-      "address": "[To be filled]"
+      "nip": "Tax ID: 7511794387",
+      "regon": "Business ID: 543780931",
+      "address": "WE ARE BASED IN POLAND."
     },
     "links": {
       "legal": "Legal Documents",

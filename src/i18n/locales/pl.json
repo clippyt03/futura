@@ -104,7 +104,14 @@
     "main": "ODBIERZ PLAN WDROŻENIA.",
     "secondary": "Sprawdź scenariusz",
     "noCommitment": "Bez zobowiązań",
-    "freeAudit": "Darmowy audyt firmy"
+    "freeAudit": "Darmowy audyt firmy",
+    "headline": "Gotowy na automatyzację?",
+    "subtitle": "Setki firm już oszczędzają czas dzięki inteligentnej automatyzacji.",
+    "bookCall": "Zarezerwuj bezpłatną konsultację",
+    "preferTalk": "Wolisz najpierw porozmawiać? Jesteśmy tutaj.",
+    "statHours": "Godzin zaoszczędzonych tygodniowo",
+    "statProcesses": "Zautomatyzowanych procesów",
+    "statSatisfaction": "Zadowolonych klientów"
   },
   "faq": {
     "headline": "NAJCZĘSTSZE PYTANIA.",
@@ -140,7 +147,17 @@
       }
     }
   },
+  "common": {
+    "learnMore": "Dowiedz się więcej",
+    "allServices": "Wszystkie usługi",
+    "ourAreas": "Nasze obszary"
+  },
   "footer": {
+    "sections": {
+      "services": "Usługi",
+      "solutions": "Rozwiązania",
+      "followUs": "Obserwuj nas"
+    },
     "company": {
       "title": "FUTURA",
       "description": "Systemy AI, które tworzą przewagę.",

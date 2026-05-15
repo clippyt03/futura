@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ClipboardCheck, CircleDollarSign, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useDeviceDetection, useReducedMotion } from '../hooks/useDeviceDetection';
+import { AUDIT_FORM_URL } from '../config/constants';
 
 const serviceCategories = [
   { label: 'Automatyzacja Procesów', path: '/uslugi/automatyzacja-procesow-biznesowych' },
@@ -20,11 +21,11 @@ export default function Hero() {
   const particleCount = isMobile ? 3 : 15;
 
   const handleCTA = () => {
-    window.open('https://tally.so/r/2EPBVM', '_blank');
+    window.open(AUDIT_FORM_URL, '_blank');
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 sm:py-28 md:py-40">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 sm:py-24 md:py-40">
       {/* Background - Pure black to dark purple gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
 

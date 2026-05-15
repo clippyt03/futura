@@ -8,6 +8,7 @@ import PageBackground from '../components/PageBackground';
 import type { BreadcrumbItem } from '../components/Breadcrumbs';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, buildOrganizationSchema } from '../utils/schema';
 import type { RouteConfig } from '../config/routes';
+import { AUDIT_FORM_URL } from '../config/constants';
 import type { PageContent } from '../data/pageContent';
 import { getPageContent } from '../data/pageContent';
 import {
@@ -140,7 +141,7 @@ const PillarPage = ({ route }: PillarPageProps) => {
                 transition={{ duration: 0.4, delay: 0.2 }}
               >
                 <motion.button
-                  onClick={() => window.open('https://tally.so/r/2EPBVM', '_blank')}
+                  onClick={() => window.open(AUDIT_FORM_URL, '_blank')}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-michroma text-sm tracking-wider transition-all duration-300"
                   style={{
                     background: 'rgba(147, 51, 234, 0.2)',
@@ -308,7 +309,7 @@ const PillarPage = ({ route }: PillarPageProps) => {
                 ))}
               </div>
               <motion.button
-                onClick={() => window.open('https://tally.so/r/2EPBVM', '_blank')}
+                onClick={() => window.open(AUDIT_FORM_URL, '_blank')}
                 className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg font-michroma text-sm tracking-wider text-white transition-all duration-300"
                 style={{
                   background: 'rgba(147, 51, 234, 0.3)',

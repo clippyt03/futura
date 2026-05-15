@@ -6,6 +6,7 @@ import PageBackground from '../components/PageBackground';
 import { buildOrganizationSchema, buildBreadcrumbSchema } from '../utils/schema';
 import { pillarRoutes, supportingRoutes, industryRoutes, costRoutes } from '../config/routes';
 import Breadcrumbs from '../components/Breadcrumbs';
+import { AUDIT_FORM_URL } from '../config/constants';
 
 const clusterLabels: Record<string, string> = {
   k1: 'Automatyzacja Procesów',
@@ -207,7 +208,7 @@ const Uslugi = () => {
                 Bezpłatny audyt procesów — 5 minut, zero zobowiązań. Dostaniesz konkretny plan co wdrożyć pierwsze i jaki ROI możesz osiągnąć.
               </p>
               <motion.button
-                onClick={() => window.open('https://tally.so/r/2EPBVM', '_blank')}
+                onClick={() => window.open(AUDIT_FORM_URL, '_blank')}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-michroma text-sm tracking-wider text-white transition-all duration-300"
                 style={{
                   background: 'rgba(147, 51, 234, 0.25)',

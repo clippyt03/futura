@@ -47,9 +47,13 @@ export default function TiltCard({
 
   if (isTouchDevice) {
     return (
-      <div className={className}>
+      <motion.div
+        className={className}
+        whileTap={{ scale: 0.97 }}
+        transition={{ duration: 0.15 }}
+      >
         {children}
-      </div>
+      </motion.div>
     );
   }
 

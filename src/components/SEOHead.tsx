@@ -9,7 +9,12 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ title, description, canonical, schemas = [] }: SEOHeadProps) => {
-  const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : undefined;
+  const canonicalPath = canonical
+    ? canonical.startsWith('/')
+      ? canonical
+      : `/${canonical}`
+    : undefined;
+  const canonicalUrl = canonicalPath ? `${SITE_URL}${canonicalPath}` : undefined;
 
   return (
     <Helmet>
@@ -17,6 +22,7 @@ const SEOHead = ({ title, description, canonical, schemas = [] }: SEOHeadProps) 
       <title>{title}</title>
       <meta name="description" content={description} />
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      {canonicalUrl && <link rel="alternate" hrefLang="pl" href={canonicalUrl} />}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />

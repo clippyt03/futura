@@ -36,6 +36,7 @@ const Cookies = lazy(() => import('./pages/Cookies'));
 const GDPR = lazy(() => import('./pages/GDPR'));
 const Uslugi = lazy(() => import('./pages/Uslugi'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function LoadingFallback() {
   return (
@@ -131,6 +132,8 @@ function App() {
                 element={<CategoryPage category={category} />}
               />
             ))}
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <Footer />

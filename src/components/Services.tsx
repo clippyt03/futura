@@ -159,7 +159,7 @@ const Services = () => {
                   {/* Content */}
                   <div className="mb-6">
                     {/* Title */}
-                    <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
+                    <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4 break-words line-clamp-2">
                       {service.title}
                     </h3>
 
@@ -174,7 +174,7 @@ const Services = () => {
                     to={service.path}
                     className="inline-flex items-center gap-2 text-sm font-michroma text-white/40 hover:text-white/80 transition-colors duration-300 group/link mt-auto"
                   >
-                    <span className="tracking-wide">Dowiedz się więcej</span>
+                    <span className="tracking-wide">{t('common.learnMore')}</span>
                     <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </TiltCard>
@@ -195,7 +195,7 @@ const Services = () => {
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/15 bg-white/3 hover:border-white/30 hover:bg-white/6 transition-all duration-300"
             >
               <span className="font-michroma text-sm text-white/60 group-hover:text-white/90 tracking-wider transition-colors duration-300">
-                Wszystkie usługi
+                {t('common.allServices')}
               </span>
               <ArrowRight size={16} className="text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all duration-300" />
             </Link>

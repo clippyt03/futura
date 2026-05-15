@@ -496,6 +496,9 @@ section[id] {
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Allow transitions to feel natural; cap long background animations */
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
   }
 
   body {
@@ -503,11 +506,6 @@ section[id] {
     overflow-scrolling: touch;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-  }
-
-  * {
-    animation-duration: 0.2s !important;
-    transition-duration: 0.2s !important;
   }
 
   .particle,

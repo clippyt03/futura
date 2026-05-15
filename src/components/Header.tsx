@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
+import { AUDIT_FORM_URL } from '../config/constants';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleCTA = () => {
-    window.open('https://tally.so/r/2EPBVM', '_blank');
+    window.open(AUDIT_FORM_URL, '_blank');
   };
 
   useEffect(() => {
@@ -36,6 +37,13 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     { href: '#services', label: t('nav.whatWeDo') },
@@ -227,10 +235,19 @@ const Header = () => {
         </div>
       </nav>
 
+      {/* MOBILE MENU OVERLAY */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[55] md:hidden"
+          style={{ top: '64px' }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <motion.div
-          className="md:hidden border-t border-purple-500/20"
+          className="md:hidden border-t border-purple-500/20 relative z-[60]"
           style={{
             background: 'rgba(10, 10, 10, 0.98)',
             backdropFilter: 'blur(10px)',

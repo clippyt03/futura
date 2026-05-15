@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import { FileText, Settings, Shield } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SectionTransition from './SectionTransition';
+import { AUDIT_FORM_URL } from '../config/constants';
 
 const WhyFutura = () => {
   const { t } = useTranslation();
 
   const handleCTA = () => {
-    window.open('https://tally.so/r/2EPBVM', '_blank');
+    window.open(AUDIT_FORM_URL, '_blank');
   };
 
   const benefits = [

@@ -8,6 +8,7 @@ import PageBackground from '../components/PageBackground';
 import type { BreadcrumbItem } from '../components/Breadcrumbs';
 import { buildArticleSchema, buildFAQSchema, buildBreadcrumbSchema } from '../utils/schema';
 import type { RouteConfig } from '../config/routes';
+import { AUDIT_FORM_URL } from '../config/constants';
 import { getPageContent } from '../data/pageContent';
 import { supportingRoutes, pillarRoutes, blogRoutes, categoryConfigs } from '../config/routes';
 
@@ -214,7 +215,7 @@ const BlogPage = ({ route }: BlogPageProps) => {
                 Bezpłatny audyt pokazuje dokładnie co automatyzować pierwsze i jaki ROI możesz osiągnąć.
               </p>
               <motion.button
-                onClick={() => window.open('https://tally.so/r/2EPBVM', '_blank')}
+                onClick={() => window.open(AUDIT_FORM_URL, '_blank')}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-michroma text-xs tracking-wider text-purple-300 transition-all duration-300"
                 style={{ border: '1px solid rgba(147,51,234,0.35)', background: 'rgba(147,51,234,0.12)' }}
                 whileHover={{ scale: 1.03 }}
