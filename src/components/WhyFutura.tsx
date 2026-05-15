@@ -92,18 +92,16 @@ const WhyFutura = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="group flex flex-col items-center text-center w-full max-w-sm mx-auto min-h-[320px] p-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                className="group flex flex-col items-center text-center w-full max-w-sm mx-auto pt-10 pb-8 px-8 rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                 variants={cardVariants}
               >
-                <div className="flex justify-center w-full mb-6">
-                  <benefit.icon
-                    size={40}
-                    className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300"
-                    style={{
-                      filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
-                    }}
-                  />
-                </div>
+                <benefit.icon
+                  size={40}
+                  className="text-purple-500 group-hover:text-purple-400 transition-colors duration-300 mb-6 flex-shrink-0"
+                  style={{
+                    filter: 'drop-shadow(0 0 10px rgba(147,51,234,0.6))'
+                  }}
+                />
 
                 <h3 className="font-michroma text-xl md:text-2xl font-bold text-white mb-4">
                   {benefit.title}

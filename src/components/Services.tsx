@@ -141,10 +141,8 @@ const Services = () => {
                 >
                   {/* Icon */}
                   <motion.div
-                    className="mt-8 mb-auto"
-                    whileHover={{
-                      scale: 1.1,
-                    }}
+                    className="mb-6"
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                   >
                     <service.icon

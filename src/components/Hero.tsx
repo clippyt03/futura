@@ -1,16 +1,8 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { ClipboardCheck, CircleDollarSign, Clock, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ClipboardCheck, CircleDollarSign, Clock } from 'lucide-react';
 import { useDeviceDetection, useReducedMotion } from '../hooks/useDeviceDetection';
 import { AUDIT_FORM_URL } from '../config/constants';
-
-const serviceCategories = [
-  { label: 'Automatyzacja Procesów', path: '/uslugi/automatyzacja-procesow-biznesowych' },
-  { label: 'No-Code & Integracje', path: '/uslugi/automatyzacja-no-code' },
-  { label: 'Sprzedaż & Marketing', path: '/uslugi/automatyzacja-sprzedazy-i-marketingu' },
-  { label: 'Systemy AI', path: '/uslugi/systemy-ai-dla-firm' },
-];
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -229,52 +221,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Service Category Quick Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-16 md:mt-20"
-        >
-          <p className="text-xs font-michroma text-white/30 uppercase tracking-widest mb-5">
-            Nasze obszary
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {serviceCategories.map((cat, i) => (
-              <motion.div
-                key={cat.path}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.2 + i * 0.08 }}
-              >
-                <Link
-                  to={cat.path}
-                  className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 hover:border-white/25 hover:bg-white/6 transition-all duration-300"
-                >
-                  <span className="font-michroma text-xs text-white/50 group-hover:text-white/80 transition-colors duration-300 tracking-wide">
-                    {cat.label}
-                  </span>
-                  <ArrowRight size={11} className="text-white/25 group-hover:text-white/60 group-hover:translate-x-0.5 transition-all duration-300" />
-                </Link>
-              </motion.div>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.55 }}
-            >
-              <Link
-                to="/uslugi"
-                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:border-white/35 hover:bg-white/8 transition-all duration-300"
-              >
-                <span className="font-michroma text-xs text-white/60 group-hover:text-white transition-colors duration-300 tracking-wide">
-                  Wszystkie usługi
-                </span>
-                <ArrowRight size={11} className="text-white/40 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300" />
-              </Link>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
 
       {/* Subtle scroll indicator - hidden on mobile */}
