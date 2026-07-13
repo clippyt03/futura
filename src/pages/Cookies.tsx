@@ -1,290 +1,303 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Cookie, Settings, Eye, BarChart, Shield, ToggleLeft, ToggleRight } from 'lucide-react';
+import PageBackground from '../components/PageBackground';
+import { CONTACT_EMAIL } from '../config/constants';
 
-const Cookies: React.FC = () => {
+interface CookieType {
+  icon: React.ElementType;
+  title: string;
+  key: 'essential' | 'analytics' | 'marketing' | 'preferences';
+  description: string;
+  required: boolean;
+  examples: string[];
+  retention: string;
+}
+
+const cookieTypes: CookieType[] = [
+  {
+    icon: Shield,
+    title: 'Niezbędne',
+    key: 'essential',
+    description: 'Wymagane do podstawowego działania serwisu i zapewnienia bezpieczeństwa',
+    required: true,
+    examples: ['Tokeny sesji i uwierzytelnienia', 'Ustawienia bezpieczeństwa', 'Zarządzanie sesją'],
+    retention: 'Sesja lub do 1 roku',
+  },
+  {
+    icon: BarChart,
+    title: 'Analityczne',
+    key: 'analytics',
+    description: 'Pomagają nam zrozumieć, jak użytkownicy korzystają z serwisu, w celu jego ulepszania',
+    required: false,
+    examples: ['Wyświetlenia stron', 'Zachowanie użytkownika', 'Metryki wydajności'],
+    retention: 'Do 2 lat',
+  },
+  {
+    icon: Eye,
+    title: 'Marketingowe',
+    key: 'marketing',
+    description: 'Służą do wyświetlania dopasowanych reklam i mierzenia skuteczności kampanii',
+    required: false,
+    examples: ['Targetowanie reklam', 'Śledzenie kampanii', 'Integracje z mediami społecznościowymi'],
+    retention: 'Do 1 roku',
+  },
+  {
+    icon: Settings,
+    title: 'Preferencje',
+    key: 'preferences',
+    description: 'Zapamiętują Twoje wybory i umożliwiają korzystanie z rozszerzonych funkcji serwisu',
+    required: false,
+    examples: ['Ustawienia języka', 'Preferencje widoku', 'Dane formularzy'],
+    retention: 'Do 6 miesięcy',
+  },
+];
+
+const Cookies = () => {
   const [cookieSettings, setCookieSettings] = useState({
     essential: true,
     analytics: true,
     marketing: false,
     preferences: true,
   });
+  const [saved, setSaved] = useState(false);
 
-  const cookieTypes = [
-    {
-      icon: Shield,
-      title: 'Essential Cookies',
-      description: 'Required for basic website functionality and security',
-      required: true,
-      examples: ['Authentication tokens', 'Security preferences', 'Session management'],
-      retention: 'Session or up to 1 year'
-    },
-    {
-      icon: BarChart,
-      title: 'Analytics Cookies',
-      description: 'Help us understand how visitors interact with our website',
-      required: false,
-      examples: ['Page views', 'User behavior', 'Performance metrics'],
-      retention: 'Up to 2 years'
-    },
-    {
-      icon: Eye,
-      title: 'Marketing Cookies',
-      description: 'Used to deliver relevant advertisements and track campaign effectiveness',
-      required: false,
-      examples: ['Ad targeting', 'Campaign tracking', 'Social media integration'],
-      retention: 'Up to 1 year'
-    },
-    {
-      icon: Settings,
-      title: 'Preference Cookies',
-      description: 'Remember your choices and provide enhanced features',
-      required: false,
-      examples: ['Language settings', 'Theme preferences', 'Form data'],
-      retention: 'Up to 6 months'
-    }
-  ];
-
-  const toggleCookie = (type: string) => {
-    if (type === 'essential') return; // Essential cookies cannot be disabled
-    
-    setCookieSettings(prev => ({
-      ...prev,
-      [type]: !prev[type as keyof typeof prev]
-    }));
+  const toggleCookie = (key: keyof typeof cookieSettings) => {
+    if (key === 'essential') return;
+    setCookieSettings((prev) => ({ ...prev, [key]: !prev[key] }));
+    setSaved(false);
   };
 
   const saveSettings = () => {
-    // In a real application, this would save the settings to localStorage or send to server
-    console.log('Cookie settings saved:', cookieSettings);
-    alert('Cookie preferences saved successfully!');
+    setSaved(true);
+  };
+
+  const rejectAll = () => {
+    setCookieSettings({ essential: true, analytics: false, marketing: false, preferences: false });
+    setSaved(true);
   };
 
   return (
-    <div className="min-h-screen bg-dark-900 text-white font-orbitron">
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-      
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <motion.div
-          className="text-center max-w-4xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Cookie Policy
-          </h1>
-          <p className="text-xl text-white/80 mb-6">
-            How we use cookies to improve your experience
-          </p>
-          <div className="text-sm text-white/60">
-            Last updated: January 15, 2024
-          </div>
-        </motion.div>
-
-        {/* Introduction */}
-        <motion.div
-          className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8 mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <Cookie size={32} className="text-neon-purple" />
-            <h2 className="text-3xl font-bold">What Are Cookies?</h2>
-          </div>
-          <div className="space-y-4 text-white/80 leading-relaxed">
-            <p>
-              Cookies are small text files that are stored on your device when you visit our website. 
-              They help us provide you with a better experience by remembering your preferences and 
-              understanding how you use our services.
+    <>
+      <PageBackground />
+      <div className="min-h-screen pt-24 pb-20 relative z-10">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8">
+          <motion.div
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="font-michroma text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              Polityka Cookies
+            </h1>
+            <p className="text-white/60 text-sm">
+              Ostatnia aktualizacja: 13 lipca 2026
             </p>
-            <p>
-              We use cookies for various purposes, including essential site functionality, analytics, 
-              and improving our services. You have control over which cookies you accept, except for 
-              those that are essential for the website to function properly.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Cookie Types */}
-        <motion.section
-          className="mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <h2 className="text-3xl font-bold mb-8 text-neon-purple">Types of Cookies We Use</h2>
-          <div className="space-y-6">
-            {cookieTypes.map((type, index) => (
-              <motion.div
-                key={index}
-                className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center gap-4">
-                    <type.icon size={28} className="text-neon-purple" />
-                    <div>
-                      <h3 className="text-xl font-bold">{type.title}</h3>
-                      <p className="text-white/70 mt-1">{type.description}</p>
+          <motion.div
+            className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="flex items-center gap-4 mb-5">
+              <Cookie size={28} className="text-purple-500 flex-shrink-0" />
+              <h2 className="font-michroma text-xl md:text-2xl font-bold text-white">Czym są pliki cookie?</h2>
+            </div>
+            <div className="space-y-4 text-white/70 leading-relaxed">
+              <p>
+                Pliki cookie to małe pliki tekstowe zapisywane na Twoim urządzeniu podczas odwiedzania serwisu
+                wefutura.com. Pomagają nam zapewnić Ci lepsze doświadczenie — zapamiętują Twoje preferencje
+                i pozwalają nam zrozumieć, jak korzystasz z naszych usług.
+              </p>
+              <p>
+                Stosowanie plików cookie na stronach internetowych reguluje w Polsce ustawa Prawo telekomunikacyjne
+                oraz przepisy RODO. Masz prawo zarządzać swoimi preferencjami dotyczącymi plików cookie,
+                z wyjątkiem tych, które są niezbędne do działania serwisu.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.section
+            className="mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2 className="font-michroma text-xl font-bold text-white mb-6">Rodzaje plików cookie, których używamy</h2>
+            <div className="space-y-5">
+              {cookieTypes.map((type, index) => (
+                <motion.div
+                  key={type.key}
+                  className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/40 transition-colors duration-300 p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 + index * 0.07 }}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <type.icon size={22} className="text-purple-500 flex-shrink-0" />
+                      <div>
+                        <h3 className="font-michroma text-base font-bold text-white">{type.title}</h3>
+                        <p className="text-white/60 text-sm mt-0.5">{type.description}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 ml-4 flex-shrink-0">
+                      {type.required ? (
+                        <span className="text-xs text-orange-400 font-semibold whitespace-nowrap">Wymagane</span>
+                      ) : (
+                        <button
+                          onClick={() => toggleCookie(type.key)}
+                          className="text-purple-500 hover:text-white transition-colors duration-300"
+                          aria-label={`Przełącz ${type.title}`}
+                        >
+                          {cookieSettings[type.key] ? <ToggleRight size={28} /> : <ToggleLeft size={28} />}
+                        </button>
+                      )}
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    {type.required ? (
-                      <span className="text-sm text-orange-400 font-semibold">Required</span>
-                    ) : (
-                      <button
-                        onClick={() => toggleCookie(type.title.toLowerCase().split(' ')[0])}
-                        className="text-neon-purple hover:text-white transition-colors duration-300"
-                      >
-                        {cookieSettings[type.title.toLowerCase().split(' ')[0] as keyof typeof cookieSettings] ? (
-                          <ToggleRight size={32} />
-                        ) : (
-                          <ToggleLeft size={32} />
-                        )}
-                      </button>
-                    )}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-8">
+                    <div>
+                      <p className="text-purple-400 text-xs font-semibold uppercase tracking-wide mb-2">Przykłady:</p>
+                      <ul className="space-y-1">
+                        {type.examples.map((example, i) => (
+                          <li key={i} className="text-white/60 text-sm flex items-center gap-2">
+                            <div className="w-1 h-1 bg-purple-500 rounded-full flex-shrink-0" />
+                            {example}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-purple-400 text-xs font-semibold uppercase tracking-wide mb-2">Okres przechowywania:</p>
+                      <p className="text-white/60 text-sm">{type.retention}</p>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-neon-purple">Examples:</h4>
-                    <ul className="space-y-1">
-                      {type.examples.map((example, exampleIndex) => (
-                        <li key={exampleIndex} className="text-white/70 text-sm flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-neon-purple rounded-full" />
-                          {example}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-neon-purple">Retention Period:</h4>
-                    <p className="text-white/70 text-sm">{type.retention}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Cookie Settings */}
-        <motion.div
-          className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8 mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <h2 className="text-3xl font-bold mb-6 text-neon-purple">Your Cookie Preferences</h2>
-          <div className="space-y-4 mb-8">
-            <div className="flex items-center justify-between p-4 bg-dark-700/50 rounded-lg">
-              <div>
-                <h4 className="font-semibold">Essential Cookies</h4>
-                <p className="text-white/60 text-sm">Always active - required for basic functionality</p>
-              </div>
-              <ToggleRight size={24} className="text-orange-400" />
+                </motion.div>
+              ))}
             </div>
-            
-            {Object.entries(cookieSettings).filter(([key]) => key !== 'essential').map(([key, value]) => (
-              <div key={key} className="flex items-center justify-between p-4 bg-dark-700/50 rounded-lg">
+          </motion.section>
+
+          <motion.div
+            className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+          >
+            <h2 className="font-michroma text-xl font-bold text-white mb-6">Twoje preferencje dotyczące cookies</h2>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
                 <div>
-                  <h4 className="font-semibold capitalize">{key} Cookies</h4>
-                  <p className="text-white/60 text-sm">
-                    {key === 'analytics' && 'Help us improve our services'}
-                    {key === 'marketing' && 'Personalized ads and content'}
-                    {key === 'preferences' && 'Remember your settings'}
-                  </p>
+                  <p className="text-white font-semibold text-sm">Niezbędne pliki cookie</p>
+                  <p className="text-white/50 text-xs mt-0.5">Zawsze aktywne — wymagane do działania serwisu</p>
                 </div>
-                <button
-                  onClick={() => toggleCookie(key)}
-                  className="text-neon-purple hover:text-white transition-colors duration-300"
+                <ToggleRight size={22} className="text-orange-400 flex-shrink-0" />
+              </div>
+              {(Object.keys(cookieSettings) as Array<keyof typeof cookieSettings>)
+                .filter((key) => key !== 'essential')
+                .map((key) => {
+                  const type = cookieTypes.find((t) => t.key === key)!;
+                  return (
+                    <div key={key} className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
+                      <div>
+                        <p className="text-white font-semibold text-sm">{type.title} pliki cookie</p>
+                        <p className="text-white/50 text-xs mt-0.5">{type.description}</p>
+                      </div>
+                      <button
+                        onClick={() => toggleCookie(key)}
+                        className="text-purple-500 hover:text-white transition-colors duration-300 flex-shrink-0 ml-4"
+                        aria-label={`Przełącz ${type.title}`}
+                      >
+                        {cookieSettings[key] ? <ToggleRight size={22} /> : <ToggleLeft size={22} />}
+                      </button>
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="flex flex-wrap gap-3 items-center">
+              <motion.button
+                onClick={saveSettings}
+                className="px-8 py-3 rounded-xl font-michroma text-sm text-white border border-purple-500/40 bg-purple-500/20 hover:bg-purple-500/30 hover:border-purple-500/70 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Zapisz preferencje
+              </motion.button>
+              <motion.button
+                onClick={rejectAll}
+                className="px-8 py-3 rounded-xl font-michroma text-sm text-white/70 border border-white/10 bg-black/20 hover:border-white/20 hover:text-white transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Odrzuć opcjonalne
+              </motion.button>
+              {saved && (
+                <motion.span
+                  className="text-sm text-purple-400"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {value ? <ToggleRight size={24} /> : <ToggleLeft size={24} />}
-                </button>
-              </div>
-            ))}
-          </div>
-          
-          <div className="flex gap-4">
-            <motion.button
-              onClick={saveSettings}
-              className="bg-neon-purple px-8 py-3 rounded-lg text-white font-semibold hover:bg-neon-purple/80 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Save Preferences
-            </motion.button>
-            <motion.button
-              onClick={() => setCookieSettings({ essential: true, analytics: false, marketing: false, preferences: false })}
-              className="border border-neon-purple/50 px-8 py-3 rounded-lg text-neon-purple hover:bg-neon-purple/10 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Reject All Optional
-            </motion.button>
-          </div>
-        </motion.div>
+                  Preferencje zapisane.
+                </motion.span>
+              )}
+            </div>
+          </motion.div>
 
-        {/* Managing Cookies */}
-        <motion.div
-          className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <h2 className="text-2xl font-bold mb-6 text-neon-purple">Managing Cookies in Your Browser</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Browser Settings</h3>
-              <div className="space-y-3 text-white/80 text-sm">
-                <p>You can control cookies through your browser settings:</p>
-                <ul className="space-y-2 ml-4">
-                  <li>• Chrome: Settings → Privacy and Security → Cookies</li>
-                  <li>• Firefox: Preferences → Privacy & Security</li>
-                  <li>• Safari: Preferences → Privacy</li>
-                  <li>• Edge: Settings → Cookies and Site Permissions</li>
-                </ul>
+          <motion.div
+            className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
+          >
+            <h2 className="font-michroma text-xl font-bold text-white mb-6">Zarządzanie cookies w przeglądarce</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-white font-semibold mb-3 text-sm">Ustawienia przeglądarki</h3>
+                <div className="space-y-2 text-white/60 text-sm">
+                  <p>Pliki cookie możesz zarządzać bezpośrednio w ustawieniach przeglądarki:</p>
+                  <ul className="space-y-1.5 mt-2">
+                    <li>Chrome: Ustawienia → Prywatność i bezpieczeństwo → Pliki cookie</li>
+                    <li>Firefox: Opcje → Prywatność i bezpieczeństwo</li>
+                    <li>Safari: Preferencje → Prywatność</li>
+                    <li>Edge: Ustawienia → Pliki cookie i uprawnienia witryn</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-3 text-sm">Narzędzia zewnętrzne</h3>
+                <div className="space-y-2 text-white/60 text-sm">
+                  <p>Możesz również skorzystać z zewnętrznych narzędzi do zarządzania plikami cookie:</p>
+                  <ul className="space-y-1.5 mt-2">
+                    <li>Rozszerzenia przeglądarek do zarządzania cookies</li>
+                    <li>Przeglądarki zorientowane na prywatność</li>
+                    <li>Blokery reklam z kontrolą cookies</li>
+                    <li>Ustawienia prywatności na urządzeniach mobilnych</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Third-Party Tools</h3>
-              <div className="space-y-3 text-white/80 text-sm">
-                <p>You can also use third-party tools to manage cookies:</p>
-                <ul className="space-y-2 ml-4">
-                  <li>• Browser extensions for cookie management</li>
-                  <li>• Privacy-focused browsers</li>
-                  <li>• Ad blockers with cookie controls</li>
-                  <li>• Privacy settings on mobile devices</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Contact */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <div className="bg-neon-purple/10 border border-neon-purple/30 rounded-xl p-6 max-w-2xl mx-auto">
-            <h4 className="text-lg font-semibold mb-3 text-neon-purple">Questions About Cookies?</h4>
-            <p className="text-white/80 text-sm mb-4">
-              If you have any questions about our use of cookies or this Cookie Policy, 
-              please contact our privacy team.
-            </p>
-            <p className="text-white/60 text-sm">
-              Email: privacy@wefutura.com • Phone: +1 (555) 123-4567
-            </p>
-          </div>
-        </motion.div>
+          <motion.div
+            className="mt-2 rounded-2xl border border-purple-500/20 bg-purple-500/5 p-6 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.75 }}
+          >
+            <p className="text-white/60 text-sm mb-2">Pytania dotyczące plików cookie?</p>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="text-purple-400 hover:text-purple-300 transition-colors text-sm"
+            >
+              {CONTACT_EMAIL}
+            </a>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

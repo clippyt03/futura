@@ -1,294 +1,273 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Users, FileText, Download, Trash2, Eye, Lock, CheckCircle } from 'lucide-react';
+import { Shield, Eye, FileText, Download, Trash2, Lock, CheckCircle } from 'lucide-react';
+import PageBackground from '../components/PageBackground';
+import { CONTACT_EMAIL } from '../config/constants';
 
-const GDPR: React.FC = () => {
-  const rights = [
-    {
-      icon: Eye,
-      title: 'Right to Access',
-      description: 'Request a copy of all personal data we hold about you',
-      action: 'Request Data Export'
-    },
-    {
-      icon: FileText,
-      title: 'Right to Rectification',
-      description: 'Correct any inaccurate or incomplete personal data',
-      action: 'Update Information'
-    },
-    {
-      icon: Trash2,
-      title: 'Right to Erasure',
-      description: 'Request deletion of your personal data ("right to be forgotten")',
-      action: 'Delete Account'
-    },
-    {
-      icon: Lock,
-      title: 'Right to Restrict Processing',
-      description: 'Limit how we process your personal data',
-      action: 'Restrict Processing'
-    },
-    {
-      icon: Download,
-      title: 'Right to Data Portability',
-      description: 'Receive your data in a structured, machine-readable format',
-      action: 'Export Data'
-    },
-    {
-      icon: Shield,
-      title: 'Right to Object',
-      description: 'Object to processing based on legitimate interests or direct marketing',
-      action: 'Object to Processing'
-    }
-  ];
+const rights = [
+  {
+    icon: Eye,
+    title: 'Prawo dostępu',
+    description: 'Możesz zażądać informacji, czy przetwarzamy Twoje dane, i uzyskać ich kopię (art. 15 RODO).',
+  },
+  {
+    icon: FileText,
+    title: 'Prawo do sprostowania',
+    description: 'Możesz żądać poprawienia nieprawidłowych lub uzupełnienia niekompletnych danych (art. 16 RODO).',
+  },
+  {
+    icon: Trash2,
+    title: 'Prawo do usunięcia',
+    description: 'Możesz żądać usunięcia swoich danych w określonych przypadkach — „prawo do bycia zapomnianym" (art. 17 RODO).',
+  },
+  {
+    icon: Lock,
+    title: 'Prawo do ograniczenia',
+    description: 'Możesz żądać ograniczenia przetwarzania Twoich danych w określonych sytuacjach (art. 18 RODO).',
+  },
+  {
+    icon: Download,
+    title: 'Prawo do przenoszalności',
+    description: 'Możesz otrzymać swoje dane w ustrukturyzowanym formacie nadającym się do odczytu maszynowego (art. 20 RODO).',
+  },
+  {
+    icon: Shield,
+    title: 'Prawo sprzeciwu',
+    description: 'Możesz wnieść sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie lub marketingu bezpośredniego (art. 21 RODO).',
+  },
+];
 
-  const legalBases = [
-    {
-      title: 'Contract Performance',
-      description: 'Processing necessary to provide our automation services',
-      examples: ['Account management', 'Service delivery', 'Customer support']
-    },
-    {
-      title: 'Legitimate Interest',
-      description: 'Processing for our legitimate business interests',
-      examples: ['Service improvement', 'Security monitoring', 'Business analytics']
-    },
-    {
-      title: 'Legal Obligation',
-      description: 'Processing required by law',
-      examples: ['Tax compliance', 'Regulatory reporting', 'Legal proceedings']
-    },
-    {
-      title: 'Consent',
-      description: 'Processing based on your explicit consent',
-      examples: ['Marketing communications', 'Optional features', 'Third-party integrations']
-    }
-  ];
+const legalBases = [
+  {
+    title: 'Wykonanie umowy',
+    description: 'Przetwarzanie niezbędne do świadczenia zamówionych usług (art. 6 ust. 1 lit. b RODO)',
+    examples: ['Realizacja wdrożeń automatyzacji', 'Zarządzanie kontem klienta', 'Obsługa zgłoszeń serwisowych'],
+  },
+  {
+    title: 'Prawnie uzasadniony interes',
+    description: 'Przetwarzanie w celach wynikających z naszych uzasadnionych interesów biznesowych (art. 6 ust. 1 lit. f RODO)',
+    examples: ['Doskonalenie jakości usług', 'Zapewnienie bezpieczeństwa systemów', 'Analiza biznesowa i statystyczna'],
+  },
+  {
+    title: 'Obowiązek prawny',
+    description: 'Przetwarzanie wymagane przez obowiązujące przepisy prawa (art. 6 ust. 1 lit. c RODO)',
+    examples: ['Rozliczenia podatkowe i rachunkowość', 'Wymogi regulacyjne', 'Postępowania prawne'],
+  },
+  {
+    title: 'Zgoda',
+    description: 'Przetwarzanie oparte na Twojej dobrowolnej i świadomej zgodzie (art. 6 ust. 1 lit. a RODO)',
+    examples: ['Wysyłka newslettera i informacji handlowych', 'Opcjonalne funkcje serwisu', 'Integracje zewnętrzne'],
+  },
+];
 
+const GDPR = () => {
   return (
-    <div className="min-h-screen bg-dark-900 text-white font-orbitron">
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-      
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <motion.div
-          className="text-center max-w-4xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            GDPR Compliance
-          </h1>
-          <p className="text-xl text-white/80 mb-6">
-            Your data protection rights under the General Data Protection Regulation
-          </p>
-          <div className="text-sm text-white/60">
-            Effective: May 25, 2018 • Last updated: January 15, 2024
-          </div>
-        </motion.div>
-
-        {/* Introduction */}
-        <motion.div
-          className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8 mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <Shield size={32} className="text-neon-purple" />
-            <h2 className="text-3xl font-bold">Our GDPR Commitment</h2>
-          </div>
-          <div className="space-y-4 text-white/80 leading-relaxed">
-            <p>
-              Futura is committed to protecting your personal data and respecting your privacy rights 
-              under the General Data Protection Regulation (GDPR). As a data controller, we ensure 
-              that all personal data processing is lawful, fair, and transparent.
+    <>
+      <PageBackground />
+      <div className="min-h-screen pt-24 pb-20 relative z-10">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8">
+          <motion.div
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="font-michroma text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              Ochrona Danych Osobowych
+            </h1>
+            <p className="text-white/60 text-sm">
+              Zgodność z RODO &nbsp;|&nbsp; Ostatnia aktualizacja: 13 lipca 2026
             </p>
-            <p>
-              This page explains your rights under GDPR and how we comply with data protection 
-              requirements. If you are an EU resident, these rights apply to you regardless of 
-              where you access our services.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Your Rights */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <h2 className="text-4xl font-bold text-center mb-12 glow-text">Your Data Protection Rights</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {rights.map((right, index) => (
-              <motion.div
-                key={index}
-                className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-6 text-center"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(138, 43, 226, 0.3)' }}
-              >
-                <right.icon size={40} className="text-neon-purple mx-auto mb-4" />
-                <h3 className="text-lg font-bold mb-3">{right.title}</h3>
-                <p className="text-white/70 text-sm mb-6 leading-relaxed">{right.description}</p>
-                <motion.button
-                  className="bg-neon-purple/20 border border-neon-purple/50 px-4 py-2 rounded-lg text-neon-purple text-sm hover:bg-neon-purple hover:text-white transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+          <motion.div
+            className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="flex items-center gap-4 mb-5">
+              <Shield size={28} className="text-purple-500 flex-shrink-0" />
+              <h2 className="font-michroma text-xl md:text-2xl font-bold text-white">Nasze zobowiązanie wobec RODO</h2>
+            </div>
+            <div className="space-y-4 text-white/70 leading-relaxed">
+              <p>
+                WeFutura jako administrator danych osobowych jest zobowiązana do przetwarzania Twoich danych
+                zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) oraz polską
+                ustawą z dnia 10 maja 2018 r. o ochronie danych osobowych.
+              </p>
+              <p>
+                Przetwarzamy dane osobowe wyłącznie na podstawie jednej ze wskazanych podstaw prawnych, w sposób
+                przejrzysty i ograniczony do niezbędnego minimum (zasada minimalizacji danych). Prawa opisane
+                poniżej przysługują Ci niezależnie od miejsca korzystania z naszych usług.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.section
+            className="mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2 className="font-michroma text-xl font-bold text-white mb-6 text-center">Twoje prawa na mocy RODO</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {rights.map((right, index) => (
+                <motion.div
+                  key={index}
+                  className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 p-6 flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 + index * 0.07 }}
+                  whileHover={{ scale: 1.02 }}
                 >
-                  {right.action}
-                </motion.button>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Legal Bases */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-8 text-neon-purple">Legal Bases for Processing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {legalBases.map((basis, index) => (
-              <motion.div
-                key={index}
-                className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-6"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                  <right.icon size={36} className="text-purple-500 mb-4" />
+                  <h3 className="font-michroma text-sm font-bold text-white mb-3">{right.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{right.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            <div className="mt-5 text-center">
+              <p className="text-white/50 text-sm mb-3">
+                Aby skorzystać z przysługujących Ci praw, wyślij wniosek na adres:
+              </p>
+              <a
+                href={`mailto:${CONTACT_EMAIL}?subject=Wniosek RODO`}
+                className="inline-block px-8 py-3 rounded-xl font-michroma text-sm text-white border border-purple-500/40 bg-purple-500/15 hover:bg-purple-500/25 hover:border-purple-500/70 transition-all duration-300"
               >
-                <h3 className="text-xl font-bold mb-3 text-neon-purple">{basis.title}</h3>
-                <p className="text-white/80 mb-4">{basis.description}</p>
-                <div>
-                  <h4 className="font-semibold mb-2 text-white">Examples:</h4>
-                  <ul className="space-y-1">
-                    {basis.examples.map((example, exampleIndex) => (
-                      <li key={exampleIndex} className="text-white/70 text-sm flex items-center gap-2">
-                        <CheckCircle size={12} className="text-neon-purple" />
+                Złóż wniosek RODO
+              </a>
+            </div>
+          </motion.section>
+
+          <motion.section
+            className="mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <h2 className="font-michroma text-xl font-bold text-white mb-6">Podstawy prawne przetwarzania</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {legalBases.map((basis, index) => (
+                <motion.div
+                  key={index}
+                  className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/40 transition-colors duration-300 p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.55 + index * 0.07 }}
+                >
+                  <h3 className="font-michroma text-sm font-bold text-purple-400 mb-2">{basis.title}</h3>
+                  <p className="text-white/70 text-sm mb-4 leading-relaxed">{basis.description}</p>
+                  <ul className="space-y-1.5">
+                    {basis.examples.map((example, i) => (
+                      <li key={i} className="text-white/55 text-sm flex items-center gap-2">
+                        <CheckCircle size={11} className="text-purple-500 flex-shrink-0" />
                         {example}
                       </li>
                     ))}
                   </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
 
-        {/* Data Processing Information */}
-        <motion.div
-          className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8 mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <h2 className="text-2xl font-bold mb-6 text-neon-purple">How We Process Your Data</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Data Collection</h3>
-              <ul className="space-y-2 text-white/80 text-sm">
-                <li>• Account registration information</li>
-                <li>• Service usage data</li>
-                <li>• Communication records</li>
-                <li>• Technical and log data</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Data Storage</h3>
-              <ul className="space-y-2 text-white/80 text-sm">
-                <li>• EU-based data centers</li>
-                <li>• Encrypted storage systems</li>
-                <li>• Regular security audits</li>
-                <li>• Access controls and monitoring</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Data Sharing</h3>
-              <ul className="space-y-2 text-white/80 text-sm">
-                <li>• Limited to service providers</li>
-                <li>• Strict contractual agreements</li>
-                <li>• No sale to third parties</li>
-                <li>• Legal compliance only</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Contact Information */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <div className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8">
-            <h3 className="text-2xl font-bold mb-6 text-neon-purple">Data Protection Officer</h3>
-            <div className="space-y-4 text-white/80">
+          <motion.div
+            className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.75 }}
+          >
+            <h2 className="font-michroma text-lg font-bold text-white mb-6">Jak przetwarzamy Twoje dane</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <h4 className="font-semibold mb-2">Contact Information</h4>
-                <p>Email: dpo@wefutura.com</p>
-                <p>Phone: +1 (555) 123-4567</p>
-                <p>Response time: Within 72 hours</p>
+                <h3 className="text-white font-semibold text-sm mb-3">Zbieranie danych</h3>
+                <ul className="space-y-2 text-white/60 text-sm">
+                  <li>Dane podane przy rejestracji</li>
+                  <li>Dane dotyczące użytkowania usług</li>
+                  <li>Korespondencja i zgłoszenia</li>
+                  <li>Dane techniczne i logi systemowe</li>
+                </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">Mailing Address</h4>
-                <p>Data Protection Officer</p>
-                <p>Futura Automation Systems</p>
-                <p>123 Innovation Drive</p>
-                <p>San Francisco, CA 94105</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-dark-800/50 backdrop-blur-sm rounded-xl neon-border p-8">
-            <h3 className="text-2xl font-bold mb-6 text-neon-purple">Supervisory Authority</h3>
-            <div className="space-y-4 text-white/80">
-              <p>
-                If you are not satisfied with our response to your data protection concerns, 
-                you have the right to lodge a complaint with your local supervisory authority.
-              </p>
-              <div>
-                <h4 className="font-semibold mb-2">EU Residents</h4>
-                <p>Contact your national data protection authority</p>
-                <p>Find your authority: ec.europa.eu/justice/data-protection</p>
+                <h3 className="text-white font-semibold text-sm mb-3">Przechowywanie</h3>
+                <ul className="space-y-2 text-white/60 text-sm">
+                  <li>Infrastruktura w UE</li>
+                  <li>Szyfrowanie danych w spoczynku</li>
+                  <li>Regularne audyty bezpieczeństwa</li>
+                  <li>Kontrola dostępu i monitoring</li>
+                </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">UK Residents</h4>
-                <p>Information Commissioner's Office (ICO)</p>
-                <p>Website: ico.org.uk</p>
+                <h3 className="text-white font-semibold text-sm mb-3">Udostępnianie</h3>
+                <ul className="space-y-2 text-white/60 text-sm">
+                  <li>Tylko zaufani podwykonawcy</li>
+                  <li>Umowy powierzenia przetwarzania</li>
+                  <li>Brak sprzedaży danych osobom trzecim</li>
+                  <li>Ujawnienie wyłącznie na mocy prawa</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Request Form CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <div className="bg-neon-purple/10 border border-neon-purple/30 rounded-xl p-8 max-w-2xl mx-auto">
-            <h4 className="text-2xl font-bold mb-4 text-neon-purple">Exercise Your Rights</h4>
-            <p className="text-white/80 mb-6">
-              Ready to exercise your data protection rights? Use our secure form to submit your request.
-            </p>
-            <motion.button
-              className="bg-neon-purple px-8 py-3 rounded-lg text-white font-semibold hover:bg-neon-purple/80 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.85 }}
             >
-              Submit Data Request
-            </motion.button>
+              <h3 className="font-michroma text-lg font-bold text-white mb-5">Kontakt w sprawie danych</h3>
+              <div className="space-y-3 text-white/70 text-sm">
+                <div>
+                  <p className="text-white font-semibold mb-1">Administrator danych</p>
+                  <p>WeFutura, Polska</p>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                </div>
+                <div className="pt-2">
+                  <p className="text-white font-semibold mb-1">Czas odpowiedzi</p>
+                  <p>Do 72 godzin od otrzymania wniosku</p>
+                  <p className="text-white/50 text-xs mt-1">
+                    Wniosek rozpatrzymy w ciągu miesiąca od otrzymania (art. 12 RODO),
+                    z możliwością przedłużenia o kolejne 2 miesiące w skomplikowanych przypadkach.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="rounded-2xl bg-black/20 backdrop-blur-sm border border-purple-500/20 p-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.95 }}
+            >
+              <h3 className="font-michroma text-lg font-bold text-white mb-5">Organ nadzorczy</h3>
+              <div className="space-y-3 text-white/70 text-sm">
+                <p>
+                  Jeśli uważasz, że przetwarzamy Twoje dane niezgodnie z prawem, masz prawo wnieść skargę do
+                  organu nadzorczego właściwego dla ochrony danych osobowych.
+                </p>
+                <div className="pt-2">
+                  <p className="text-white font-semibold mb-1">Urząd Ochrony Danych Osobowych (UODO)</p>
+                  <p>ul. Stawki 2, 00-193 Warszawa</p>
+                  <a
+                    href="https://uodo.gov.pl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                  >
+                    uodo.gov.pl
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
